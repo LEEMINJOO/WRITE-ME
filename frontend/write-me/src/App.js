@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './components/Home/Home';
+import HomeIndex from './components/Home/HomeIndex';
 
 import {
   BrowserRouter as Router,
@@ -11,7 +11,7 @@ function App() {
   return (
       <Router>
         <Switch>
-            <Route path="/" exact={true} component={Home}></Route>
+            <Route path="/" exact={true} component={HomeIndex}></Route>
         </Switch>
       </Router>
   );
