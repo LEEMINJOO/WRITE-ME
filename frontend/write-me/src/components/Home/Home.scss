@@ -5,6 +5,8 @@ body {
     position: sticky;
     text-align: center;
     top: 20vh;
+    height: 20vh;
+    z-index: 1;
     h1 {
       position: relative;
       font-size: 50px;
@@ -23,7 +25,7 @@ body {
         font-size: 15px;
         cursor: pointer;
       }
-      .dropdown-content {
+      .dropdown-menu {
         display: none;
         position: absolute;
         background-color: #f9f9f9;
@@ -32,13 +34,14 @@ body {
         padding: 12px 16px;
         z-index: 1;
       }
-      &:hover .dropdown-content {
+      &:hover .dropdown-menu {
         display: block;
       }
       li {
         padding: 12px 16px;
         text-decoration: none;
         display: block;
+        color: black;
         &:hover {
           background-color: #f1f1f1;
         }
