@@ -23,7 +23,21 @@ class Home extends React.Component {
                 <div className="topNav">
                 </div>
                 <header>
-                    <h1> WRITE ME </h1>
+                    <hr></hr>
+                    <table>
+                        <tr>
+                            <th>W</th>
+                            <th>R</th>
+                            <th>I</th>
+                            <th>T</th>
+                            <th>E</th>
+                            <th> </th>
+                            <th>M</th>
+                            <th>E</th>
+                            <th>.</th>
+                        </tr>
+                    </table>
+                    <hr></hr>
                     <div className="dropdown">
                         <button className="dropBtn">
                             {cateID === -1 ?
