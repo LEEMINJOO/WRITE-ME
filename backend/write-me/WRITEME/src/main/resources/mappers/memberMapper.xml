@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace = "memberMapper">
+<!-- 게시물 목록 -->
+<insert id="register">
+	    INSERT INTO USER(  userID
+	   					       , userPW 
+	   					       , userName 	)
+	                  VALUES(    #{userID} 
+	                 		   , #{userPW}
+	                 		   , #{userName})
+    </insert>
+    
+    <!-- 로그인 -->
+	<select id="login" resultType="com.WRITEME.domain.MemberVO">
+		SELECT userID, userPW 
+		  FROM USER
+		 WHERE userID = #{userID}
+		   AND userPW = #{userPW}   
+	</select>
+
+</mapper>
