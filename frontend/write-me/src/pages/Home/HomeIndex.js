@@ -15,6 +15,6 @@ const HomeIndex = ({match}) => (
             <Route path= {`${match.path}/keywords/:category`} component={KeywordToday}/>
         </Switch>
     </Router>
-)
+);
 
 export default HomeIndex;

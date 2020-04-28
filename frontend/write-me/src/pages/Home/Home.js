@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.scss';
 import '../../reset.css';
 import KeywordToday from "./KeywordToday";
@@ -21,6 +22,11 @@ class Home extends React.Component {
                 <title> WRITE ME </title>
                 <body>
                 <div className="topNav">
+                    <span className="left"> </span>
+                    <Link to="/users/login"> 로그인 </Link>
+                    <span> | </span>
+                    <Link to="/users/register"> 회원가입 </Link>
+                    <span className="right"> </span>
                 </div>
                 <header>
                     <hr></hr>

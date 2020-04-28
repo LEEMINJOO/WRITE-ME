@@ -11,6 +11,7 @@ class KeywordToday extends React.Component {
             1: ["s1", "s2"]
         }
     };
+
     render() {
         const {keywordToday, keyword} = this.state;
         const {id} = this.props;
@@ -25,7 +26,7 @@ class KeywordToday extends React.Component {
                         <div> 해당되는 키워드가 없습니다. </div>
                         : <div>
                         {keyword[id].map(keyword => (
-                        <span> {keyword} </span>
+                            <span> {keyword} </span>
                         ))}
                         </div>
                     }

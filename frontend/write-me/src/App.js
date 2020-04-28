@@ -1,5 +1,7 @@
 import React from 'react';
-import HomeIndex from './components/Home/HomeIndex';
+import HomeIndex from './pages/Home/HomeIndex';
+import { Login, Register } from './pages/Users/index';
+import CategoryIndex from './pages/Category/CategoryIndex';
 
 import {
   BrowserRouter as Router,
@@ -12,6 +14,9 @@ function App() {
       <Router>
         <Switch>
             <Route path="/" exact={true} component={HomeIndex}></Route>
+            <Route path="/users/login" component={Login}></Route>
+            <Route path="/users/register" component={Register}></Route>
+            <Route path="/category" component={CategoryIndex}></Route>
         </Switch>
       </Router>
   );
