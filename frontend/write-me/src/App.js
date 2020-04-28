@@ -1,5 +1,6 @@
 import React from 'react';
 import HomeIndex from './components/Home/HomeIndex';
+import CategoryIndex from './components/Category/CategoryIndex';
 
 import {
   BrowserRouter as Router,
@@ -12,6 +13,7 @@ function App() {
       <Router>
         <Switch>
             <Route path="/" exact={true} component={HomeIndex}></Route>
+            <Route path="/category" component={CategoryIndex}></Route>
         </Switch>
       </Router>
   );
