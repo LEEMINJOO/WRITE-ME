@@ -1,8 +1,10 @@
-body {
+.home {
   height: 100vh;
   background-color: white;
   .topNav {
     display: flex;
+    position: sticky;
+    top: 5vh;
     margin-top: 30px;
     .left {
       flex-grow: 8;
@@ -10,7 +12,7 @@ body {
     .right {
       flex-grow: 0.3;
     }
-    Link, span {
+    span, a {
       text-decoration: none;
       font-size: 15px;
       font-weight: bolder;
@@ -18,14 +20,14 @@ body {
       margin: 0 15px 0 15px;
     }
   }
-  header {
+  .center {
     position: sticky;
     text-align: center;
     top: 20vh;
     height: 20vh;
     z-index: 1;
 
-    table{
+    table {
       border: 1px solid black;
       margin:auto;
       font-size: 20px;
@@ -46,7 +48,7 @@ body {
       border: -1px solid;
       color:black;
     }
-    
+
     .dropdown {
       position: relative;
       top: 20px;

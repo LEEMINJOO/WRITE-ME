@@ -1,4 +1,6 @@
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+require("babel-polyfill");
 
 module.exports = {
     mode: 'development',
@@ -9,13 +11,38 @@ module.exports = {
         rules: [
             {
                 test: /\.jsx?$/,
-                loader: 'babel-loader'
+                use: 'babel-loader',
+                exclude: [/node_modules/]
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [{
+                    loader: 'style-loader'
+                }, {
+                    loader: 'css-loader'
+                }, {
+                    loader: 'sass-loader'
+                }]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                    loader: MiniCssExtractPlugin.loader,
+                },
+               "css-loader"
+                ]
             }
         ]
     },
-    plugins: [new HtmlWebpackPlugin({
-        template: './src/index.html'
-    })],
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/index.html'
+        }),
+        new MiniCssExtractPlugin({
+            filename: `components/[name].css`
+        }),
+    ],
     devServer: {
         historyApiFallback: true
     },
@@ -25,4 +52,4 @@ module.exports = {
             apiUrl: 'http://localhost:4000'
         })
     }
-}
+};

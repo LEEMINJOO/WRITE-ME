@@ -18,9 +18,7 @@ class Home extends React.Component {
     render() {
         const {cateID, category} = this.state;
         return (
-            <>
-                <title> WRITE ME </title>
-                <body>
+            <div className="home">
                 <div className="topNav">
                     <span className="left"> </span>
                     <Link to="/users/login"> 로그인 </Link>
@@ -28,9 +26,10 @@ class Home extends React.Component {
                     <Link to="/users/register"> 회원가입 </Link>
                     <span className="right"> </span>
                 </div>
-                <header>
-                    <hr></hr>
+                <div className="center">
+                    <hr/>
                     <table>
+                        <tbody>
                         <tr>
                             <th>W</th>
                             <th>R</th>
@@ -42,8 +41,9 @@ class Home extends React.Component {
                             <th>E</th>
                             <th>.</th>
                         </tr>
+                        </tbody>
                     </table>
-                    <hr></hr>
+                    <hr/>
                     <div className="dropdown">
                         <button className="dropBtn">
                             {cateID === -1 ?
@@ -59,13 +59,12 @@ class Home extends React.Component {
                             <li onClick={(e) => this.handleClick(4, e)}> IT/과학 </li>
                         </div>
                     </div>
-                </header>
+                </div>
                 { cateID !== -1 ?
                     <KeywordToday id={cateID}/>
                     : <></>
                 }
-                </body>
-            </>
+            </div>
         );
     }
 }
