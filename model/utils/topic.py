@@ -5,9 +5,10 @@ from konlpy.tag import Mecab
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
-def get_topics(df, n=5, version='mecab'):
+def get_topics(df, n=5, version='mecab', only_noun=True):
     docs = get_docs(df)
-    docs = to_nouns(docs, version)
+    if only_noun:
+        docs = to_nouns(docs, version)
 
     tfidf_vectorizer = TfidfVectorizer(min_df=1)
     tfidf_matrix = tfidf_vectorizer.fit_transform(docs)
