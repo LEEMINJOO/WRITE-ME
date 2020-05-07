@@ -1,3 +1,5 @@
+# ref https://m.blog.naver.com/PostView.nhn?blogId=seodaeho91&logNo=221269288709&proxyReferer=https:%2F%2Fwww.google.com%2F
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
