@@ -59,12 +59,15 @@ def get_search_news(keyword, news=30, date=None):
     for page in range(1, 6):
         htmls = get_htmls(url + str(page))
         for html in htmls.select("._sp_each_url"):
-            url = html["href"]
-            if url.startswith("https://news.naver.com"):
-                title, text = get_search_new(url)
-                df = df.append({'title': title,
-                                'text': text,
-                                'url': url}, ignore_index=True)
+            try:
+                url = html["href"]
+                if url.startswith("https://news.naver.com"):
+                    title, text = get_search_new(url)
+                    df = df.append({'title': title,
+                                    'text': text,
+                                    'url': url}, ignore_index=True)
+            except:
+                pass
         if len(df) > news:
             break
     df['keyword'] = keyword
