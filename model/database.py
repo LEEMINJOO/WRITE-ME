@@ -27,26 +27,62 @@ class WRITEMEDataBase:
             self.curs.execute(sql, (keywordID, categoryID, keyword, date, time))
         self.conn.commit()
     
-    def select_keywords(self):
-        sql = "SELECT * FROM KEYWORD"
+    def insert_hints(self, keywordID, hints):
+        sql = "INSERT INTO keywordHint VALUES (%s, %s, %s)"
+        max_ID = self.max_hintID()
+        if max_ID is None:
+            max_ID = 0
+        for i, hint in enumerate(hints):
+            hintID = max_ID + i + 1
+            self.curs.execute("set names utf8")
+            self.curs.execute(sql, (keywordID, hintID, hint))
+        self.conn.commit()
+    
+    def select(self, sql):
         self.curs.execute(sql)
         result = self.curs.fetchall()
         return result
+
+    def delete(self, sql):
+        self.curs.execute(sql)
+        self.conn.commit()
+
+    def select_keywords(self):
+        return self.select("SELECT * FROM KEYWORD")
+    
+    def select_updated_keywordID(self, date, time):
+        sql = "SELECT keywordID FROM KEYWORD WHERE date = %s AND time = '%s'" % (date, time)
+        return self.select(sql)
+    
+    def select_hints(self):
+        return self.select("SELECT * FROM keywordHint")
     
     def delete_keywords(self):
         sql = "DELETE FROM KEYWORD"
-        self.curs.execute(sql)
-        self.conn.commit()
+        self.delete(sql)
+    
+    def delete_hints(self):
+        sql = "DELETE FROM keywordHint"
+        self.delete(sql)
 
     def close(self):
         self.curs.close()
 
+    def keywordName(self, keywordID):
+        sql = "SELECT keywordName FROM KEYWORD WHERE keywordID = %d" % (keywordID)
+        result = self.select(sql)
+        return result[0]['keywordName']
+
     def max_keywordID(self):
         sql = "select MAX(keywordID) from KEYWORD"
-        self.curs.execute(sql)
-        result = self.curs.fetchall()
+        result = self.select(sql)
         return result[0]['MAX(keywordID)']
 
+    def max_hintID(self):
+        sql = "select MAX(hintID) from keywordHint"
+        result = self.select(sql)
+        return result[0]['MAX(hintID)']   
+
     def categoryID(self, category):
-        ct_dict = {'정치': 1, '경제': 2, '사화': 3, '세계': 4, 'IT/과학': 5}
+        ct_dict = {'정치': 1, '경제': 2, '사회': 3, '세계': 4, 'IT/과학': 5}
         return ct_dict[category]
