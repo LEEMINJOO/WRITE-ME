@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import './Home.scss';
 import '../../reset.css';
 import KeywordToday from "./KeywordToday";
+import {userActions} from "../../actions";
 
 class Home extends React.Component {
     state = {
@@ -19,13 +19,6 @@ class Home extends React.Component {
         const {cateID, category} = this.state;
         return (
             <div className="home">
-                <div className="topNav">
-                    <span className="left"> </span>
-                    <Link to="/users/login"> 로그인 </Link>
-                    <span> | </span>
-                    <Link to="/users/register"> 회원가입 </Link>
-                    <span className="right"> </span>
-                </div>
                 <div className="center">
                     <hr/>
                     <table>

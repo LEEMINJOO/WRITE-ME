@@ -5,6 +5,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "html-webpack-plugin": "latest",
+    "mini-css-extract-plugin": "latest",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -13,8 +14,7 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-logger": "^4.0.0",
-    "redux-thunk": "^2.3.0",
-    "mini-css-extract-plugin": "latest"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "build": "webpack --mode production",

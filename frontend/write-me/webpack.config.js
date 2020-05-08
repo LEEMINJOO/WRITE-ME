@@ -1,11 +1,15 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
 require("babel-polyfill");
 
 module.exports = {
     mode: 'development',
     resolve: {
         extensions: ['.js', '.jsx']
+    },
+    output: {
+        publicPath: '/'
     },
     module: {
         rules: [
@@ -44,7 +48,8 @@ module.exports = {
         }),
     ],
     devServer: {
-        historyApiFallback: true
+        historyApiFallback: true,
+        contentBase: './',
     },
     externals: {
         // global app config object
