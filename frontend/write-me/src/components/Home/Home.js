@@ -2,6 +2,13 @@ import React from "react";
 import './Home.scss';
 import '../../reset.css';
 import KeywordToday from "./KeywordToday";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route, Link
+  } from "react-router-dom";
+import HomeIndex from './HomeIndex';
+
 
 class Home extends React.Component {
     state = {
@@ -41,9 +48,10 @@ class Home extends React.Component {
                     <div className="dropdown">
                         <button className="dropBtn">
                             {cateID === -1 ?
-                                <span> 카테고리 </span>
+                                <span>카테고리<img src="아래화살표.PNG" /></span>
                                 :  <span> {category[cateID]} </span>
                             }
+                            
                         </button>
                         <div className="dropdown-menu">
                             <li onClick={(e) => this.handleClick(0, e)}> 정치 </li>

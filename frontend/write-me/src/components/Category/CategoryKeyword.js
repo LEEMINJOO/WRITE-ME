@@ -3,6 +3,8 @@ import axios from "axios";
 import Movie from "./Movie";
 import "./CategoryKeyword.css";
 import "./ketable.css";
+import { NavLink } from 'react-router-dom'; 
+
 class CategoryKeyword extends React.Component {
   state = {
     isLoading: true,
@@ -32,9 +34,9 @@ class CategoryKeyword extends React.Component {
     return (
       <section className="container">
         {isLoading ? (
-          <div className="loader">
-          <span className="loader__text">Loading...</span>
-        </div>
+
+          <div className="loader__text">Loading...</div>
+
         ) : ( 
           <div className="ketable">
             <table>			
