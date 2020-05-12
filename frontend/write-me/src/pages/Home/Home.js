@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import './Home.scss';
 import '../../reset.css';
 import KeywordToday from "./KeywordToday";
+import {userActions} from "../../actions";
+import { FaAngleDown } from "react-icons/all";
 
 class Home extends React.Component {
     state = {
@@ -18,19 +19,11 @@ class Home extends React.Component {
     render() {
         const {cateID, category} = this.state;
         return (
-            <>
-                <title> WRITE ME </title>
-                <body>
-                <div className="topNav">
-                    <span className="left"> </span>
-                    <Link to="/users/login"> 로그인 </Link>
-                    <span> | </span>
-                    <Link to="/users/register"> 회원가입 </Link>
-                    <span className="right"> </span>
-                </div>
-                <header>
-                    <hr></hr>
+            <div className="home">
+                <div className="center">
+                    <hr/>
                     <table>
+                        <tbody>
                         <tr>
                             <th>W</th>
                             <th>R</th>
@@ -42,14 +35,16 @@ class Home extends React.Component {
                             <th>E</th>
                             <th>.</th>
                         </tr>
+                        </tbody>
                     </table>
-                    <hr></hr>
+                    <hr/>
                     <div className="dropdown">
                         <button className="dropBtn">
                             {cateID === -1 ?
                                 <span> 카테고리 </span>
                                 :  <span> {category[cateID]} </span>
                             }
+                            <FaAngleDown/>
                         </button>
                         <div className="dropdown-menu">
                             <li onClick={(e) => this.handleClick(0, e)}> 정치 </li>
@@ -59,13 +54,12 @@ class Home extends React.Component {
                             <li onClick={(e) => this.handleClick(4, e)}> IT/과학 </li>
                         </div>
                     </div>
-                </header>
+                </div>
                 { cateID !== -1 ?
                     <KeywordToday id={cateID}/>
                     : <></>
                 }
-                </body>
-            </>
+            </div>
         );
     }
 }

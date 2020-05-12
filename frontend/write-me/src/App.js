@@ -1,25 +1,40 @@
-import React from 'react';
-import HomeIndex from './pages/Home/HomeIndex';
-import { Login, Register } from './pages/Users/index';
-import CategoryIndex from './pages/Category/CategoryIndex';
+import React, { useEffect } from 'react';
+import {BrowserRouter as Router, Route, Switch, Redirect, Link} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { history } from './helpers';
+import { alertActions } from './actions';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import Home from './pages/Home/Home';
+import Login from "./pages/Users/Login";
+import Register from "./pages/Users/Register";
+import Header from "./pages/Header/Header";
+import CategoryKeyword from "./pages/Category/CategoryKeyword";
+import './App.scss';
 
 function App() {
-  return (
-      <Router>
-        <Switch>
-            <Route path="/" exact={true} component={HomeIndex}></Route>
-            <Route path="/users/login" component={Login}></Route>
-            <Route path="/users/register" component={Register}></Route>
-            <Route path="/category" component={CategoryIndex}></Route>
-        </Switch>
-      </Router>
-  );
+    const alert = useSelector(state => state.alert);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        history.listen((location, action) => {
+            // clear alert on location change
+            dispatch(alertActions.clear());
+        });
+    }, []);
+    return (
+        <Router>
+            <Header/>
+            {alert.message &&
+            <div className={`alert ${alert.type}`}>{alert.message}</div>
+            }
+            <Switch>
+                <Route exact path='/' component={Home}/>
+                <Route path='/user/login' component={Login}/>
+                <Route path='/user/Register' component={Register}/>
+                <Route path='/category/:id' component={CategoryKeyword}/>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;

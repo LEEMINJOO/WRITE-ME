@@ -71,11 +71,11 @@ function Register() {
                         {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
                         Register
                     </button>
-                    <Link to="/login" className="btn btn-link">Cancel</Link>
+                    <Link to="/" className="btn btn-link">Cancel</Link>
                 </div>
             </form>
         </div>
     );
 }
 
-export { Register };
+export default Register;

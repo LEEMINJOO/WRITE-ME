@@ -56,11 +56,11 @@ function Login() {
                         {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
                         Login
                     </button>
-                    <Link to="/register" className="btn btn-link">Register</Link>
+                    <Link to="/user/register" className="btn btn-link">Register</Link>
                 </div>
             </form>
         </div>
     );
 }
 
-export { Login };
+export default Login;
