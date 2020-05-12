@@ -1,10 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const path = require('path');
 require("babel-polyfill");
 
 module.exports = {
     mode: 'development',
+    entry: ['@babel/polyfill', './src/index.jsx'],
     resolve: {
         extensions: ['.js', '.jsx']
     },

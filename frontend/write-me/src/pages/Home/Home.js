@@ -3,6 +3,7 @@ import './Home.scss';
 import '../../reset.css';
 import KeywordToday from "./KeywordToday";
 import {userActions} from "../../actions";
+import { FaAngleDown } from "react-icons/all";
 
 class Home extends React.Component {
     state = {
@@ -43,6 +44,7 @@ class Home extends React.Component {
                                 <span> 카테고리 </span>
                                 :  <span> {category[cateID]} </span>
                             }
+                            <FaAngleDown/>
                         </button>
                         <div className="dropdown-menu">
                             <li onClick={(e) => this.handleClick(0, e)}> 정치 </li>

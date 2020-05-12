@@ -7,6 +7,8 @@ import { alertActions } from './actions';
 import Home from './pages/Home/Home';
 import Login from "./pages/Users/Login";
 import Register from "./pages/Users/Register";
+import Header from "./pages/Header/Header";
+import CategoryKeyword from "./pages/Category/CategoryKeyword";
 import './App.scss';
 
 function App() {
@@ -21,17 +23,15 @@ function App() {
     }, []);
     return (
         <Router>
-            <div className="topMenu">
-                <span className="left"> </span>
-                <Link to="/user/login"> 로그인 </Link>
-                <span> | </span>
-                <span> <Link to="/user/register"> 회원가입 </Link> </span>
-                <span className="right"> </span>
-            </div>
+            <Header/>
+            {alert.message &&
+            <div className={`alert ${alert.type}`}>{alert.message}</div>
+            }
             <Switch>
                 <Route exact path='/' component={Home}/>
                 <Route path='/user/login' component={Login}/>
                 <Route path='/user/Register' component={Register}/>
+                <Route path='/category/:id' component={CategoryKeyword}/>
             </Switch>
         </Router>
     );

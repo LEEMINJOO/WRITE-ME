@@ -1,0 +1,19 @@
+table{
+
+    border: 1px solid  gray;
+    margin:auto;
+    font-size: 15px;
+    color: rgb(90, 85, 85);
+    border-collapse: collapse;
+    background-color: white;
+
+}
+
+th, tr {
+    margin:auto;
+    border: 1px solid rgb(90, 85, 85);
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+}

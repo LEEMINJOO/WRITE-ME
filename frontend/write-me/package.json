@@ -3,7 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^8.0.0",
     "html-webpack-plugin": "latest",
     "mini-css-extract-plugin": "latest",
     "node-sass": "^4.13.1",
@@ -14,7 +24,8 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-logger": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "prop-types": "latest"
   },
   "scripts": {
     "build": "webpack --mode production",
@@ -43,7 +54,9 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
+    "axios": "^0.19.2",
     "babel-loader": "^8.0.5",
+    "babel-polyfill": "^6.26.0",
     "config": "^3.3.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^3.2.0",
