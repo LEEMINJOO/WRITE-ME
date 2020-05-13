@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: WRITEME
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: vane8
+Implementation-Vendor-Id: com.WRITEME
+Build-Jdk: 1.8.0_241
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/WRITEME
+Created-By: Maven Integration for Eclipse
+
