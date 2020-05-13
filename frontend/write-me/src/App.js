@@ -9,7 +9,7 @@ import Login from "./pages/Users/Login";
 import Register from "./pages/Users/Register";
 import Header from "./pages/Header/Header";
 import CategoryKeyword from "./pages/Category/CategoryKeyword";
-import './App.scss';
+import './reset.css';
 
 function App() {
     const alert = useSelector(state => state.alert);

@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 import { store } from './helpers';
 import App  from './App.js';
+import './reset.css';
 
 // setup fake backend
 import { configureFakeBackend } from './helpers';

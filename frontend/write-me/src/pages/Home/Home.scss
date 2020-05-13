@@ -6,7 +6,6 @@
     text-align: center;
     top: 20vh;
     height: 20vh;
-    z-index: 1;
 
     table {
       border: 1px solid black;
@@ -30,9 +29,13 @@
       color:black;
     }
 
+    p {
+      margin-top: 20px;
+      font-size: 20px;
+    }
     .dropdown {
       position: relative;
-      top: 20px;
+      margin-top: 40px;
       display: inline-block;
       width: 150px;
       .dropBtn {

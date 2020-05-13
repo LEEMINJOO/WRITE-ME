@@ -2,7 +2,6 @@ import React from 'react';
 import './Home.scss';
 import '../../reset.css';
 import KeywordToday from "./KeywordToday";
-import {userActions} from "../../actions";
 import { FaAngleDown } from "react-icons/all";
 
 class Home extends React.Component {
@@ -38,6 +37,8 @@ class Home extends React.Component {
                         </tbody>
                     </table>
                     <hr/>
+                    <p> 매일매일 새로운 글감을 추천받아 보세요. </p>
+                    <p> 오전 7시/오후 7시에 업데이트 됩니다. </p>
                     <div className="dropdown">
                         <button className="dropBtn">
                             {cateID === -1 ?

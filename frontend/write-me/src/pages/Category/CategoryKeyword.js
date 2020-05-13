@@ -24,7 +24,6 @@ class CategoryKeyword extends React.Component {
         this.setState({ keyword: false });
     };
     componentDidMount() {
-        const id = this.props.match.params.id;
         this.getMovies();
     }
     handleClick(id, e) {

@@ -1,14 +1,15 @@
 import React from 'react';
-import {Link, NavLink} from 'react-router-dom';
-import { FaBars } from "react-icons/all";
+import {Link, NavLink, useLocation } from 'react-router-dom';
 import './Header.scss';
+import {FaBars} from "react-icons/all";
 
 function Header() {
+    let location = useLocation();
     return(
-        <div className="topMenu">
-            <div className="menubar">
+        <div className="header">
+            <span className="menubar">
                 <ul>
-                    <li> <FaBars/>
+                    <li> <FaBars viewBox='50 30 448 512' size={32}/>
                         <ul>
                             <li><NavLink to="/category/politics" >정치</NavLink></li>
                             <li><NavLink to="/category/society" >사회</NavLink></li>
@@ -18,12 +19,17 @@ function Header() {
                         </ul>
                     </li>
                 </ul>
-            </div>
-            <span className="logo"> <Link to="/"> WRITE ME </Link> </span>
-             <Link to="/user/login"> 로그인 </Link>
-            <span> | </span>
-            <span> <Link to="/user/register"> 회원가입 </Link> </span>
-            <span className="right"> </span>
+            </span>
+            {
+                location.pathname === '/' ?
+                    <></>
+                    : <Link to="/"> <img src="/public/logo.png" alt="WRITE ME" className="logo"/> </Link>
+            }
+            <span className="right-menu">
+                <Link to="/user/login"> 로그인 </Link>
+                <span> | </span>
+                <span className="register"> <Link to="/user/register"> 회원가입 </Link> </span>
+            </span>
         </div>
     );
 }
