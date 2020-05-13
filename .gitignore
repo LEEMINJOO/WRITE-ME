@@ -1,0 +1,11 @@
+# Byte-compiled 
+__pycache__/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS code
+.vscode/
+
+# env
+.envrc
