@@ -1,0 +1,30 @@
+.movies .movie {
+    flex-direction:column;
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-weight: 300;
+    border-radius: 5px;
+    color: black;
+}
+
+.movie .movie__summary{
+    width: 550px;
+    height: 68px;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.movie .movie__title {
+    padding: 10px 0;
+    width: 300px;
+    height: 20px;
+    font-weight: 300;
+    font-size: 16px;
+    color: #333333;
+}
+
+.movie hr {
+    width: 650px;
+}

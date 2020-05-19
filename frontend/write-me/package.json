@@ -16,6 +16,7 @@
     "babel-loader": "^8.0.0",
     "html-webpack-plugin": "latest",
     "mini-css-extract-plugin": "latest",
+    "axios": "^0.19.2",
     "node-sass": "^4.13.1",
     "prop-types": "latest",
     "react": "^16.13.1",
@@ -25,7 +26,8 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-logger": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "react-redux": "latest"
   },
   "scripts": {
     "build": "webpack --mode production",
