@@ -14,8 +14,7 @@ from database import WRITEMEDataBase
 if __name__ == '__main__':
     print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S | ") + '\033[94m'+'Hi~'+'\033[0m')
     
-    host = 'write-me.csuwdm9tp2la.ap-northeast-2.rds.amazonaws.com'
-    db = WRITEMEDataBase(host=host, password='readme2020')
+    db = WRITEMEDataBase()
 
     now = datetime.now()
     date = '%04d%02d%02d' % (now.year, now.month, now.day)
