@@ -50,6 +50,7 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         contentBase: './',
+        port: 9000
     },
     externals: {
         // global app config object
