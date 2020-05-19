@@ -72,6 +72,11 @@ class WRITEMEDataBase:
         sql = "SELECT keywordName FROM KEYWORD WHERE keywordID = %d" % (keywordID)
         result = self.select(sql)
         return result[0]['keywordName']
+    
+    def keywordID(self, keywordName, categoryID):
+        sql = "SELECT keywordID FROM KEYWORD WHERE keywordName = '%s' AND categoryID = %d" % (keywordName, categoryID)
+        result = self.select(sql)
+        return result[0]['keywordID']
 
     def max_keywordID(self):
         sql = "select MAX(keywordID) from KEYWORD"
@@ -83,6 +88,10 @@ class WRITEMEDataBase:
         result = self.select(sql)
         return result[0]['MAX(hintID)']   
 
-    def categoryID(self, category):
+    def categoryID(self, categoryName):
         ct_dict = {'정치': 1, '경제': 2, '사회': 3, '세계': 4, 'IT/과학': 5}
-        return ct_dict[category]
+        return ct_dict[categoryName]
+    
+    def categoraName(self, categoryID):
+        ct_dict = {1: '정치', 2: '경제', 3: '사회', 4: '세계', 5: 'IT/과학'}
+        return ct_dict[categoryID]
