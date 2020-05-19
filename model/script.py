@@ -26,6 +26,8 @@ if __name__ == '__main__':
 
     print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S | ") + 'Making Keyword & Hint table ~')
     keywords = news.groupby('category').apply(get_keywords)
+
+    t = tqdm(total=25)
     for category, keywordss in tqdm(keywords.iteritems()):
         db.insert_keywords(keywordss, category, date, time)
         news_cat = news[news['category']==category]
@@ -41,6 +43,8 @@ if __name__ == '__main__':
 
             keywordID = db.keywordID(keyword, db.categoryID(category))
             db.insert_hints(keywordID, hints)
+            t.update(1)
+    t.close()
     print('\033[92m'+'COMPLETE!'+'\033[0m')
 
     db.close()
