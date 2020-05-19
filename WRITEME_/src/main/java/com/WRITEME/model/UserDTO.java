@@ -1,29 +1,22 @@
 package com.WRITEME.model;
 
 public class UserDTO {
-	
-	private String userID;
 	private String userName;
 	private String userPW;
-	
-	
-	public String getUserID() {
-		return userID;
-	}
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
-	public String getUserName() {
+
+	public String getUsername() {
 		return userName;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	public String getUserPW() {
-		return userPW;
-	}
-	public void setUserPW(String userPW) {
-		this.userPW = userPW;
+
+	public void setUsername(String username) {
+		this.userName = username;
 	}
 
+	public String getPassword() {
+		return userPW;
+	}
+
+	public void setPassword(String password) {
+		this.userPW = password;
+	}
 }

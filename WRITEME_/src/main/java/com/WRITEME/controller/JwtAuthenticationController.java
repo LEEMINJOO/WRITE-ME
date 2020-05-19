@@ -51,9 +51,9 @@ public class JwtAuthenticationController {
 		return ResponseEntity.ok(userDetailsService.save(user));
 	}
 
-	private void authenticate(String userName, String userPW) throws Exception {
+	private void authenticate(String username, String password) throws Exception {
 		try {
-			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userName, userPW));
+			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
 		} catch (DisabledException e) {
 			throw new Exception("USER_DISABLED", e);
 		} catch (BadCredentialsException e) {

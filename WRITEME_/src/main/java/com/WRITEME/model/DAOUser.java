@@ -10,39 +10,27 @@ public class DAOUser {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	@Column
-	private String userID;
+	private long userID;
 	@Column
 	private String userName;
 	@Column
 	@JsonIgnore
 	private String userPW;
 
-	
-	
-	public String getuserID() {
-		return userID;
-	}
-	
-	public String setuserID() {
-		return userID;
-	}
-	
 	public String getUsername() {
 		return userName;
 	}
 
-	public void setUsername(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.userName = username;
 	}
 
 	public String getPassword() {
 		return userPW;
 	}
 
-	public void setPassword(String userPW) {
-		this.userPW = userPW;
+	public void setPassword(String password) {
+		this.userPW = password;
 	}
 
 }

@@ -15,24 +15,24 @@ public class JwtRequest implements Serializable {
 		
 	}
 
-	public JwtRequest(String userName, String userPW) {
-		this.setUsername(userName);
-		this.setPassword(userPW);
+	public JwtRequest(String username, String password) {
+		this.setUsername(username);
+		this.setPassword(password);
 	}
 
 	public String getUsername() {
 		return this.userName;
 	}
 
-	public void setUsername(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.userName = username;
 	}
 
 	public String getPassword() {
 		return this.userPW;
 	}
 
-	public void setPassword(String userPW) {
-		this.userPW = userPW;
+	public void setPassword(String password) {
+		this.userPW = password;
 	}
 }

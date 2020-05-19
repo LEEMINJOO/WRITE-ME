@@ -24,20 +24,20 @@ public class JwtUserDetailsService implements UserDetailsService {
 	private PasswordEncoder bcryptEncoder;
 
 	@Override
-	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-		
-		if ("WRITEME".equals(userName)) {
-			return new User("WRITEME", "$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6",
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		if ("javainuse".equals(username)) {
+			return new User("javainuse", "$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6",
 					new ArrayList<>());
 		} else {
-			throw new UsernameNotFoundException("User not found with username: " + userName);
+			throw new UsernameNotFoundException("User not found with username: " + username);
 		}
 	}
 
+
 	public DAOUser save(UserDTO user) {
 		DAOUser newUser = new DAOUser();
-		newUser.setUsername(user.getUserName());
-		newUser.setPassword(bcryptEncoder.encode(user.getUserPW()));
+		newUser.setUsername(user.getUsername());
+		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
 		return userDao.save(newUser);
 	}
 
