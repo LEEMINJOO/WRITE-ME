@@ -24,21 +24,23 @@ if __name__ == '__main__':
     news = get_all_top_30()
     print('\033[92m'+'COMPLETE!'+'\033[0m')
 
-    print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S | ") + 'Making Keyword table ~')
+    print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S | ") + 'Making Keyword & Hint table ~')
     keywords = news.groupby('category').apply(get_keywords)
-    for category, keyword in tqdm(keywords.iteritems()):
-        db.insert_keywords(keyword, category, date, time)
-    print('\033[92m'+'COMPLETE!'+'\033[0m')
+    for category, keywordss in tqdm(keywords.iteritems()):
+        db.insert_keywords(keywordss, category, date, time)
+        news_cat = news[news['category']==category]
+        for keyword in keywordss:
+            news_keyword = news_cat[news_cat['text'].str.contains(keyword)]
+            n = len(news_keyword)
+            news_search = get_search_news(keyword, news=n).iloc[:n]
 
-    keywordIDs = db.select_updated_keywordID(date, time)
-    print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S | ") + 'Making Hint table ~')
-    for keywordID in tqdm(keywordIDs):
-        keywordName = db.keywordName(keywordID['keywordID'])
-        search_news = get_search_news(keywordName)
-        hints = get_keywords(search_news)
-        if keywordName in hints:
-            hints.remove(keywordName)
-        db.insert_hints(keywordID['keywordID'], hints)
+            hints = get_keywords(pd.concat([news_keyword, news_search], axis=0), only_noun=True, n=6)
+            if keyword in hints:
+                hints.remove(keyword)
+            hints = hints[:5]
+
+            keywordID = db.keywordID(keyword, db.categoryID(category))
+            db.insert_hints(keywordID, hints)
     print('\033[92m'+'COMPLETE!'+'\033[0m')
 
     db.close()
