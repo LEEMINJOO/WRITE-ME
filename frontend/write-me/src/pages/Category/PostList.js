@@ -9,8 +9,11 @@ function PostList({ keywordID }) {
         error: null,
         posts: null
     });
+    const [trigger, setTrigger] = useState(0);
     const {loading, posts} = state;
-    useEffect(() => {
+
+    useEffect( () => {
+        setState({...state, loading: true})
         axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating")
             .then(data => {
                 setState({
@@ -29,22 +32,22 @@ function PostList({ keywordID }) {
         <>
             {keywordID !== null &&
                 <div className="post_list">
-                {loading ? (
-                    <span> {keywordID} POST Loading ... </span>
-                    ) : (
-                        <div className="movies">
-                            {keywordID}
-                            {posts.map(movie => (
-                                <Post
-                                    key={movie.id}
-                                    id={movie.id}
-                                    title={movie.title}
-                                    summary={movie.summary}
-                                />
-                            ))}
-                        </div>
-                    )
-                }
+                    <span> {keywordID} </span>
+                    {loading ? (
+                        <span> POST Loading ... </span>
+                        ) : (
+                            <div className="posts">
+                                {posts.map(post => (
+                                    <Post
+                                        key={post.id}
+                                        id={post.id}
+                                        title={post.title}
+                                        summary={post.summary}
+                                    />
+                                ))}
+                            </div>
+                        )
+                    }
                 </div>
             }
         </>

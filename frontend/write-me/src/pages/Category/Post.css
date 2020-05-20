@@ -1,4 +1,4 @@
-.movies .movie {
+.posts .post {
     flex-direction:column;
     background-color: white;
     display: flex;
@@ -9,14 +9,14 @@
     color: black;
 }
 
-.movie .movie__summary{
+.post .post_summary{
     width: 550px;
     height: 68px;
     margin-bottom: 16px;
     font-size: 16px;
 }
 
-.movie .movie__title {
+.post .post_title {
     padding: 10px 0;
     width: 300px;
     height: 20px;
@@ -25,6 +25,6 @@
     color: #333333;
 }
 
-.movie hr {
+.post hr {
     width: 650px;
 }

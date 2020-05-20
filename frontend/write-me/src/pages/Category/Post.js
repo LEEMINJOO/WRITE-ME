@@ -1,13 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./Post.css";
 
 function Post({ title, summary }) {
     return (
-        <div className="post">
-            <div className="post__data">
-                <h3 className="post__name">{title}</h3>
-                <p className="movie__summary">{summary.slice(0, 250)}...</p>
+        <div className="posts">
+            <div className="post_data">
+                <h3 className="post_name">{title}</h3>
+                <p className="post_summary">{summary.slice(0, 250)}...</p>
                 <hr/>
             </div>
         </div>
