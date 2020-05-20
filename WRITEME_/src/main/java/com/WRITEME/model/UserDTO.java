@@ -1,22 +1,22 @@
 package com.WRITEME.model;
-
+//It is responsible for getting values from user and passing it to the DAO layer for inserting in database.
 public class UserDTO {
-	private String userName;
-	private String userPW;
+	private String username;
+	private String password;
 
 	public String getUsername() {
-		return userName;
+		return username;
 	}
 
-	public void setUsername(String username) {
-		this.userName = username;
+	public void setUsername(String userName) {
+		this.username = userName;
 	}
 
 	public String getPassword() {
-		return userPW;
+		return password;
 	}
 
-	public void setPassword(String password) {
-		this.userPW = password;
+	public void setPassword(String userPW) {
+		this.password = userPW;
 	}
 }

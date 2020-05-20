@@ -5,32 +5,32 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "USER")
+@Table(name = "USER1")
 public class DAOUser {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long userID;
+	private long id;
 	@Column
-	private String userName;
+	private String username;
 	@Column
 	@JsonIgnore
-	private String userPW;
+	private String password;
 
 	public String getUsername() {
-		return userName;
+		return username;
 	}
 
-	public void setUsername(String username) {
-		this.userName = username;
+	public void setUsername(String userName) {
+		this.username = userName;
 	}
 
 	public String getPassword() {
-		return userPW;
+		return password;
 	}
 
-	public void setPassword(String password) {
-		this.userPW = password;
+	public void setPassword(String userPW) {
+		this.password = userPW;
 	}
 
 }

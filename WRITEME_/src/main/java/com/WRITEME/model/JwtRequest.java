@@ -2,12 +2,13 @@ package com.WRITEME.model;
 
 import java.io.Serializable;
 
+//This class is required for storing the username and password we recieve from the client.
 public class JwtRequest implements Serializable {
 
 	private static final long serialVersionUID = 5926468583005150707L;
 	
-	private String userName;
-	private String userPW;
+	private String username;
+	private String password;
 	
 	//need default constructor for JSON Parsing
 	public JwtRequest()
@@ -21,18 +22,18 @@ public class JwtRequest implements Serializable {
 	}
 
 	public String getUsername() {
-		return this.userName;
+		return this.username;
 	}
 
 	public void setUsername(String username) {
-		this.userName = username;
+		this.username = username;
 	}
 
 	public String getPassword() {
-		return this.userPW;
+		return this.password;
 	}
 
 	public void setPassword(String password) {
-		this.userPW = password;
+		this.password = password;
 	}
 }

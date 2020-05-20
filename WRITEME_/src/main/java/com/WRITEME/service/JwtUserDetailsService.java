@@ -23,7 +23,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 	@Autowired
 	private PasswordEncoder bcryptEncoder;
 
-	@Override
+	/*@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		if ("javainuse".equals(username)) {
 			return new User("javainuse", "$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6",
@@ -31,6 +31,16 @@ public class JwtUserDetailsService implements UserDetailsService {
 		} else {
 			throw new UsernameNotFoundException("User not found with username: " + username);
 		}
+	}*/
+	
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		DAOUser user = userDao.findByUsername(username);
+		if (user == null) {
+			throw new UsernameNotFoundException("User not found with username: " + username);
+		}
+		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+				new ArrayList<>());
 	}
 
 

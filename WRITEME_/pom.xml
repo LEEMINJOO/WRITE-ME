@@ -43,57 +43,45 @@
 		</dependency>
 		
 		
+		
+		<!-- 키워드 mybatis -->
+		<dependency> 
+		<groupId>org.mybatis</groupId> 
+		<artifactId>mybatis</artifactId> 
+		<version>3.2.2</version> 
+		</dependency>
+		
+		<dependency> 
+		<groupId>org.mybatis</groupId> 
+		<artifactId>mybatis-spring</artifactId> 
+		<version>1.2.0</version> </dependency> 
+		
+		<dependency> 
+		<groupId>org.springframework</groupId> 
+		<artifactId>spring-jdbc</artifactId> 
+		</dependency> 
+		
 		<dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jacoco</groupId>
-            <artifactId>org.jacoco.agent</artifactId>
-            <version>0.8.5</version>
-            <scope>test</scope>
-        </dependency>
+		 <groupId>commons-dbcp</groupId> 
+		<artifactId>commons-dbcp</artifactId> 
+		<version>1.4</version> 
+		</dependency>
+		
+
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<version>1.18.12</version>
+		<scope>provided</scope>
+	</dependency>
+
+		
+		
+
+
+
 		
 	</dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <!-- jacoco 코드 커버리지 플러그인 -->
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.5</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+
 </project>
