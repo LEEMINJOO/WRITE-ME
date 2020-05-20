@@ -11,6 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+//키워드
 public class KeywordsDTO {
 	private int keywordID;
 	private int categoryID;

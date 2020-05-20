@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
+import './Register.css';
 import { userActions } from '../../actions';
 
 function Register() {
@@ -36,42 +36,34 @@ function Register() {
 
     return (
         <div className="col-lg-8 offset-lg-2">
-            <h2>Register</h2>
             <form name="form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>First Name</label>
-                    <input type="text" name="firstName" value={user.firstName} onChange={handleChange} className={'form-control' + (submitted && !user.firstName ? ' is-invalid' : '')} />
-                    {submitted && !user.firstName &&
-                    <div className="invalid-feedback">First Name is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <label>Last Name</label>
-                    <input type="text" name="lastName" value={user.lastName} onChange={handleChange} className={'form-control' + (submitted && !user.lastName ? ' is-invalid' : '')} />
+                <h2><p className="registerlogo">WITH WRITEME</p></h2>
+                <div className="form-groupA">
+                    <div classsName="labelname">닉네임</div>
+                    <input type="text" name="userName" id="rusername" value={user.lastName} onChange={handleChange} className={'form-control' + (submitted && !user.lastName ? ' is-invalid' : '')} />
                     {submitted && !user.lastName &&
-                    <div className="invalid-feedback">Last Name is required</div>
+                    <div className="invalid-feedback">필수 정보입니다.</div>
                     }
                 </div>
-                <div className="form-group">
-                    <label>Username</label>
-                    <input type="text" name="username" value={user.username} onChange={handleChange} className={'form-control' + (submitted && !user.username ? ' is-invalid' : '')} />
+                <div className="form-groupB">
+                    <div classsName="labelname">아이디</div>
+                    <input type="text" name="userID"  id="ruserID" value={user.username} onChange={handleChange} className={'form-control' + (submitted && !user.username ? ' is-invalid' : '')} />
                     {submitted && !user.username &&
-                    <div className="invalid-feedback">Username is required</div>
+                    <div className="invalid-feedback">필수 정보입니다.</div>
                     }
                 </div>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" value={user.password} onChange={handleChange} className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')} />
+                <div className="form-groupC">
+                    <div classsName="labelname">비밀번호</div>
+                    <input type="password" name="password" id="rpassword" value={user.password} onChange={handleChange} className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')} />
                     {submitted && !user.password &&
-                    <div className="invalid-feedback">Password is required</div>
+                    <div className="invalid-feedback">필수 정보입니다.</div>
                     }
                 </div>
-                <div className="form-group">
-                    <button className="btn btn-primary">
+                <div className="form-groupD">
+                    <button className="btn btn-primary" id="rsubmit">
                         {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                        Register
+                        가입하기
                     </button>
-                    <Link to="/" className="btn btn-link">Cancel</Link>
                 </div>
             </form>
         </div>
