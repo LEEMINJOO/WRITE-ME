@@ -4,7 +4,7 @@ import './Header.scss';
 import {FaBars} from "react-icons/all";
 
 function Header() {
-    let location = useLocation();
+    const location = useLocation();
     return(
         <div className="header">
             <span className="menubar">
@@ -20,10 +20,8 @@ function Header() {
                     </li>
                 </ul>
             </span>
-            {
-                location.pathname === '/' ?
-                    <></>
-                    : <Link to="/"> <img src="/public/logo.png" alt="WRITE ME" className="logo"/> </Link>
+            {location.pathname !== "/" &&
+                    <Link to="/"> <img src="/public/logo.gif" alt="WRITE ME" className="logo"/> </Link>
             }
             <span className="right-menu">
                 <Link to="/user/login"> 로그인 </Link>

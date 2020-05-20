@@ -6,12 +6,12 @@
   height: 100%;
   box-sizing: border-box;
 }
+
 .title_category{
   width: 250px;
   height:55px;
   font-size: 19px;
 }
-
 
 .CategoryKeyword,
 .container {
