@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.WRITEME.dao.PostDAO">
+
+	<insert id="newPost"
+            parameterType="com.WRITEME.model.PostDTO"
+            useGeneratedKeys="true"
+            keyProperty="postID">
+        INSERT INTO POST(`postID`, `postTitle`, `postDetail`, `userID`, `keywordID`, `categoryID`, `date`)
+        VALUES (#{postID}, #{postTitle}, #{postDetail}, #{userID}, #{keywordID}, #{categoryID}, #{date})
+    </insert>
+
+</mapper>
