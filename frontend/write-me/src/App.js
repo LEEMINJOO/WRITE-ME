@@ -9,6 +9,9 @@ import Login from "./pages/Users/Login";
 import Register from "./pages/Users/Register";
 import Header from "./pages/Header/Header";
 import CategoryKeyword from "./pages/Category/CategoryKeyword";
+import Write from "./pages/Write/Write";
+
+
 import './reset.css';
 
 function App() {
@@ -32,6 +35,7 @@ function App() {
                 <Route path='/user/login' component={Login}/>
                 <Route path='/user/Register' component={Register}/>
                 <Route path='/category/:id' component={CategoryKeyword}/>
+                <Route path='/Write' component={Write}/>
             </Switch>
         </Router>
     );
