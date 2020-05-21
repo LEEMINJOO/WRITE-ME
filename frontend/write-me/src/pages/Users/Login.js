@@ -34,7 +34,7 @@ function Login() {
     }
 
     return (
-        <div className="col-lg-8 offset-lg-2">
+        <div className="login">
             <h2><p className="loginlogo">WITH WRITEME</p></h2>
             <form name="form" onSubmit={handleSubmit}>
                 <div className="form-group1">
