@@ -1,10 +1,14 @@
 import React from 'react';
 import {Link, NavLink, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { userActions } from '../../actions';
 import './Header.scss';
-import {FaBars} from "react-icons/all";
+import {FaBars, FaUser } from "react-icons/all";
 
 function Header() {
-    let location = useLocation();
+    const user = useSelector(state => state.authentication.user);
+    console.log(user);
+    const location = useLocation();
     return(
         <div className="header">
             <span className="menubar">
@@ -20,16 +24,32 @@ function Header() {
                     </li>
                 </ul>
             </span>
-            {
-                location.pathname === '/' ?
-                    <></>
-                    : <Link to="/"> <img src="/public/logo.png" alt="WRITE ME" className="logo"/> </Link>
-            }
-            <span className="right-menu">
-                <Link to="/user/login"> 로그인 </Link>
-                <span> | </span>
-                <span className="register"> <Link to="/user/register"> 회원가입 </Link> </span>
+            <span className="logo">
+                {location.pathname !== "/" &&
+                <Link to="/"> <img src="/public/logo.gif" alt="WRITE ME"/> </Link>
+                }
             </span>
+            {user === undefined ?
+                (
+                    <span className="login_register">
+                    <Link to="/user/login"> 로그인 </Link>
+                    <span> | </span>
+                    <span className="register"> <Link to="/user/register"> 회원가입 </Link> </span>
+                    </span>
+                )
+                : (
+                    <span className="user_menubar">
+                        <ul>
+                            <li> <FaUser/> {user.username}
+                                <ul>
+                                    <li><NavLink to="/user/login" > 로그아웃 </NavLink></li>
+                                    <li><NavLink to="/" > 나의 프로필 </NavLink></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </span>
+                )
+            }
         </div>
     );
 }

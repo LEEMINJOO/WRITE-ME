@@ -34,8 +34,9 @@ function App() {
                 <Route exact path='/' component={Home}/>
                 <Route path='/user/login' component={Login}/>
                 <Route path='/user/Register' component={Register}/>
-                <Route path='/category/:id' component={CategoryKeyword}/>
+                <Route path='/category/:name' component={CategoryKeyword}/>
                 <Route path='/Write' component={Write}/>
+
             </Switch>
         </Router>
     );

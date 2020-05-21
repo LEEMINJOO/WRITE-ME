@@ -1,50 +1,57 @@
 import React, {useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import axios from "axios";
 import './CategoryKeyword.css';
 import Post from "./Post";
 
 function PostList({ keywordID }) {
-    const [isLoading, setIsLoading] = useState(true);
-    const [posts, setPost] = useState(null);
-
-    useEffect(async () => {
-       const {
-           data: {
-               data: { posts }
-           }
-       } = await axios.get(
-           "https://yts-proxy.now.sh/list_movies.json?sort_by=rating"
-       );
-       setPost(posts);
-       setIsLoading(false);
+    const [state, setState] = useState({
+        loading: true,
+        error: null,
+        posts: null
     });
+    const [trigger, setTrigger] = useState(0);
+    const {loading, posts} = state;
+
+    useEffect( () => {
+        setState({...state, loading: true})
+        axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating")
+            .then(data => {
+                setState({
+                    ...state,
+                    loading: false,
+                    posts: data.data.data.movies
+                });
+                console.log(posts);
+            })
+            .catch(error => {
+                setState({ ...state, loading: false, error });
+            });
+    }, [keywordID]);
 
     return (
         <>
-            {isLoading ? (
-                <span> POST Loading ... </span>
-            ) : (
-                <div className="movies">
-                    {posts.map(movie => (
-                        <Post
-                            key={movie.id}
-                            id={movie.id}
-                            title={movie.title}
-                            summary={movie.summary}
-                        />
-                    ))}
+            {keywordID !== null &&
+                <div className="post_list">
+                    <span> {keywordID} </span>
+                    {loading ? (
+                        <span> POST Loading ... </span>
+                        ) : (
+                            <div className="posts">
+                                {posts.map(post => (
+                                    <Post
+                                        key={post.id}
+                                        id={post.id}
+                                        title={post.title}
+                                        summary={post.summary}
+                                    />
+                                ))}
+                            </div>
+                        )
+                    }
                 </div>
-            )
             }
         </>
     );
 }
 
-Post.propTypes = {
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    summary: PropTypes.string.isRequired,
-};
-
-export default Post;
+export default PostList;
