@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.WRITEME.dao.PostDAO">
+<mapper namespace="com.WRITEME.dao.PostDAO"> 
 
 	<insert id="newPost"
             parameterType="com.WRITEME.model.PostDTO"
@@ -11,5 +11,11 @@
         INSERT INTO POST(`postID`, `postTitle`, `postDetail`, `userID`, `keywordID`, `categoryID`, `date`)
         VALUES (#{postID}, #{postTitle}, #{postDetail}, #{userID}, #{keywordID}, #{categoryID}, #{date})
     </insert>
-
+    
+    <select id="getPost" parameterType="com.WRITEME.model.PostDTO" resultType="com.WRITEME.model.PostDTO">
+        SELECT `postID`, `postTitle`, `postDetail`, `userID`, `keywordID`, `categoryID`, `date`
+          FROM POST
+         WHERE `keywordID` = #{param}
+    </select>
+    
 </mapper>

@@ -33,6 +33,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 		}
 	}*/
 	
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		DAOUser user = userDao.findByUsername(username);
@@ -52,3 +53,4 @@ public class JwtUserDetailsService implements UserDetailsService {
 	}
 
 }
+
