@@ -3,6 +3,14 @@ import axios from "axios";
 import './CategoryKeyword.css';
 import Post from "./Post";
 
+export const updateCurrPage = page => (dispatch) => {
+    dispatch({ type: UPDATE_CURRENT_PAGE, patload:page });
+}
+
+export const updateStartEndpage = (start, end) => (dispatch) => {
+    dispatch({ type: UPDATE_START_END_PAGE, payload: { start, end }});
+}
+
 function PostList({ keywordID }) {
     const [state, setState] = useState({
         loading: true,
@@ -11,6 +19,46 @@ function PostList({ keywordID }) {
     });
     const [trigger, setTrigger] = useState(0);
     const {loading, posts} = state;
+
+
+    const initialState={
+        start: 0,
+        end: 10,
+        current: 1,
+    };
+
+    //페이지별 담는 글 개수
+    const per = 10;
+    const total =Math.ceil(postsCount / per);
+
+    const array=[];
+    for(let i = 0; i<total; i++){
+        array.push(i+1);
+    }
+
+    const target = array.slice(start, end);
+
+    {target.map(val =>(
+        <li id={keyword ?}
+    ))
+
+    export default function (state = initialState, action){
+        switch (action,type) {
+            case UPDATE_CURRENT_PAGE:
+                return {
+                    ...state,
+                    current: action.payload,
+                };
+            case UPDATE_START_END_PAGE:
+                return {
+                    ...state,
+                    start: action.payload.start,
+                    end: action.payload.end,
+                };
+            default:
+                return state;
+        }
+    }
 
     useEffect( () => {
         setState({...state, loading: true})

@@ -9,22 +9,29 @@
     color: black;
 }
 
-.post .post_summary{
+.posts .post_summary{
     width: 550px;
-    height: 68px;
-    margin-bottom: 16px;
     font-size: 16px;
 }
 
-.post .post_title {
-    padding: 10px 0;
-    width: 300px;
-    height: 20px;
+.posts .post_date{
+    width: 100px;
+    height: 16px;
+    margin:0px 0px 0px 440px;
+    padding:5px 5px 0px 5px;
+    font-size: 16px;
+    left:70%;
+}
+
+.posts .post_title {
+    padding: 0px 0px 5px 0px;
+    width: 500px;
+    height: 25px;
     font-weight: 300;
-    font-size: 16px;
     color: #333333;
+    font-size: 20px;
 }
 
-.post hr {
-    width: 650px;
+.posts hr {
+    width: 550px;
 }

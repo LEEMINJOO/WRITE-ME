@@ -24,6 +24,7 @@ function Header() {
                     </li>
                 </ul>
             </span>
+            
             <span className="logo">
                 {location.pathname !== "/" &&
                 <Link to="/"> <img src="/public/logo.gif" alt="WRITE ME"/> </Link>

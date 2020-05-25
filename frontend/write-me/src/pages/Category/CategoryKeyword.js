@@ -85,7 +85,7 @@ function CategoryKeyword()  {
             <div className="loader__text"> Keyword Loading... </div>
         ) : (
             <div className="keyword_table">
-                <span className="category_name"> {name} </span>
+                <p className="category_name"> {name} </p>
                 {keywords !== undefined &&
                 <div className ="grid">
                   {keywords.map(keyword => (

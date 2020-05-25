@@ -28,13 +28,19 @@
   font-weight: 300;
 }
 
+.keyword_title{
+  font-size: 36px;
+  width:670px;
+  margin-left:30px;
+  font-weight: bold;
+}
+
 .posts {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding: 70px 50px 50px;
-  width: 80%;
+  padding: 10px 30px 0px 30px;
 }
 .category-table {
   display: flex;
