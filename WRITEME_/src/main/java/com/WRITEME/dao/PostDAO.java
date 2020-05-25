@@ -9,5 +9,6 @@ public interface PostDAO {
 
 	int newPost(PostDTO param) throws Exception;
     List<PostDTO> getPost(PostDTO param) throws Exception;
+    int editPost(PostDTO param) throws Exception;
 
 }

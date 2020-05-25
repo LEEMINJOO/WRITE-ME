@@ -5,14 +5,12 @@ import java.util.List;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.WRITEME.dao.PostDAO;
-import com.WRITEME.model.KeywordsDTO;
 import com.WRITEME.model.PostDTO;
 
 @RestController
@@ -29,7 +27,7 @@ public class PostController {
 		return post;
 	}
 	
-    @RequestMapping(value = "/api/post/{param}")
+    @RequestMapping(value = "/api/post")
     public List<PostDTO> post(@RequestParam(value = "keywordID", defaultValue = "") int keywordID) 
     		throws Exception {
         /* TODO: 조회수 증가 */

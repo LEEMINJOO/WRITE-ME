@@ -48,6 +48,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return super.authenticationManagerBean();
 	}
 
+	
+	//비회원 접근기능 확인
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		// We don't need CSRF for this example
@@ -55,11 +57,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				// dont authenticate this particular request
 				.authorizeRequests().antMatchers("/authenticate", "/api/register/local", "api/posts/keyword", "/api/post", "/main").permitAll();
 				// all other requests need to be authenticated
-					//anyRequest().authenticated().and().
+						//anyRequest().authenticated().and().
 				// make sure we use stateless session; session won't be used to
 				// store user's state.
-					//exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
-					//.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+						//exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
+						//.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
 		// Add a filter to validate the tokens with every request
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
