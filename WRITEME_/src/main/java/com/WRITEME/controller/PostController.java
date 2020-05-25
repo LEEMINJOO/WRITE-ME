@@ -38,6 +38,8 @@ public class PostController {
     }
     
     
+    //게시물 수정중
+    
     
   /*  @RequestMapping("api/posts/keyword")
     public List<KeywordsDTO> keywords(@RequestParam(value = "categoryID", defaultValue = "") int categoryID) 

@@ -17,7 +17,7 @@
           FROM POST
          WHERE `keywordID` = #{keywordID}
     </select>
-    
+   
     <update id="editPost" parameterType="com.WRITEME.model.PostDTO">
         UPDATE POST
            SET `postTitle` = #{postTitle}
