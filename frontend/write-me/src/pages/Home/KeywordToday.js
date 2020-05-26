@@ -1,38 +1,54 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './Keyword.scss';
 import '../../reset.css';
 import { FaPencilAlt } from 'react-icons/fa';
+import axios from "axios";
+import moment from "moment";
 
-class KeywordToday extends React.Component {
-    state = {
-        keywordToday: 'keyword',
-        keyword: {
-            0: ["p1", "p2", "p3", "p4"],
-            1: ["s1", "s2"]
-        }
-    };
+function KeywordToday({categoryID}) {
+    const [state, setState] = useState({
+        loading: true,
+        error: null,
+        data: null
+    });
+    const date = moment().format().slice(0,9);
+    useEffect(() => {
+        setState({...state, loading: true});
+        axios.get(`http://localhost:8080/api/posts/keyword?categoryID=${categoryID}`)
+            .then(data => {
+                setState({
+                    ...state,
+                    loading: false,
+                    data: data.data.filter(data => data.date.slice(0,9) === date)
+                });
+            })
+            .catch(error => {
+                setState({ ...state, loading: false, error });
+            });
+        console.log(state.data);
+    }, [categoryID]);
 
-    render() {
-        const {keywordToday, keyword} = this.state;
-        const {id} = this.props;
-        return (
-
-            <div className="keyword">
-                <h3>
-                    <FaPencilAlt /> 오늘의 키워드는 {keywordToday} 입니다.
-                </h3>
-                <div className="keywords-list">
-                    {keyword[id] === undefined ?
-                        <div> 해당되는 키워드가 없습니다. </div>
-                        : <div>
-                        {keyword[id].map(keyword => (
-                            <span> {keyword} </span>
+    return (
+        <div className="keyword">
+            <h3>
+                <FaPencilAlt /> 시작하기
+            </h3>
+            {state.loading ? (
+                <div> loading ... </div>
+            ) : (
+                <div className="keywords">
+                {state.data === undefined ?
+                    <div> 해당되는 키워드가 없습니다. </div>
+                    : <div>
+                        {state.data.map(keyword => (
+                            <span key={keyword.id}> {keyword.keywordName} </span>
                         ))}
                         </div>
-                    }
-                </div>
-            </div>
-        )
-    }
+                }   </div>
+                )
+            }
+        </div>
+    )
 }
+
 export default KeywordToday;

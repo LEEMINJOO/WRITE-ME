@@ -18,6 +18,7 @@
     "core-js": "^3.6.5",
     "html-webpack-plugin": "latest",
     "mini-css-extract-plugin": "latest",
+    "moment": "^2.26.0",
     "node-sass": "^4.13.1",
     "prop-types": "latest",
     "react": "^16.13.1",

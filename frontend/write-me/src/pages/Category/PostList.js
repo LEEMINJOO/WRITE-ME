@@ -9,11 +9,10 @@ function PostList({ keywordID }) {
         error: null,
         posts: null
     });
-    const [trigger, setTrigger] = useState(0);
     const {loading, posts} = state;
 
     useEffect( () => {
-        setState({...state, loading: true})
+        setState({...state, loading: true});
         axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating")
             .then(data => {
                 setState({
