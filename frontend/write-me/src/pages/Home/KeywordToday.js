@@ -12,6 +12,7 @@ function KeywordToday({categoryID}) {
         data: null
     });
     const date = moment().format().slice(0,9);
+
     useEffect(() => {
         setState({...state, loading: true});
         axios.get(`http://localhost:8080/api/posts/keyword?categoryID=${categoryID}`)
@@ -41,7 +42,7 @@ function KeywordToday({categoryID}) {
                     <div> 해당되는 키워드가 없습니다. </div>
                     : <div>
                         {state.data.map(keyword => (
-                            <span key={keyword.id}> {keyword.keywordName} </span>
+                            <span key={keyword.keywordID}> {keyword.keywordName} </span>
                         ))}
                         </div>
                 }   </div>

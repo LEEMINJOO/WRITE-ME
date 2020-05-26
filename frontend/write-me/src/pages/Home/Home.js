@@ -49,7 +49,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-            { categoryID !== -1 ?
+            { categoryID !== 0 ?
                 <KeywordToday categoryID={categoryID}/>
                 : <></>
             }
