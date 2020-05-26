@@ -8,7 +8,8 @@ import com.WRITEME.model.PostDTO;
 public interface PostDAO {
 
 	int newPost(PostDTO param) throws Exception;
-    List<PostDTO> getPost(PostDTO param) throws Exception;
+	PostDTO getPost(PostDTO param) throws Exception;
+    List<PostDTO> getPostbyKeywordID(PostDTO param) throws Exception;
     int editPost(PostDTO param) throws Exception;
 
 }
