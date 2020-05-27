@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +25,7 @@ public class PostController {
 	@Autowired
 	private PostDAO postDAO;
 	
+	@CrossOrigin
 	@RequestMapping(value = "/api/post", method = RequestMethod.POST)
 	public PostDTO post(PostDTO post) throws Exception{
 		postDAO.newPost(post);
@@ -57,6 +59,7 @@ public class PostController {
     
     
     //게시물 수정
+    @CrossOrigin
     @RequestMapping(value = "/api/post/edit/{postID}", method = RequestMethod.PUT)
     public ResponseEntity<PostDTO> putPost(@PathVariable("postID") final int postID, PostDTO param) throws Exception {
     	if((param.getUserID() == null) || (param.getPostDetail() == null) || (param.getPostTitle() == null)) {
