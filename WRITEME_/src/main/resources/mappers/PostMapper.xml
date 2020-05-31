@@ -32,4 +32,11 @@
          WHERE `postID` = #{postID}
     </update>
     
+    <delete id="deletePost" parameterType="com.WRITEME.model.PostDTO">
+    
+    	DELETE FROM POST
+    	WHERE `postID` = #{postID} 
+    		AND `userID` = #{userID}
+    </delete>
+    
 </mapper>

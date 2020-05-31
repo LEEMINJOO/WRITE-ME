@@ -80,6 +80,21 @@ public class PostController {
     
     
     
+    //게시물 삭제
+    @RequestMapping(value = "/api/post/delete/{postID}", method = RequestMethod.DELETE)
+    public ResponseEntity<PostDTO> deletePost(@PathVariable("postID") final int postID, PostDTO param) throws Exception{
+    	
+    	param.setPostID(postID);
+    	
+    	PostDTO post = postDAO.getPost(param);
+    	postDAO.deletePost(post);
+    	
+    	return new ResponseEntity<>(post, HttpStatus.OK);
+    }
+    
+    
+    
+    
     
     /*
      *     @RequestMapping(value = "/board/{seq}", method = RequestMethod.PUT)

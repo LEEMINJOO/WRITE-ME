@@ -11,5 +11,6 @@ public interface PostDAO {
 	PostDTO getPost(PostDTO param) throws Exception;
     List<PostDTO> getPostbyKeywordID(PostDTO param) throws Exception;
     int editPost(PostDTO param) throws Exception;
+    int deletePost(PostDTO param) throws Exception;
 
 }
