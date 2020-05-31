@@ -10,6 +10,7 @@ import Register from "./pages/Users/Register";
 import Header from "./pages/Header/Header";
 import CategoryKeyword from "./pages/Category/CategoryKeyword";
 import Write from "./pages/Write/Write";
+//import PostApp from ".pages/Category/PostApp";
 
 
 import './reset.css';
@@ -36,7 +37,6 @@ function App() {
                 <Route path='/user/Register' component={Register}/>
                 <Route path='/category/:name' component={CategoryKeyword}/>
                 <Route path='/Write' component={Write}/>
-
             </Switch>
         </Router>
     );

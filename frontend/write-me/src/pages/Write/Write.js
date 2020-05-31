@@ -27,10 +27,6 @@ class Write extends React.Component {
 }
 
 
-
-
-
-
   render() {
 
     return (
