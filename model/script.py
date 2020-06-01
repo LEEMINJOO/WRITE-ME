@@ -36,10 +36,10 @@ if __name__ == '__main__':
             n = len(news_keyword)
             news_search = get_search_news(keyword, news=n).iloc[:n]
 
-            hints = get_keywords(pd.concat([news_keyword, news_search], axis=0), only_noun=True, n=6)
+            hints = get_keywords(pd.concat([news_keyword, news_search], axis=0), only_noun=True, n=10)
             if keyword in hints:
                 hints.remove(keyword)
-            hints = hints[:5]
+            hints = hints[:9]
 
             keywordID = db.keywordID(keyword, db.categoryID(category))
             db.insert_hints(keywordID, hints)
