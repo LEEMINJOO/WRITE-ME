@@ -2,6 +2,7 @@ import React, {useState, useEffect } from "react";
 import axios from "axios";
 import './CategoryKeyword.css';
 import Post from "./Post";
+//import PageNumberlist from "./PageNumberlist";
 
 function PostList({ keywordID }) {
     const [state, setState] = useState({
@@ -30,18 +31,19 @@ function PostList({ keywordID }) {
     return (
         <>
             {keywordID !== null &&
-                <div className="post_list">
-                    <span> {keywordID} </span>
+                <div className="post_list">                   
                     {loading ? (
-                        <span> POST Loading ... </span>
-                        ) : (
+                        <span >  </span>
+                        ) : (                         
                             <div className="posts">
+                                <span className="keyword_title"> {keywordID} </span>
                                 {posts.map(post => (
                                     <Post
                                         key={post.id}
                                         id={post.id}
                                         title={post.title}
                                         summary={post.summary}
+                                        year={post.year}
                                     />
                                 ))}
                             </div>
