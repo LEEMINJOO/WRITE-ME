@@ -4,20 +4,20 @@
   justify-content: space-between;
   top: 0;
   height: 100px;
-  width: 100vh;
   padding: 0;
   margin: 0;
-  flex-wrap: wrap;
   z-index: 200;
 
   .logo{
-    img {
-      margin-top: 20px;
+    margin-top: 20px;
+    align-self: center;
+    margin-left: 120px;
+    img{
       width: 400px;
       height: 80px;
-      align-self: center;
-      margin-left: 70px;
     }
+    width: 400px;
+    height: 80px;
   }
 
   .menubar{
@@ -134,8 +134,7 @@
   .user_menubar{
     border:none;
     border:0;
-    margin-right: 0px;
-    margin-top: 30px;
+    margin: 30px 0 0 0;
     padding:0;
     font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     font-size:14px;

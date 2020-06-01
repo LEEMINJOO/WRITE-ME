@@ -26,7 +26,6 @@ function KeywordToday({categoryID}) {
             .catch(error => {
                 setState({ ...state, loading: false, error });
             });
-        console.log(state.data);
     }, [categoryID]);
 
     return (

@@ -7,7 +7,6 @@ import {FaBars, FaUser } from "react-icons/all";
 
 function Header() {
     const user = useSelector(state => state.authentication.user);
-    console.log(user);
     const location = useLocation();
     return(
         <div className="header">
@@ -16,8 +15,8 @@ function Header() {
                     <li> <FaBars viewBox='50 30 448 512' size={32}/>
                         <ul>
                             <li><NavLink to="/category/politics" >정치</NavLink></li>
-                            <li><NavLink to="/category/society" >사회</NavLink></li>
                             <li><NavLink to="/category/economy" >경제</NavLink></li>
+                            <li><NavLink to="/category/society" >사회</NavLink></li>
                             <li><NavLink to="/category/world" >세계</NavLink></li>
                             <li><NavLink to="/category/science" >IT/과학</NavLink></li>
                         </ul>

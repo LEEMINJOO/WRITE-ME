@@ -7,90 +7,43 @@ import PostList from "./PostList";
 import { getCategoryID } from "../../components/getCategoryID";
 
 function CategoryKeyword()  {
-    const result = {
-        1 : [
-            "재난지원금",
-            "코로나",
-            "등교 연기",
-            "선거",
-            "백신",
-            "전동킥보드",
-            "재난지원금",
-            "코로나",
-            "선거",
-            "백신",
-            "전동킥보드",
-            "재난지원금",
-            "코로나",
-            "선거",
-            "백신",
-            "전동킥보드",
-            "재난지원금",
-            "코로나",
-            "등교 연기",
-            "선거",
-            "백신",
-            "전동킥보드",
-            "재난지원금",
-            "선거",
-            "백신",
-            "전동킥보드"
-
-        ],
-        2 : [
-            "알고리즘",
-            "데베프",
-            "react",
-            "알고리즘",
-            "데베프",
-            "react",
-            "알고리즘",
-            "데베프",
-            "react",
-            "알고리즘",
-            "데베프",
-            "react",
-        ]
-    };
     const { name } = useParams();
-    const id = getCategoryID(name);
+    const categoryID = getCategoryID(name);
     const [state, setState] = useState({
         loading: true,
         error: null,
-        data: null
+        keywords: null
     });
-    const {loading, error, keywords} = state;
+
     useEffect(() => {
-        /*
-        axios.get(`/api/keyword/${id}`)
+        axios.get(`http://localhost:8080/api/posts/keyword?categoryID=${categoryID}`)
             .then(data => {
                 setState({
                     ...state,
                     loading: false,
-                    data
+                    keywords: data.data
                 });
             })
             .catch(error => {
                 setState({ ...state, loading: false, error });
             });
-            */
-         setState({...state, loading: false, keywords: result[id]});
-    }, [id]);
+        console.log(state.keywords);
+    }, [categoryID]);
 
     const [keyword, setKeyword] = useState(null);
 
     return (
       <section className="container">
-        {loading ? (
+        {state.loading ? (
             <div className="loader__text"> Keyword Loading... </div>
         ) : (
             <div className="keyword_table">
                 <span className="category_name"> {name} </span>
-                {keywords !== undefined &&
+                {(state.keywords !== undefined || null)  &&
                 <div className ="grid">
-                  {keywords.map(keyword => (
-                      <button onClick={() => setKeyword(keyword)} className="item">
-                          {keyword}
+                  {state.keywords.map(keyword => (
+                      <button key={keyword.keywordID} onClick={() => setKeyword(keyword.keywordID)} className="item">
+                          {keyword.keywordName}
                       </button>
                   ))}
                 </div>
