@@ -14,7 +14,7 @@ configureFakeBackend();
 render((
     <BrowserRouter>
         <Provider store={store}>
-            <Route path="/" component={App}/>
+            <App />
         </Provider>
     </BrowserRouter>
     ),

@@ -42,7 +42,7 @@ function CategoryKeyword()  {
                 {(state.keywords !== undefined || null)  &&
                 <div className ="grid">
                   {state.keywords.map(keyword => (
-                      <button key={keyword.keywordID} onClick={() => setKeyword(keyword.keywordID)} className="item">
+                      <button key={keyword.keywordID} onClick={() => setKeyword(keyword)} className="item">
                           {keyword.keywordName}
                       </button>
                   ))}
@@ -50,7 +50,9 @@ function CategoryKeyword()  {
                 }
             </div>
         )}
-        <PostList keywordID={keyword} />
+        {keyword &&
+            <PostList keywordID={keyword.keywordID} keywordName={keyword.keywordName}/>
+        }
     </section>
     )
 }

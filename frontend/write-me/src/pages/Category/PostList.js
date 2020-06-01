@@ -4,7 +4,7 @@ import './CategoryKeyword.css';
 import Post from "./Post";
 //import PageNumberlist from "./PageNumberlist";
 
-function PostList({ keywordID }) {
+function PostList({ keywordID, keywordName }) {
     const [state, setState] = useState({
         loading: true,
         error: null,
@@ -36,7 +36,7 @@ function PostList({ keywordID }) {
                         <span >  </span>
                         ) : (                         
                             <div className="posts">
-                                <span className="keyword_title"> {keywordID} </span>
+                                <span className="keyword_title"> {keywordName} </span>
                                 {posts.map(post => (
                                     <Post
                                         key={post.id}

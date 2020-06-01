@@ -4,8 +4,10 @@
   justify-content: space-between;
   top: 0;
   height: 100px;
+
   padding: 0;
   margin: 0;
+  flex-wrap: wrap;
   z-index: 200;
   background-color: white;
 
@@ -16,15 +18,13 @@
       height: 80px;
       margin-left: 130px;
     }
-    width: 400px;
-    height: 80px;
   }
 
   .menubar{
     border:none;
     border:0;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 20px;
     padding:0;
     font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     font-size:14px;
@@ -134,7 +134,8 @@
   .user_menubar{
     border:none;
     border:0;
-    margin: 30px 0 0 0;
+    margin-right: 15vh;
+    margin-top: 30px;
     padding:0;
     font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
     font-size:14px;

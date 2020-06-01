@@ -55,4 +55,5 @@ class Write extends React.Component {
   }
 
 }
-  export default Write;
+
+export default Write;

@@ -8,7 +8,8 @@ function Register() {
     const [user, setUser] = useState({
         username: '',
         userID: '',
-        password: ''
+        password: '',
+        passwordChk: ''
     });
     const [submitted, setSubmitted] = useState(false);
     const dispatch = useDispatch();
@@ -27,7 +28,7 @@ function Register() {
         e.preventDefault();
 
         setSubmitted(true);
-        if (user.username && user.userID && user.password) {
+        if (user.username && user.password) {
             dispatch(userActions.register(user));
         }
     }
@@ -37,24 +38,27 @@ function Register() {
             <form name="form" onSubmit={handleSubmit}>
                 <h2><p className="registerlogo">WITH WRITEME</p></h2>
                 <div className="form-groupA">
-                    <div className="label_name">닉네임</div>
+                    <div className="label_name">아이디</div>
                     <input type="text" name="username" id="rusername" value={user.username} onChange={handleChange}/>
                     {submitted && !user.username &&
                     <div className="invalid-feedback">필수 정보입니다.</div>
                     }
                 </div>
                 <div className="form-groupB">
-                    <div className="label_name">아이디</div>
-                    <input type="text" name="userID"  id="ruserID" value={user.userID} onChange={handleChange}/>
-                    {submitted && !user.userID &&
-                    <div className="invalid-feedback">필수 정보입니다.</div>
-                    }
-                </div>
-                <div className="form-groupC">
                     <div className="label_name">비밀번호</div>
                     <input type="password" name="password" id="rpassword" value={user.password} onChange={handleChange}/>
                     {submitted && !user.password &&
                     <div className="invalid-feedback">필수 정보입니다.</div>
+                    }
+                </div>
+                <div className="form-groupC">
+                    <div className="label_name">비밀번호 확인</div>
+                    <input type="password" name="passwordChk" id="rpassword" value={user.passwordChk} onChange={handleChange}/>
+                    {submitted && !user.passwordChk &&
+                    <div className="invalid-feedback">필수 정보입니다.</div>
+                    }
+                    {submitted && (user.passwordChk !== user.password) &&
+                    <div className="invalid-feedback"> 입력된 비밀번호와 다릅니다. </div>
                     }
                 </div>
                 <div className="form-groupD">

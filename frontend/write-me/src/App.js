@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {Router, Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { history } from './helpers';
 import { alertActions } from './actions';
@@ -25,11 +25,12 @@ function App() {
             dispatch(alertActions.clear());
         });
     }, []);
+
     return (
-        <Router>
+        <Router history={history}>
             <Header/>
             {alert.message &&
-            <div className={`alert ${alert.type}`}>{alert.message}</div>
+                <div className={`alert ${alert.type}`}>{alert.message}</div>
             }
             <Switch>
                 <Route exact path='/' component={Home}/>
@@ -37,6 +38,7 @@ function App() {
                 <Route path='/user/Register' component={Register}/>
                 <Route path='/category/:name' component={CategoryKeyword}/>
                 <Route path='/Write' component={Write}/>
+                <Redirect from="*" to="/" />
             </Switch>
         </Router>
     );
