@@ -80,7 +80,7 @@ public class PostController {
     
     
     
-    //게시물 삭제
+    //게시물 삭제 by userID
     @RequestMapping(value = "/api/post/delete/{postID}", method = RequestMethod.DELETE)
     public ResponseEntity<PostDTO> deletePost(@PathVariable("postID") final int postID, PostDTO param) throws Exception{
     	
