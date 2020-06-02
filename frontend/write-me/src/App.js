@@ -37,7 +37,7 @@ function App() {
                 <Route path='/user/login' component={Login}/>
                 <Route path='/user/Register' component={Register}/>
                 <Route path='/category/:name' component={CategoryKeyword}/>
-                <Route path='/Write' component={Write}/>
+                <Route path='/write' component={Write}/>
                 <Redirect from="*" to="/" />
             </Switch>
         </Router>

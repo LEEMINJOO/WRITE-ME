@@ -48,6 +48,9 @@
     top:73%; left:50%; margin-left:-200px; padding:0px;
     background-color: rgb(90, 85, 85);
     width:400px;
-    height:60px;
     color: white;
+}
+
+.invalid_feedback{
+    color: red;
 }

@@ -7,7 +7,6 @@ import { userActions } from '../../actions';
 function Register() {
     const [user, setUser] = useState({
         username: '',
-        userID: '',
         password: '',
         passwordChk: ''
     });
@@ -29,7 +28,7 @@ function Register() {
 
         setSubmitted(true);
         if (user.username && user.password) {
-            dispatch(userActions.register(user));
+            dispatch(userActions.register({ username: user.username, password: user.password }));
         }
     }
 
@@ -41,24 +40,24 @@ function Register() {
                     <div className="label_name">아이디</div>
                     <input type="text" name="username" id="rusername" value={user.username} onChange={handleChange}/>
                     {submitted && !user.username &&
-                    <div className="invalid-feedback">필수 정보입니다.</div>
+                    <div className="invalid_feedback">필수 정보입니다.</div>
                     }
                 </div>
                 <div className="form-groupB">
                     <div className="label_name">비밀번호</div>
                     <input type="password" name="password" id="rpassword" value={user.password} onChange={handleChange}/>
                     {submitted && !user.password &&
-                    <div className="invalid-feedback">필수 정보입니다.</div>
+                    <div className="invalid_feedback">필수 정보입니다.</div>
                     }
                 </div>
                 <div className="form-groupC">
                     <div className="label_name">비밀번호 확인</div>
                     <input type="password" name="passwordChk" id="rpassword" value={user.passwordChk} onChange={handleChange}/>
                     {submitted && !user.passwordChk &&
-                    <div className="invalid-feedback">필수 정보입니다.</div>
+                    <div className="invalid_feedback">필수 정보입니다.</div>
                     }
                     {submitted && (user.passwordChk !== user.password) &&
-                    <div className="invalid-feedback"> 입력된 비밀번호와 다릅니다. </div>
+                    <div className="invalid_feedback"> 입력된 비밀번호와 다릅니다. </div>
                     }
                 </div>
                 <div className="form-groupD">

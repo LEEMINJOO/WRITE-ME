@@ -44,7 +44,8 @@ function register(user) {
 
         userService.register(user)
             .then(
-                user => { 
+                user => {
+                    console.log(user);
                     dispatch(success());
                     history.push('/user/login');
                     dispatch(alertActions.success('Registration successful'));

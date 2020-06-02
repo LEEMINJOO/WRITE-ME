@@ -18,13 +18,14 @@ function login(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
+    return fetch(`http://localhost:8080/authenticate`, requestOptions)
         .then(handleResponse)
-        .then(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('user', JSON.stringify(user));
-
-            return user;
+        .then(response => {
+            if(response.token){
+                localStorage.setItem('user', JSON.stringify(response.token));
+                console.log(response);
+                return response.token;
+            }
         });
 }
 
@@ -58,7 +59,7 @@ function register(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`${config.apiUrl}/users/register`, requestOptions).then(handleResponse);
+    return fetch(`http://localhost:8080/api/register/local`, requestOptions).then(handleResponse);
 }
 
 function update(user) {

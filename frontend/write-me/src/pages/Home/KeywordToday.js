@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
+import { Link } from 'react-router-dom';
 import './Keyword.scss';
 import '../../reset.css';
 import { FaPencilAlt } from 'react-icons/fa';
 import axios from "axios";
 import moment from "moment";
+import {func} from "prop-types";
 
 function KeywordToday({categoryID}) {
     const [state, setState] = useState({
@@ -28,20 +30,29 @@ function KeywordToday({categoryID}) {
             });
     }, [categoryID]);
 
+
     return (
         <div className="keyword">
-            <h3>
-                <FaPencilAlt /> 시작하기
-            </h3>
+            <p>
+                <FaPencilAlt /> 키워드를 클릭해서 시작하세요.
+            </p>
             {state.loading ? (
                 <div> loading ... </div>
             ) : (
                 <div className="keywords">
-                {state.data === undefined ?
+                {state.data === undefined || state.data === null ?
                     <div> 해당되는 키워드가 없습니다. </div>
                     : <div>
                         {state.data.map(keyword => (
-                            <span key={keyword.keywordID}> {keyword.keywordName} </span>
+                            <Link key={keyword.keywordID}
+                                to={{
+                                pathname:`/write`,
+                                state: {
+                                    keywordID: keyword.keywordID,
+                                    keywordName: keyword.keywordName
+                                }
+                            }}> {keyword.keywordName}
+                            </Link>
                         ))}
                         </div>
                 }   </div>

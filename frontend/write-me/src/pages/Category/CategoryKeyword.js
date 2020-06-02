@@ -39,7 +39,7 @@ function CategoryKeyword()  {
         ) : (
             <div className="keyword_table">
                 <p className="category_name"> {name} </p>
-                {(state.keywords !== undefined || null)  &&
+                {(state.keywords !== "undefined" && true)  &&
                 <div className ="grid">
                   {state.keywords.map(keyword => (
                       <button key={keyword.keywordID} onClick={() => setKeyword(keyword)} className="item">
