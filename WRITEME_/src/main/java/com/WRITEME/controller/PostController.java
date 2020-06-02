@@ -57,6 +57,15 @@ public class PostController {
         return postList;
     }
     
+    //userID로 게시물 불러오기
+    @RequestMapping(value ="/api/post/{userID}", method = RequestMethod.GET)
+    public List<PostDTO> getPostbyUserID(@RequestParam(value = "userID", defaultValue ="") String userID)
+    	throws Exception{
+    	final PostDTO param = new PostDTO(0, null, null, userID, 0, 0, null);
+    	final List<PostDTO> postList = postDAO.getPostbyuserID(param);
+    	return postList;
+    }
+    
     
     //게시물 수정
     @CrossOrigin

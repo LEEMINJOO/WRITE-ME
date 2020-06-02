@@ -39,4 +39,10 @@
     		AND `userID` = #{userID}
     </delete>
     
+    <select id="getPostbyUserID" parameterType="com.WRITEME.model.PostDTO" resultType="com.WRITEME.model.PostDTO">
+    	SELECT `postID`, `postTitle`, `postDetail`, `userID`, `keywordID`, `categoryID`, `date`
+    	FROM POST
+    	WHERE `userID` = #{userID}
+    </select>
+    
 </mapper>
