@@ -11,3 +11,6 @@
     - `./model/TF-IDF.ipynb`
 - 전체 process example
   - `./model/example.ipynb`
+
+## docker
+ ` docker build -t readme_model_env -f Dockerfile . `
