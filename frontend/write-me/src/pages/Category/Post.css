@@ -1,4 +1,4 @@
-.posts .post {
+.postset .post {
     flex-direction:column;
     background-color: white;
     display: flex;
@@ -9,29 +9,45 @@
     color: black;
 }
 
-.posts .post_summary{
+
+
+.post_data{
+    margin-top: 5px;
+}
+
+.postset .post_summary{
     width: 550px;
-    font-size: 16px;
+    font-size: 14px;
+    
 }
 
-.posts .post_date{
-    width: 100px;
+.postset .post_date{
+    width: 250px;
     height: 16px;
-    margin:0px 0px 0px 440px;
+    margin:5px 0px 10px 300px;
     padding:5px 5px 0px 5px;
-    font-size: 16px;
+    font-size: 14px;
     left:70%;
+    display: flex;
+    justify-content: flex-end;
+
 }
 
-.posts .post_title {
-    padding: 0px 0px 5px 0px;
+
+.postset .post_title {
+    font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+    padding: 0px 0px 10px 0px;
     width: 500px;
     height: 25px;
-    font-weight: 300;
-    color: #333333;
+    font-weight: normal;
     font-size: 20px;
+    line-height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
 }
 
-.posts hr {
+.postset hr {
     width: 550px;
 }

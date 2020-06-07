@@ -5,6 +5,7 @@
   Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   height: 100%;
   box-sizing: border-box;
+
 }
 
 .title_category{
@@ -17,7 +18,7 @@
 .container {
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .loader {
   width: 100%;
@@ -29,18 +30,29 @@
 }
 
 .keyword_title{
-  font-size: 36px;
-  width:670px;
-  margin-left:30px;
-  font-weight: bold;
+  background-color: rgba(240, 239, 239, 0.479);
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+  font-size: 30px;
+  width:552px;
+  height: 65px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(75, 74, 74);
 }
 
 .posts {
+  font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding: 10px 30px 0px 30px;
+  padding: 10px 50px 0px 30px;
 }
 .category-table {
   display: flex;
@@ -53,4 +65,9 @@
 
 .loader__text{
   height:100%;
+}
+
+.posts .post hr{
+  margin: 0px;
+  padding:0px;
 }

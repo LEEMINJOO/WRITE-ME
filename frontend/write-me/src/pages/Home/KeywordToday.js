@@ -3,7 +3,7 @@ import './Keyword.scss';
 import '../../reset.css';
 import { FaPencilAlt } from 'react-icons/fa';
 import axios from "axios";
-import moment from "moment";
+import * as moment from "moment";
 
 function KeywordToday({categoryID}) {
     const [state, setState] = useState({
