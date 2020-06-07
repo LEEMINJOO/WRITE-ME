@@ -25,6 +25,8 @@ public class PostController {
 	@Autowired
 	private PostDAO postDAO;
 	
+	
+	//게시물 작성
 	@CrossOrigin
 	@RequestMapping(value = "/api/post", method = RequestMethod.POST)
 	public PostDTO post(PostDTO post) throws Exception{
@@ -58,7 +60,7 @@ public class PostController {
     }
     
     //userID로 게시물 불러오기
-    @RequestMapping(value ="/api/post/{userID}", method = RequestMethod.GET)
+    @RequestMapping(value ="/api/post/user")
     public List<PostDTO> getPostbyUserID(@RequestParam(value = "userID", defaultValue ="") String userID)
     	throws Exception{
     	final PostDTO param = new PostDTO(0, null, null, userID, 0, 0, null);
