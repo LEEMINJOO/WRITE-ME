@@ -11,5 +11,13 @@
          WHERE `categoryID` = #{categoryID}
         </if>
     </select>
+    
+        <select id="selectDistinctKeywords" parameterType="com.WRITEME.model.KeywordsDTO" resultType="com.WRITEME.model.KeywordsDTO">
+        SELECT DISTINCT `keywordID`, `categoryID`, `keywordName`, `date`, `time`
+          FROM KEYWORD
+        <if test='categoryID != null and categoryID != ""'>
+         WHERE `categoryID` = #{categoryID}
+        </if>
+    </select>
  
 </mapper>

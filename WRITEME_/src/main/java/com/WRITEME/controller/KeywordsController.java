@@ -29,4 +29,12 @@ public class KeywordsController {
         return keywordsList;
     }
     
+    @RequestMapping("api/posts/distinctKeyword")
+    public List<KeywordsDTO> distinctKeywords(@RequestParam(value = "categoryID", defaultValue = "") int categoryID) 
+    		throws Exception {
+        final KeywordsDTO param = new KeywordsDTO(0, categoryID, null, null, null);
+        final List<KeywordsDTO> keywordsList = keywordsDAO.selectKeywords(param);
+        return keywordsList;
+    }
+    
 }
