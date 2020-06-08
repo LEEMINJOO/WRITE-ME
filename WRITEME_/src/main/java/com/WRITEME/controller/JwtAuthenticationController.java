@@ -53,6 +53,7 @@ public class JwtAuthenticationController {
 	}
 	
 	
+	//username 가져오기
 	/*@RequestMapping(value = "/api/auth/me", method = RequestMethod.GET)
 	public ResponseEntity<?> getUser(@RequestBody UserDTO user) throws Exception {
 		
