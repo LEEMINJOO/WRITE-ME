@@ -64,10 +64,10 @@ public class PostController {
     //userID로 게시물 불러오기
 	@CrossOrigin
     @RequestMapping(value ="/api/post/user")
-    public List<PostDTO> getPostbyUserID(@RequestParam(value = "userID", defaultValue ="") String userID)
+    public List<PostDTO> getPostbyusername(@RequestParam(value = "username", defaultValue ="") String username)
     	throws Exception{
-    	final PostDTO param = new PostDTO(0, null, null, userID, 0, 0, null);
-    	final List<PostDTO> postList = postDAO.getPostbyuserID(param);
+    	final PostDTO param = new PostDTO(0, null, null, username, 0, 0, null);
+    	final List<PostDTO> postList = postDAO.getPostbyusername(param);
     	return postList;
     }
     
@@ -76,7 +76,7 @@ public class PostController {
     @CrossOrigin
     @RequestMapping(value = "/api/post/edit/{postID}", method = RequestMethod.PUT)
     public ResponseEntity<PostDTO> putPost(@PathVariable("postID") final int postID, PostDTO param) throws Exception {
-    	if((param.getUserID() == null) || (param.getPostDetail() == null) || (param.getPostTitle() == null)) {
+    	if((param.getUsername() == null) || (param.getPostDetail() == null) || (param.getPostTitle() == null)) {
     		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     	}
     	

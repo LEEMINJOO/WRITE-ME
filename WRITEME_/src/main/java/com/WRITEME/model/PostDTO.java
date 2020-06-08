@@ -17,7 +17,7 @@ public class PostDTO {
 	private int postID;
 	private String postTitle;
 	private String postDetail;
-	private String userID;
+	private String username;
 	private int keywordID;
 	private int categoryID;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

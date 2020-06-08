@@ -8,19 +8,19 @@
             parameterType="com.WRITEME.model.PostDTO"
             useGeneratedKeys="true"
             keyProperty="postID">
-        INSERT INTO POST(`postID`, `postTitle`, `postDetail`, `userID`, `keywordID`, `categoryID`, `date`)
-        VALUES (#{postID}, #{postTitle}, #{postDetail}, #{userID}, #{keywordID}, #{categoryID}, #{date})
+        INSERT INTO POST(`postID`, `postTitle`, `postDetail`, `username`, `keywordID`, `categoryID`, `date`)
+        VALUES (#{postID}, #{postTitle}, #{postDetail}, #{username}, #{keywordID}, #{categoryID}, #{date})
     </insert>
     
     <select id="getPost" parameterType="Integer" resultType="com.WRITEME.model.PostDTO">
-        SELECT `postID`, `postTitle`, `postDetail`, `userID`, `keywordID`, `categoryID`, `date`
+        SELECT `postID`, `postTitle`, `postDetail`, `username`, `keywordID`, `categoryID`, `date`
           FROM POST
          WHERE `postID` = #{postID}
     </select>
     
     
     <select id="getPostbyKeywordID" parameterType="com.WRITEME.model.PostDTO" resultType="com.WRITEME.model.PostDTO">
-        SELECT `postID`, `postTitle`, `postDetail`, `userID`, `keywordID`, `categoryID`, `date`
+        SELECT `postID`, `postTitle`, `postDetail`, `username`, `keywordID`, `categoryID`, `date`
           FROM POST
          WHERE `keywordID` = #{keywordID}
     </select>
@@ -36,13 +36,13 @@
     
     	DELETE FROM POST
     	WHERE `postID` = #{postID} 
-    		AND `userID` = #{userID}
+    		AND `username` = #{username}
     </delete>
     
-    <select id="getPostbyuserID" parameterType="com.WRITEME.model.PostDTO" resultType="com.WRITEME.model.PostDTO">
-    	SELECT `postID`, `postTitle`, `postDetail`, `userID`, `keywordID`, `categoryID`, `date`
+    <select id="getPostbyusername" parameterType="com.WRITEME.model.PostDTO" resultType="com.WRITEME.model.PostDTO">
+    	SELECT `postID`, `postTitle`, `postDetail`, `username`, `keywordID`, `categoryID`, `date`
     	FROM POST
-    	WHERE `userID` = #{userID}
+    	WHERE `username` = #{username}
     </select>
     
 </mapper>
