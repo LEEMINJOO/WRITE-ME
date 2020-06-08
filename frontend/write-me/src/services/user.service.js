@@ -18,11 +18,12 @@ function login(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch(`http://localhost:8080/authenticate`, requestOptions)
+    return fetch(`http://localhost:8080/api/authenticate`, requestOptions)
         .then(handleResponse)
         .then(response => {
             if(response.token){
                 localStorage.setItem('user', JSON.stringify(response.token));
+                localStorage.setItem('username', username);
                 console.log(response);
                 return response.token;
             }

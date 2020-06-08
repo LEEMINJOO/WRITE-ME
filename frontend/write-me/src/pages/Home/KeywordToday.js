@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from "react";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Keyword.scss';
 import '../../reset.css';
-import { FaPencilAlt } from 'react-icons/fa';
 import axios from "axios";
 import moment from "moment";
-import {func} from "prop-types";
 
 function KeywordToday({categoryID}) {
     const [state, setState] = useState({
@@ -13,8 +11,12 @@ function KeywordToday({categoryID}) {
         error: null,
         data: null
     });
-    const date = moment().format().slice(0,9);
-
+    const date = moment().format();
+    const getTime = () => {
+        const now = date.substr(11,2);
+        if(now >= 7 && now < 19) return 'am';
+        return 'pm';
+    };
     useEffect(() => {
         setState({...state, loading: true});
         axios.get(`http://localhost:8080/api/posts/keyword?categoryID=${categoryID}`)
@@ -22,8 +24,10 @@ function KeywordToday({categoryID}) {
                 setState({
                     ...state,
                     loading: false,
-                    data: data.data.filter(data => data.date.slice(0,9) === date)
+                    data: data.data.filter(data => (data.date.slice(0,10) === date.slice(0,10) && data.time === getTime()))
                 });
+                console.log(state.data);
+                console.log(getTime());
             })
             .catch(error => {
                 setState({ ...state, loading: false, error });
@@ -33,18 +37,15 @@ function KeywordToday({categoryID}) {
 
     return (
         <div className="keyword">
-            <p>
-                <FaPencilAlt /> 키워드를 클릭해서 시작하세요.
-            </p>
             {state.loading ? (
                 <div> loading ... </div>
             ) : (
-                <div className="keywords">
+                <div className="keywords_list">
                 {state.data === undefined || state.data === null ?
                     <div> 해당되는 키워드가 없습니다. </div>
                     : <div>
                         {state.data.map(keyword => (
-                            <Link key={keyword.keywordID}
+                            <NavLink key={keyword.keywordID}
                                 to={{
                                 pathname:`/write`,
                                 state: {
@@ -52,7 +53,7 @@ function KeywordToday({categoryID}) {
                                     keywordName: keyword.keywordName
                                 }
                             }}> {keyword.keywordName}
-                            </Link>
+                            </NavLink>
                         ))}
                         </div>
                 }   </div>

@@ -3,7 +3,7 @@ import axios from "axios";
 import './Home.scss';
 import '../../reset.css';
 import KeywordToday from "./KeywordToday";
-import { FaAngleDown } from "react-icons/all";
+import { FaAngleDown, FaPencilAlt } from "react-icons/all";
 
 function Home() {
     const [categoryID, setCategoryID] = useState(0);
@@ -28,10 +28,15 @@ function Home() {
                     </tbody>
                 </table>
                 <hr/>
-                <p>
-                    매일매일 새로운 글감을 추천받아 보세요. <br />
-                    오전 7시/오후 7시에 업데이트 됩니다.
-                </p>
+                <div className="main_desc">
+                    <p>
+                        매일매일 새로운 글감을 추천받아 보세요. <br />
+                        오전 7시/오후 7시에 업데이트 됩니다. <br />
+                    </p>
+                    <p>
+                        <FaPencilAlt /> 키워드를 클릭해서 시작하세요.
+                    </p>
+                </div>
                 <div className="dropdown">
                     <button className="dropBtn">
                         {categoryID === 0 ?

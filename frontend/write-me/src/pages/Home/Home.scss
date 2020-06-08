@@ -1,11 +1,9 @@
 .home {
-  height: 100vh;
   background-color: white;
   .center {
     position: sticky;
     text-align: center;
     top: 20vh;
-    height: 20vh;
 
     table {
       border: 1px solid black;
@@ -31,11 +29,11 @@
 
     p {
       margin-top: 20px;
-      font-size: 20px;
+      font-size: 15px;
     }
     .dropdown {
       position: relative;
-      margin-top: 40px;
+      margin-top: 20px;
       display: inline-block;
       width: 150px;
       .dropBtn {
