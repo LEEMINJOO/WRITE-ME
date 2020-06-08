@@ -6,6 +6,7 @@ import com.WRITEME.model.KeywordsDTO;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,7 @@ public class KeywordsController {
     @Autowired
     private KeywordsDAO keywordsDAO;
     
+    @CrossOrigin
     @RequestMapping("api/posts/keyword")
     public List<KeywordsDTO> keywords(@RequestParam(value = "categoryID", defaultValue = "") int categoryID) 
     		throws Exception {
@@ -29,6 +31,7 @@ public class KeywordsController {
         return keywordsList;
     }
     
+    @CrossOrigin
     @RequestMapping("api/posts/distinctKeyword")
     public List<KeywordsDTO> distinctKeywords(@RequestParam(value = "categoryID", defaultValue = "") int categoryID) 
     		throws Exception {

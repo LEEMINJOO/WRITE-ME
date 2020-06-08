@@ -35,6 +35,7 @@ public class PostController {
 	}
 	
 	//postID로 게시물 불러오기
+	@CrossOrigin
     @RequestMapping(value = "/api/post/{postID}", method = RequestMethod.GET)
     public ResponseEntity<PostDTO> getPost(@PathVariable("postID") final int postID) throws Exception {
         /* TODO: 조회수 증가 */
@@ -49,6 +50,7 @@ public class PostController {
 	
 	
 	//키워드 아이디로 게시물 불러오기
+	@CrossOrigin
     @RequestMapping(value = "/api/post")
     public List<PostDTO> getPostbyKeywordID(@RequestParam(value = "keywordID", defaultValue = "") int keywordID) 
     		throws Exception {
@@ -60,6 +62,7 @@ public class PostController {
     }
     
     //userID로 게시물 불러오기
+	@CrossOrigin
     @RequestMapping(value ="/api/post/user")
     public List<PostDTO> getPostbyUserID(@RequestParam(value = "userID", defaultValue ="") String userID)
     	throws Exception{
@@ -92,6 +95,7 @@ public class PostController {
     
     
     //게시물 삭제 by userID
+    @CrossOrigin
     @RequestMapping(value = "/api/post/delete/{postID}", method = RequestMethod.DELETE)
     public ResponseEntity<PostDTO> deletePost(@PathVariable("postID") final int postID, PostDTO param) throws Exception{
     	
