@@ -15,7 +15,9 @@ function Write() {
       return alert('내용을 입력해주세요.');
     }
 
-    const data = {title: title, content: content};
+    const data = {
+        postTitle: title,
+        postDetail: content};
     }
 
     return (

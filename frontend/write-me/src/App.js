@@ -10,8 +10,6 @@ import Register from "./pages/Users/Register";
 import Header from "./pages/Header/Header";
 import CategoryKeyword from "./pages/Category/CategoryKeyword";
 import Write from "./pages/Write/Write";
-//import PostApp from ".pages/Category/PostApp";
-
 
 import './reset.css';
 
