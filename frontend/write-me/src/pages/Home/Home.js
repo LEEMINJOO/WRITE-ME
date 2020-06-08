@@ -4,10 +4,12 @@ import './Home.scss';
 import '../../reset.css';
 import KeywordToday from "./KeywordToday";
 import { FaAngleDown, FaPencilAlt } from "react-icons/all";
+import {getTime} from "../../components/getTime";
 
 function Home() {
     const [categoryID, setCategoryID] = useState(0);
     const category = ["","정치","경제","사회","세계","IT/과학"];
+    const now = getTime();
     return (
         <div className="home">
             <div className="center">
@@ -30,8 +32,10 @@ function Home() {
                 <hr/>
                 <div className="main_desc">
                     <p>
-                        매일매일 새로운 글감을 추천받아 보세요. <br />
-                        오전 7시/오후 7시에 업데이트 됩니다. <br />
+                        매일매일 새로운 글감을 추천받아 보세요.
+                    </p>
+                    <p className="time_desc">
+                        마지막 업데이트 날짜: {now.date} {now.time}
                     </p>
                     <p>
                         <FaPencilAlt /> 키워드를 클릭해서 시작하세요.

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { NavLink } from 'react-router-dom';
 import './Keyword.scss';
 import '../../reset.css';
+import {getTime} from "../../components/getTime";
 import axios from "axios";
 import moment from "moment";
 
@@ -11,12 +12,6 @@ function KeywordToday({categoryID}) {
         error: null,
         data: null
     });
-    const date = moment().format();
-    const getTime = () => {
-        const now = date.substr(11,2);
-        if(now >= 7 && now < 19) return 'am';
-        return 'pm';
-    };
     useEffect(() => {
         setState({...state, loading: true});
         axios.get(`http://localhost:8080/api/posts/keyword?categoryID=${categoryID}`)
@@ -24,10 +19,8 @@ function KeywordToday({categoryID}) {
                 setState({
                     ...state,
                     loading: false,
-                    data: data.data.filter(data => (data.date.slice(0,10) === date.slice(0,10) && data.time === getTime()))
+                    data: data.data.filter(data => (data.date.slice(0,10) === getTime().date && data.time === getTime().time))
                 });
-                console.log(state.data);
-                console.log(getTime());
             })
             .catch(error => {
                 setState({ ...state, loading: false, error });
