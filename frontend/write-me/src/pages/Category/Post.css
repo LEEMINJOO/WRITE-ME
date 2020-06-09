@@ -9,8 +9,6 @@
     color: black;
 }
 
-
-
 .post_data{
     margin-top: 5px;
 }
@@ -32,7 +30,6 @@
     justify-content: flex-end;
 
 }
-
 
 .postset .post_title {
     font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;

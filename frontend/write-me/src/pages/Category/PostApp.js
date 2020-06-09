@@ -17,6 +17,6 @@ const PostApp = () => {
         <button onClick={pagination.onResetPage}>Reset</button>
         </div>
     )
-    }
+}
 
-    export default PostApp;
+export default PostApp;

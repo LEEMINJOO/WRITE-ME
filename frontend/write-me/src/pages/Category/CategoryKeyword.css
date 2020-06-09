@@ -30,19 +30,11 @@
 }
 
 .keyword_title{
-  background-color: rgba(240, 239, 239, 0.479);
-  padding: 0;
-  cursor: pointer;
   font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
-  font-size: 30px;
-  width:552px;
-  height: 65px;
-  margin: 0 0 15px;
-  font-weight: 500;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(75, 74, 74);
+  font-size: 36px;
+  width:670px;
+  margin-left:30px;
+  font-weight: bold;
 }
 
 .posts {
@@ -66,8 +58,9 @@
   height:100%;
 }
 
-.keyword_error{
+.keyword_error {
   text-align: center;
+}
 
 .posts .post hr{
   margin: 0px;
