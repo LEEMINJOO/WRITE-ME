@@ -54,3 +54,7 @@
 .loader__text{
   height:100%;
 }
+
+.keyword_error{
+  text-align: center;
+}

@@ -39,14 +39,16 @@ function CategoryKeyword()  {
         ) : (
             <div className="keyword_table">
                 <p className="category_name"> {name} </p>
-                {(state.keywords !== "undefined" && true)  &&
-                <div className ="grid">
-                  {state.keywords.map(keyword => (
-                      <button key={keyword.keywordID} onClick={() => setKeyword(keyword)} className="item">
-                          {keyword.keywordName}
-                      </button>
-                  ))}
-                </div>
+                {state.keywords === undefined || state.keywords === null ?
+                    <div className="keyword_error"> 키워드를 불러올 수 없습니다. </div>
+                    :
+                    <div className ="grid">
+                      {state.keywords.map(keyword => (
+                          <button key={keyword.keywordID} onClick={() => setKeyword(keyword)} className="item">
+                              {keyword.keywordName}
+                          </button>
+                      ))}
+                    </div>
                 }
             </div>
         )}

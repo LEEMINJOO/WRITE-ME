@@ -35,7 +35,7 @@ function Login() {
 
     return (
         <div className="login">
-            <h2><p className="loginlogo">WITH WRITEME</p></h2>
+            <h2> <p className="loginlogo"> WITH WRITEME </p> </h2>
             <form name="form" onSubmit={handleSubmit}>
                 <div className="form-group1">
                     <input type="text" id="username" name="username" placeholder="아이디" value={username} onChange={handleChange} className={'form-control' + (submitted && !username ? ' is-invalid' : '')}
@@ -58,7 +58,6 @@ function Login() {
                     <div id="regguide">이름만으로 간편하게 가입하세요</div>
                     <Link to="/user/register" className="btn btn-link" id="regbutton">회원가입</Link>
                 </div>
-
             </form>
         </div>
     );

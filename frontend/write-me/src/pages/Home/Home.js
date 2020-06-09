@@ -35,7 +35,7 @@ function Home() {
                         매일매일 새로운 글감을 추천받아 보세요.
                     </p>
                     <p className="time_desc">
-                        마지막 업데이트 날짜: {now.date} {now.time}
+                        마지막 업데이트 날짜: {now.date} 7:00 {now.time}
                     </p>
                     <p>
                         <FaPencilAlt /> 키워드를 클릭해서 시작하세요.

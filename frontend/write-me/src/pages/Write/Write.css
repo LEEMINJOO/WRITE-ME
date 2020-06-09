@@ -37,6 +37,10 @@
     text-align: center;
 }
 
+.keywordName {
+    margin-right: 5px;
+}
+
 #content_txt {
     width: 91%;
     resize: none;
