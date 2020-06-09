@@ -76,7 +76,7 @@ class WRITEMEDataBase:
     def keywordID(self, keywordName, categoryID):
         sql = "SELECT keywordID FROM KEYWORD WHERE keywordName = '%s' AND categoryID = %d" % (keywordName, categoryID)
         result = self.select(sql)
-        return result[0]['keywordID']
+        return result[-1]['keywordID']
 
     def max_keywordID(self):
         sql = "select MAX(keywordID) from KEYWORD"

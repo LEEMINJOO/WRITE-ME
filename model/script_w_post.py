@@ -51,15 +51,14 @@ if __name__ == '__main__':
             # post
             categoryID = db.categoryID(category)
             for i in range(len(news_keyword)):
-                postID = '%04d'%keywordID + '%04d'%i
                 postTitle = news_keyword.iloc[i]['title']
                 postDetail = news_keyword.iloc[i]['text']
                 userID = 'test1'
 
-                a = (postID, postTitle, postDetail, userID, keywordID, categoryID, date)
-                sql = "INSERT INTO POST VALUES (%s, %s, %s, %s, %s, %s, %s)"
+                a = (postTitle, postDetail, userID, keywordID, categoryID, date)
+                sql = "INSERT INTO POST (`postTitle`, `postDetail`, `userName`, `keywordID`, `categoryID`, `date` ) VALUES (%s, %s, %s, %s, %s, %s)"
                 db.curs.execute("set names utf8")
-                db.curs.execute(sql, a)               
+                db.curs.execute(sql, a)
 
             t.update(1)
     t.close()
