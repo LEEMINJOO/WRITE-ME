@@ -4,7 +4,7 @@ import './Keyword.scss';
 import '../../reset.css';
 import {getTime} from "../../components/getTime";
 import axios from "axios";
-import moment from "moment";
+import * as moment from "moment";
 
 function KeywordToday({categoryID}) {
     const [state, setState] = useState({

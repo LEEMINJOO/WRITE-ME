@@ -14,12 +14,12 @@ function PostList({ keywordID, keywordName }) {
 
     useEffect( () => {
         setState({...state, loading: true});
-        axios.get(`http://localhost:8080/api/post?keywordID=${keywordID}`)
+        axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating")
             .then(data => {
                 setState({
                     ...state,
                     loading: false,
-                    posts: data.data
+                    posts: data.data.data.movies
                 });
                 console.log(posts);
             })
@@ -41,11 +41,9 @@ function PostList({ keywordID, keywordName }) {
                                     <Post
                                         key={post.id}
                                         id={post.id}
-                                        userID={post.userID}
-                                        title={post.postTitle}
-                                        summary={post.postDetail}
-                                        ci={post.categoryID}
-                                        date={post.date}
+                                        title={post.title}
+                                        summary={post.summary}
+                                        date={post.year}
                                     />
                                 ))}
                             </div>
