@@ -71,4 +71,4 @@ if __name__ == '__main__':
     print(datetime.now().strftime("%m/%d/%Y, %H:%M:%S | ") + '\033[94m'+'Bye~'+'\033[0m')
 
     with open('log.txt', 'a') as log:
-        log.write(datetime.now().strftime("%m/%d/%Y, %H:%M:%S | ") + 'END\n')
+        log.write(datetime.now().strftime("%m/%d/%Y, %H:%M:%S | ") + 'END with POST\n')
