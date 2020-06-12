@@ -2,9 +2,8 @@ import React, {useState, useEffect } from "react";
 import axios from "axios";
 import './CategoryKeyword.css';
 import Post from "./Post";
-//import PageNumberlist from "./PageNumberlist";
 
-function PostList({ keywordID, keywordName }) {
+function UserPostList({ keywordID, keywordName }) {
     const [state, setState] = useState({
         loading: true,
         error: null,
@@ -14,12 +13,12 @@ function PostList({ keywordID, keywordName }) {
 
     useEffect( () => {
         setState({...state, loading: true});
-        axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating")
+        axios.get(`http://localhost:8080/api/post/user?username=${username}`)
             .then(data => {
                 setState({
                     ...state,
                     loading: false,
-                    posts: data.data.data.movies
+                    posts: data.data
                 });
                 console.log(posts);
             })
@@ -39,11 +38,11 @@ function PostList({ keywordID, keywordName }) {
                                 <span className="keyword_title"> {keywordName} </span>
                                 {posts.map(post => (
                                     <Post
-                                        key={post.id}
-                                        id={post.id}
-                                        title={post.title}
-                                        summary={post.summary}
-                                        date={post.year}
+                                        keywordID={post.keywordID}
+                                        title={post.postTitle}
+                                        summary={post.postDetail}
+                                        ci={post.categoryID}
+                                        date={post.date}
                                     />
                                 ))}
                             </div>
@@ -55,4 +54,4 @@ function PostList({ keywordID, keywordName }) {
     );
 }
 
-export default PostList;
+export default UserPostList;

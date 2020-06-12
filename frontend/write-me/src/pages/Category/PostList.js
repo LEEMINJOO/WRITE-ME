@@ -39,9 +39,7 @@ function PostList({ keywordID, keywordName }) {
                                 <span className="keyword_title"> {keywordName} </span>
                                 {posts.map(post => (
                                     <Post
-                                        key={post.id}
-                                        id={post.id}
-                                        userID={post.userID}
+                                        username={post.username}
                                         title={post.postTitle}
                                         summary={post.postDetail}
                                         ci={post.categoryID}

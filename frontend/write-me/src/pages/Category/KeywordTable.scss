@@ -4,7 +4,10 @@
     position: sticky;
     left: 20px;
     top: 150px;
-;
+    height: 100%;
+    margin-top: 50px;
+
+
     .category_name {
         display:flex;
         font-size: 20px;
@@ -37,8 +40,4 @@
         cursor: pointer;
     }
 
-}
-
-.keyword_table{
-    padding:50px;
 }
