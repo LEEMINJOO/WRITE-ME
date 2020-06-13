@@ -1,19 +1,18 @@
 import {useState} from 'react';
 
-export const usePagination = (data, itemsPerPage) => {
+export const usePagination = (itemsPerPage) => {
     const [page, setPage] = useState(1);
-    if(data === null) return;
+    const [data, setData] = useState(null);
+    if (data == null) return { page, setData, currentData, maxPage, handleChange };
     const maxPage = Math.ceil(data.length / itemsPerPage);
 
-    const currentData = () => {
-        const begin = (page - 1) * itemsPerPage;
-        const end = begin + itemsPerPage;
-        return data.slice(begin, end);
-    };
+    const begin = (page - 1) * itemsPerPage;
+    const end = begin + itemsPerPage;
+    const currentData =  data.slice(begin, end);
 
     const handleChange = (event, value) => {
         setPage(value);
     };
 
-    return { page, currentData, maxPage, handleChange };
+    return { page, setData, currentData, maxPage, handleChange };
 };

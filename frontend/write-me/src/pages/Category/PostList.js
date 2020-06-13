@@ -3,8 +3,7 @@ import axios from "axios";
 import './CategoryKeyword.css';
 import Post from "./Post";
 import { Pagination } from '@material-ui/lab';
-import {usePagination} from "../../components/usePagination";
-import {getTime} from "../../components/getTime";
+import { usePagination } from "../../components/usePagination";
 
 function PostList({ keywordID, keywordName }) {
     const [state, setState] = useState({
@@ -12,13 +11,11 @@ function PostList({ keywordID, keywordName }) {
         error: null,
         posts: null
     });
-    const {loading, posts} = state;
-    const pages = usePagination(state.posts, 6);
-    const { currentData, maxPage, handleChange } = pages;
+
+    const { setData, currentData, maxPage, handleChange } = usePagination(6);
 
     useEffect( () => {
         setState({...state, loading: true});
-
         axios.get(`http://localhost:8080/api/post?keywordID=${keywordID}`)
             .then(data => {
                 setState({
@@ -26,7 +23,8 @@ function PostList({ keywordID, keywordName }) {
                     loading: false,
                     posts: data.data
                 });
-                console.log(posts);
+                setData(data.data);
+                console.log(currentData());
             })
             .catch(error => {
                 setState({ ...state, loading: false, error });
@@ -37,25 +35,29 @@ function PostList({ keywordID, keywordName }) {
         <>
             {keywordID !== null &&
                 <div className="post_list">                   
-                    {(loading || currentData === null) ? (
-                        <span >  </span>
-                        ) : (                         
-                            <div className="posts">
-                                <span className="keyword_title"> {keywordName} </span>
-                                {currentData.map(post => (
-                                    <Post
-                                        key={post.id}
-                                        id={post.id}
-                                        userID={post.userID}
-                                        title={post.postTitle}
-                                        summary={post.postDetail}
-                                        ci={post.categoryID}
-                                        date={post.date}
-                                    />
-                                ))}
-                                <Pagination count={maxPage}  onChange={handleChange} />
-                            </div>
-                        )
+                    {state.loading ?
+                        <span> Loading . . . </span>
+                        :
+                        <div className="posts">
+                            {(currentData === null || currentData === undefined) ?
+                                <span> 글을 불러올 수 없습니다. </span>
+                                : <>
+                                    <span className="keyword_title"> {keywordName} </span>
+                                    {currentData.map(post => (
+                                        <Post
+                                            key={post.id}
+                                            id={post.id}
+                                            userID={post.userID}
+                                            title={post.postTitle}
+                                            summary={post.postDetail}
+                                            ci={post.categoryID}
+                                            date={post.date}
+                                        />
+                                    ))}
+                                    <Pagination count={maxPage} onChange={handleChange} style={{margin: '0 auto 0 auto'}}/>
+                                </>
+                            }
+                        </div>
                     }
                 </div>
             }

@@ -22,10 +22,10 @@
 .postset .post_date{
     width: 250px;
     height: 16px;
-    margin:5px 0px 10px 300px;
+    margin:5px 0px 10px 400px;
     padding:5px 5px 0px 5px;
     font-size: 14px;
-    left:70%;
+    left:90%;
     display: flex;
     justify-content: flex-end;
 

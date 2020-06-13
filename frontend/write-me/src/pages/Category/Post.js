@@ -1,7 +1,6 @@
 import React from "react";
 import "./Post.css";
 
-
 function Post({ title, userID, summary, date }) {
     return (
         <div className="postset">
@@ -14,7 +13,5 @@ function Post({ title, userID, summary, date }) {
         </div>
     );
 }
-
-
 
 export default Post;
