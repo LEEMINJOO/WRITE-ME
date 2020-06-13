@@ -19,13 +19,12 @@ function Write() {
                 setState({
                     ...state,
                     loading: false,
-                    keywords: data.data
+                    hint: data.data
                 });
             })
             .catch(error => {
                 setState({ ...state, loading: false, error });
             });
-        console.log(state.keywords);
     }, []);
 
     const [post, setPost] = useState({
@@ -64,7 +63,7 @@ function Write() {
                 </div>
                 <div>
                     <p id='keyword_txt1'>
-                    <span className="keywordName"> {keywordName} {keywordID} -  </span>
+                    <span className="keywordName"> {keywordName}:  </span>
                     {state.loading ? (
                         <span className="loader__text"> Hint Loading... </span>
                     ) : (
@@ -74,7 +73,7 @@ function Write() {
                                 :
                                 <>
                                     {state.hint.map(hint => (
-                                        <span> {hint} </span>
+                                        <span className="hint" key={hint.hintID}> {hint.hintName} </span>
                                     ))}
                                 </>
                             }

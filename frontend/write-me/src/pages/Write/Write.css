@@ -37,7 +37,7 @@
     text-align: center;
 }
 
-.keywordName {
+.keywordName, .hint{
     margin-right: 5px;
 }
 

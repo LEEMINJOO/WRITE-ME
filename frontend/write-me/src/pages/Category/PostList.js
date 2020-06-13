@@ -2,7 +2,9 @@ import React, {useState, useEffect } from "react";
 import axios from "axios";
 import './CategoryKeyword.css';
 import Post from "./Post";
-//import PageNumberlist from "./PageNumberlist";
+import { Pagination } from '@material-ui/lab';
+import {usePagination} from "../../components/usePagination";
+import {getTime} from "../../components/getTime";
 
 function PostList({ keywordID, keywordName }) {
     const [state, setState] = useState({
@@ -11,9 +13,12 @@ function PostList({ keywordID, keywordName }) {
         posts: null
     });
     const {loading, posts} = state;
+    const pages = usePagination(state.posts, 6);
+    const { currentData, maxPage, handleChange } = pages;
 
     useEffect( () => {
         setState({...state, loading: true});
+
         axios.get(`http://localhost:8080/api/post?keywordID=${keywordID}`)
             .then(data => {
                 setState({
@@ -32,12 +37,12 @@ function PostList({ keywordID, keywordName }) {
         <>
             {keywordID !== null &&
                 <div className="post_list">                   
-                    {loading ? (
+                    {(loading || currentData === null) ? (
                         <span >  </span>
                         ) : (                         
                             <div className="posts">
                                 <span className="keyword_title"> {keywordName} </span>
-                                {posts.map(post => (
+                                {currentData.map(post => (
                                     <Post
                                         key={post.id}
                                         id={post.id}
@@ -48,6 +53,7 @@ function PostList({ keywordID, keywordName }) {
                                         date={post.date}
                                     />
                                 ))}
+                                <Pagination count={maxPage}  onChange={handleChange} />
                             </div>
                         )
                     }

@@ -88,7 +88,7 @@
   }
 
   .menubar li:hover li a{
-    background:none;
+    background: rgb(71,71,71);
   }
 
   .menubar li ul a{
@@ -102,7 +102,7 @@
   }
 
   .menubar li ul a:hover, .menubar li ul li:hover a{
-    background: rgb(71,71,71);
+    background: grey;
     border:0px;
     color:#ffffff;
     text-decoration:none;
@@ -165,7 +165,7 @@
     text-decoration:none;
   }
 
-  .user_menubar li a:hover, .menubar ul li:hover a{
+  .user_menubar li a:hover, .user_menubar ul li:hover a{
     background: rgb(71,71,71);
     color:#FFFFFF;
     text-decoration:none;
