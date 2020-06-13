@@ -34,7 +34,7 @@ function PostList({ keywordID, keywordName }) {
     return (
         <>
             {keywordID !== null &&
-                <div className="post_list">                   
+                <div className="post_list">
                     {state.loading ?
                         <span> Loading . . . </span>
                         :
@@ -45,9 +45,7 @@ function PostList({ keywordID, keywordName }) {
                                     <span className="keyword_title"> {keywordName} </span>
                                     {currentData.map(post => (
                                         <Post
-                                            key={post.id}
-                                            id={post.id}
-                                            userID={post.userID}
+                                            username={post.username}
                                             title={post.postTitle}
                                             summary={post.postDetail}
                                             ci={post.categoryID}

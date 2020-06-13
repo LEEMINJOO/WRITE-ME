@@ -21,13 +21,24 @@
 
 .postset .post_date{
     width: 250px;
-    height: 16px;
+    height: 20px;
     margin:5px 0px 10px 400px;
-    padding:5px 5px 0px 5px;
+    padding:0px 5px 0px 5px;
     font-size: 14px;
     left:90%;
     display: flex;
     justify-content: flex-end;
+
+}
+.postset .post_username{
+    width: 250px;
+    height: 20px;
+    margin:5px 0px 10px 0px;
+    padding:0px 5px 0px 5px;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-start;
+
 
 }
 
@@ -35,7 +46,7 @@
     font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
     padding: 0px 0px 10px 0px;
     width: 500px;
-    height: 25px;
+    height: 35px;
     font-weight: normal;
     font-size: 20px;
     line-height: 28px;
