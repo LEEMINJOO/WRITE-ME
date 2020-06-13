@@ -34,9 +34,7 @@ function CategoryKeyword()  {
 
     return (
       <section className="container">
-        {state.loading ? (
-            <div className="loader__text"> Keyword Loading... </div>
-        ) : (
+        {!state.loading &&
             <div className="keyword_table">
                 <p className="category_name"> {name} </p>
                 {state.keywords === undefined || state.keywords === null ?
@@ -51,7 +49,7 @@ function CategoryKeyword()  {
                     </div>
                 }
             </div>
-        )}
+        }
         {keyword &&
             <PostList keywordID={keyword.keywordID} keywordName={keyword.keywordName}/>
         }

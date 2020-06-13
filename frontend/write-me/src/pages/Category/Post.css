@@ -9,7 +9,9 @@
     color: black;
 }
 
-.post_data{
+.post_data, .keyword_title {
+    margin-left: 100px;
+    padding-right: 50px;
     margin-top: 5px;
 }
 
@@ -22,14 +24,14 @@
 .postset .post_date{
     width: 250px;
     height: 20px;
-    margin:5px 0px 10px 400px;
+    margin:10px 0px 10px 300px;
     padding:0px 5px 0px 5px;
     font-size: 14px;
-    left:90%;
+    left:70%;
     display: flex;
     justify-content: flex-end;
-
 }
+
 .postset .post_username{
     width: 250px;
     height: 20px;
