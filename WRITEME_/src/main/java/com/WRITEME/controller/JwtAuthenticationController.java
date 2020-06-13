@@ -1,5 +1,7 @@
 package com.WRITEME.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -8,16 +10,20 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.WRITEME.config.JwtTokenUtil;
 import com.WRITEME.model.JwtRequest;
 import com.WRITEME.model.JwtResponse;
+import com.WRITEME.model.PostDTO;
 import com.WRITEME.model.UserDTO;
 import com.WRITEME.service.JwtUserDetailsService;
+
 
 @RestController
 @CrossOrigin
@@ -31,6 +37,7 @@ public class JwtAuthenticationController {
 
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
+
 
 	
 	@RequestMapping(value = "/api/authenticate", method = RequestMethod.POST)
@@ -52,12 +59,63 @@ public class JwtAuthenticationController {
 		return ResponseEntity.ok(userDetailsService.save(user));
 	}
 	
+	/*
+	 * 
+	 * 
+	 * @CrossOrigin
+    @RequestMapping(value = "/api/post")
+    public List<PostDTO> getPostbyKeywordID(@RequestParam(value = "keywordID", defaultValue = "") int keywordID) 
+    		throws Exception {
+        /* TODO: 조회수 증가 */
+     /*   final PostDTO param = new PostDTO(0, null, null, null, keywordID, 0, null);
+        //`postID`, `postTitle`, `postDetail`, `userID`, `keywordID`, `categoryID`, `date`
+        final List<PostDTO> postList = postDAO.getPostbyKeywordID(param);
+        return postList;
+    }*/
+	
 	
 	//username 가져오기
-	/*@RequestMapping(value = "/api/auth/me", method = RequestMethod.GET)
-	public ResponseEntity<?> getUser(@RequestBody UserDTO user) throws Exception {
+	/*@PostMapping(path="/newuser/check")
+	public Map<String, Object> checker(@RequestBody Map<String, String> m) {
+		final Logger logger = LoggerFactory.getLogger(ApplicationRunner.class);
+		String username = null;
+		Map<String, Object> map = new HashMap<>();
+		try {
+		username = jwtTokenUtil.getUsernameFromToken(m.get("accessToken"));
+		} catch (IllegalArgumentException e) {
+		logger.warn("Unable to get JWT Token");
+		} catch (ExpiredJwtException e) {}
+		if (username != null) {
+		map.put("success", true);
+		map.put("username", username);
+		} else {
+		map.put("success", false);
+		}
+		return map;
+		}*/
+	
+	/*@ResponseBody
+	@RequestMapping("/api/auth/me")
+	public Map<String, Object> getUsername (@RequestParam(value = "tok") String tok) {
+		String username = jwtTokenUtil.getUsernameFromToken(tok);
 		
+		Map<String, Object> map = new LinkedHashMap<>();
+		map.put("username", username);
+		
+		return map;
 	}*/
+	
+
+	/*
+	 * 	//retrieve username from jwt token
+	public String getUsernameFromToken(String token) {
+		return getClaimFromToken(token, Claims::getSubject);
+	}
+	
+		public String getToken() {
+		return this.jwttoken;
+	}
+	 * */
 
 	private void authenticate(String username, String password) throws Exception {
 		try {

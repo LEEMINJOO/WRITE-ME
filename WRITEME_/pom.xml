@@ -3,6 +3,7 @@
   <groupId>com.WRITEME</groupId>
   <artifactId>WRITEME</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
 <parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -75,6 +76,12 @@
 		<version>1.18.12</version>
 		<scope>provided</scope>
 	</dependency>
+	
+	<dependency>
+    <groupId>com.google.api-client</groupId>
+    <artifactId>google-api-client</artifactId>
+    <version>1.23.0</version>
+</dependency>
 
 		
 	</dependencies>
@@ -86,7 +93,7 @@
 	<plugin>
     <groupId>com.google.cloud.tools</groupId>
     <artifactId>appengine-maven-plugin</artifactId>
-    <version>1.3.1</version>
+    <version>2.2.0</version>
     
     <configuration>
           <project>readme-writeme</project>
@@ -94,6 +101,81 @@
           <deploy.stopPreviousVersion>true</deploy.stopPreviousVersion>
         </configuration>
 </plugin>
+
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+    <version>3.0.2</version>
+    <configuration>
+        <archive>
+            <manifest>
+                <mainClass>com.WRITEME.SpringBootWRITEMEApplication</mainClass>
+                <addClasspath>true</addClasspath>
+                <addExtensions>true</addExtensions>
+                <packageName>com.WRITME</packageName>
+            </manifest>
+        </archive>
+    </configuration>
+</plugin>
+
+
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+
+
+
+
+
+<!--    <plugin>
+     <groupId>org.eclipse.jetty</groupId>
+     <artifactId>jetty-maven-plugin</artifactId>
+     <version>9.3.7.v20160115</version>
+   </plugin>
+
+
+ <plugin>
+      
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>3.1.0</version>
+      <configuration>
+        <archive>
+          <manifest>
+            <addClasspath>true</addClasspath>
+            <classpathPrefix>lib/</classpathPrefix>
+            <mainClass>com.WRITEME.SpringBootWRITEMEApplication</mainClass>
+          </manifest>
+        </archive>
+      </configuration>
+    </plugin> -->
+    
+    
+<!--  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-shade-plugin</artifactId>
+    <version>2.3</version>
+    <executions>
+       <execution>
+            <phase>package</phase>
+            <goals>
+               <goal>shade</goal>
+            </goals>
+            <configuration>
+                 <transformers>
+                    <transformer 
+implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                        <mainClass>com.WRITEME.SpringBootWRITEMEApplication</mainClass>
+                    </transformer>
+                 </transformers>
+             </configuration>
+       </execution>
+    </executions>
+</plugin> -->
+
+
+
 </plugins>
 
 </build>
