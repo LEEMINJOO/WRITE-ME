@@ -4,12 +4,12 @@ import './Home.scss';
 import '../../reset.css';
 import KeywordToday from "./KeywordToday";
 import { FaAngleDown, FaPencilAlt } from "react-icons/all";
-import {getTime} from "../../components/getTime";
+import {getLastUpdateTime} from "../../components/getLastUpdateTime";
 
 function Home() {
     const [categoryID, setCategoryID] = useState(0);
     const category = ["","정치","경제","사회","세계","IT/과학"];
-    const now = getTime();
+    const now = getLastUpdateTime();
     return (
         <div className="home">
             <div className="center">

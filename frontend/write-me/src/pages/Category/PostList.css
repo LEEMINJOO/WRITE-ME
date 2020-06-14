@@ -44,6 +44,10 @@
 
 }
 
+a {
+    color: black;
+}
+
 .postset .post_title {
     font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
     padding: 0px 0px 10px 0px;

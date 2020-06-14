@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from "react";
 import axios from "axios";
-import './CategoryKeyword.css';
-import Post from "./Post";
+import '../Category/CategoryKeyword.css';
+import Post from "./PostListItem";
 
 function UserPostList({ keywordID, keywordName }) {
     const [state, setState] = useState({

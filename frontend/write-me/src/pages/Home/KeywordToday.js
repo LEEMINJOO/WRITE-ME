@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import { NavLink } from 'react-router-dom';
 import './Keyword.scss';
 import '../../reset.css';
-import {getTime} from "../../components/getTime";
+import {getLastUpdateTime} from "../../components/getLastUpdateTime";
 import axios from "axios";
 import * as moment from "moment";
 
@@ -19,7 +19,7 @@ function KeywordToday({categoryID}) {
                 setState({
                     ...state,
                     loading: false,
-                    data: data.data.filter(data => (data.date.slice(0,10) === getTime().date && data.time === getTime().time))
+                    data: data.data.filter(data => (data.date.slice(0,10) === getLastUpdateTime().date && data.time === getLastUpdateTime().time))
                 });
             })
             .catch(error => {

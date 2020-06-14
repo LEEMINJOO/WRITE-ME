@@ -10,7 +10,7 @@ import Register from "./pages/Users/Register";
 import Header from "./pages/Header/Header";
 import CategoryKeyword from "./pages/Category/CategoryKeyword";
 import Write from "./pages/Write/Write";
-
+import Post from "./pages/Post/Post";
 import './reset.css';
 
 function App() {
@@ -34,6 +34,7 @@ function App() {
                 <Route exact path='/' component={Home}/>
                 <Route path='/user/login' component={Login}/>
                 <Route path='/user/Register' component={Register}/>
+                <Route path='/post/@:username/:postID' component={Post}/>
                 <Route path='/category/:name' component={CategoryKeyword}/>
                 <Route path='/write' component={Write}/>
                 <Redirect from="*" to="/" />

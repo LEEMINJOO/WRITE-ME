@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from "react";
 import axios from "axios";
 import './CategoryKeyword.css';
-import Post from "./Post";
+import PostListItem from "./PostListItem";
 import { Pagination } from '@material-ui/lab';
 import { usePagination } from "../../components/usePagination";
 
@@ -42,12 +42,14 @@ function PostList({ keywordID, keywordName }) {
                                 : <>
                                     <span className="keyword_title"> {keywordName} </span>
                                     {currentData.map(post => (
-                                        <Post
+                                        <PostListItem
+                                            key={post.postID}
                                             username={post.username}
                                             title={post.postTitle}
                                             summary={post.postDetail}
                                             ci={post.categoryID}
                                             date={post.date}
+                                            postID={post.postID}
                                         />
                                     ))}
                                     <Pagination count={maxPage} onChange={handleChange} style={{margin: '0 auto 0 auto'}}/>

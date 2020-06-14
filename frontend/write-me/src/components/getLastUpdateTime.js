@@ -1,6 +1,6 @@
 import moment from "moment";
 
-export const getTime = () => {
+export const getLastUpdateTime = () => {
     let date = moment().format();
     const now = date.substr(11,2);
     if(now < 7){

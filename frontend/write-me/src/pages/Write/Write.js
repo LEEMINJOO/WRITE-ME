@@ -25,6 +25,7 @@ function Write() {
             .catch(error => {
                 setState({ ...state, loading: false, error });
             });
+        console.log(state.hint);
     }, []);
 
     const [post, setPost] = useState({
