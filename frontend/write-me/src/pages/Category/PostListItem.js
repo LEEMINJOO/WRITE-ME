@@ -11,11 +11,11 @@ function PostListItem({ title,  summary, date, username, postID }) {
                          to={{
                              pathname: `/post/@${username}/${postID}`,
                              state: {
-                                 title,
-                                 summary,
                                  date,
-                                 username,
-                                 postID
+                                 postDetail: summary,
+                                 postID,
+                                 postTitle: title,
+                                 username
                              }
                          }}
                > {title.slice(0,30)}...

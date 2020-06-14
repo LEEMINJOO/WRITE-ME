@@ -3,10 +3,12 @@ import { useLocation } from "react-router-dom";
 import moment from "moment";
 import "./Write.css";
 import axios from "axios";
+import qs from 'querystring'
+import {history} from "../../helpers";
 
 function Write() {
     const location = useLocation();
-    const { keywordName, keywordID } = location.state;
+    const { keywordName, keywordID, categoryID } = location.state;
     const [state, setState] = useState({
         loading: true,
         error: null,
@@ -31,10 +33,7 @@ function Write() {
     const [post, setPost] = useState({
         postTitle: '',
         postDetail: '',
-        username: "mm123",
-        keywordID: keywordID,
-        categoryID: keywordName,
-        date: moment().format()
+        username: "test1"
     });
 
     function handleChange(e) {
@@ -44,13 +43,44 @@ function Write() {
 
     function handleSubmit(e) {
         e.preventDefault();
+        const date = moment().format();
         if (post.postTitle === "") {
             return alert('제목을 입력해주세요');
         } else if (post.postDetail === "") {
             return alert('내용을 입력해주세요.');
         }
-        if (post.postTitle && post.postDetail) {
 
+        if (post.postTitle && post.postDetail) {
+            axios({
+                method: 'post',
+                url: `http://localhost:8080/api/post`,
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded;'
+                },
+                data: qs.stringify({
+                    postTitle: post.postTitle,
+                    postDetail: post.postDetail,
+                    username: post.username,
+                    keywordID,
+                    categoryID,
+                    date
+                })
+            }).then(data => {
+                    const res = data.data;
+                    alert("글 작성 성공");
+                    const state = {
+                        date: res.date,
+                        postDetail: res.postDetail,
+                        postID: res.postID,
+                        postTitle: res.postTitle,
+                        username: res.username
+                    };
+                    history.pushState(state, '', `post/@${res.username}/${res.postID}`);
+                })
+                .catch(error => {
+                    alert("글 작성 실패");
+                });
         }
     }
 

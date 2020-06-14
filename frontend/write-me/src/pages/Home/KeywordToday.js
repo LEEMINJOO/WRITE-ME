@@ -43,7 +43,8 @@ function KeywordToday({categoryID}) {
                                 pathname:`/write`,
                                 state: {
                                     keywordID: keyword.keywordID,
-                                    keywordName: keyword.keywordName
+                                    keywordName: keyword.keywordName,
+                                    categoryID
                                 }
                             }}> {keyword.keywordName}
                             </NavLink>
