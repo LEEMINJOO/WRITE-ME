@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from "react";
-import { useLocation, NavLink } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import "./Post.css";
 import axios from "axios";
 
 function Post() {
-    const location = useLocation();
-    const { postID } = location.state;
+    let { postID } = useParams();
 
     const [state, setState] = useState({
         loading: true,

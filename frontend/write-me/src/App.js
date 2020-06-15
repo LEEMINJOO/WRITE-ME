@@ -13,6 +13,7 @@ import Write from "./pages/Write/Write";
 import Post from "./pages/Post/Post";
 import UserPostList from "./pages/Users/UserPostList";
 import './reset.css';
+import {PrivateRoute} from "./components/PrivateRoute";
 
 function App() {
     const alert = useSelector(state => state.alert);
@@ -38,7 +39,7 @@ function App() {
                 <Route exact path='/post/@:username' component={UserPostList}/>
                 <Route path='/post/@:username/:postID' component={Post}/>
                 <Route path='/category/:name' component={CategoryKeyword}/>
-                <Route path='/write' component={Write}/>
+                <PrivateRoute path='/write' component={Write}/>
                 <Redirect from="*" to="/" />
             </Switch>
         </Router>

@@ -50,4 +50,8 @@
 #post_username {
     margin-left: 10px;
 }
+
+a {
+    color: dimgray;
+}
 #post_summary:focus { outline : none; }

@@ -7,7 +7,6 @@ import {FaBars, FaUser } from "react-icons/all";
 
 function Header() {
     const user = useSelector(state => state.authentication);
-    console.log(localStorage.getItem('user'));
     const location = useLocation();
     return(
         <div className="header">
