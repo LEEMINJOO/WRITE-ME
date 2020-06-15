@@ -16,7 +16,7 @@ function CategoryKeyword()  {
     });
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/api/posts/distinctKeyword?categoryID=${categoryID}`)
+        axios.get(`https://readme-writeme.appspot.com/api/posts/distinctKeyword?categoryID=${categoryID}`)
             .then(data => {
                 setState({
                     ...state,

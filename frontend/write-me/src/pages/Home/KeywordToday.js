@@ -14,7 +14,7 @@ function KeywordToday({categoryID}) {
     });
     useEffect(() => {
         setState({...state, loading: true});
-        axios.get(`http://localhost:8080/api/posts/keyword?categoryID=${categoryID}`)
+        axios.get(`https://readme-writeme.appspot.com/api/posts/keyword?categoryID=${categoryID}`)
             .then(data => {
                 setState({
                     ...state,

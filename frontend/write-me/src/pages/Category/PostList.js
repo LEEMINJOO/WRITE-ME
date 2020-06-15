@@ -16,7 +16,7 @@ function PostList({ keywordID, keywordName }) {
 
     useEffect( () => {
         setState({...state, loading: true});
-        axios.get(`http://localhost:8080/api/post?keywordID=${keywordID}`)
+        axios.get(`https://readme-writeme.appspot.com/api/post?keywordID=${keywordID}`)
             .then(data => {
                 setState({
                     ...state,

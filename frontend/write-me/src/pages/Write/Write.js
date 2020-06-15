@@ -53,7 +53,7 @@ function Write() {
         if (post.postTitle && post.postDetail) {
             axios({
                 method: 'post',
-                url: `http://localhost:8080/api/post`,
+                url: `https://readme-writeme.appspot.com/api/post`,
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/x-www-form-urlencoded;'

@@ -13,7 +13,7 @@ function UserPostList({ keywordID, keywordName }) {
 
     useEffect( () => {
         setState({...state, loading: true});
-        axios.get(`http://localhost:8080/api/post/user?username=${username}`)
+        axios.get(`https://readme-writeme.appspot.com/api/post/user?username=${username}`)
             .then(data => {
                 setState({
                     ...state,
