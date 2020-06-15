@@ -35,12 +35,12 @@ function PostList({ keywordID, keywordName }) {
         <>
             {keywordID !== null &&
                 <div className="post_list">
+                    <div className="keyword_title"> {keywordName} </div>
                     {!state.loading &&
                         <div className="posts">
                             {(currentData === null || currentData === undefined) ?
                                 <span className="msg"> 글을 불러올 수 없습니다. </span>
                                 : <>
-                                    <span className="keyword_title"> {keywordName} </span>
                                     {currentData.map(post => (
                                         <PostListItem
                                             key={post.postID}
