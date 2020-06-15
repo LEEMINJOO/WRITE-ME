@@ -16,7 +16,7 @@
 }
 
 .post_list .keyword_title {
-    padding: 0 0 0 130px;
+    padding: 0 0 0 120px;
     margin: 0;
     background-color: white;
     position: sticky;
@@ -28,7 +28,7 @@
 .postset .post_summary{
     width: 550px;
     font-size: 14px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .postset .post_date{
@@ -64,7 +64,7 @@ a {
 
 .postset .post_title {
     font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
-    padding: 5px 0px 10px 0px;
+    padding: 5px 0px 5px 0px;
     width: 500px;
     height: 35px;
     font-weight: normal;

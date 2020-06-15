@@ -1,12 +1,20 @@
 import React, {useEffect, useState} from 'react'
-import { useParams } from "react-router-dom";
+import { useParams,
+    NavLink,
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    useRouteMatch,
+} from "react-router-dom";
 import axios from "axios";
 import "./CategoryKeyword.css";
 import "./KeywordTable.scss";
 import PostList from "./PostList";
 import { getCategoryID } from "../../components/getCategoryID";
+import {history} from "../../helpers";
 
 function CategoryKeyword()  {
+    let { url, path } = useRouteMatch();
     const { name } = useParams();
     const categoryID = getCategoryID(name);
     const [state, setState] = useState({
@@ -30,8 +38,6 @@ function CategoryKeyword()  {
         console.log(state.keywords);
     }, [categoryID]);
 
-    const [keyword, setKeyword] = useState(null);
-
     return (
       <section className="container">
         {!state.loading &&
@@ -42,17 +48,28 @@ function CategoryKeyword()  {
                     :
                     <div className ="grid">
                       {state.keywords.map(keyword => (
-                          <button key={keyword.keywordID} onClick={() => setKeyword(keyword)} className="item">
-                              {keyword.keywordName}
-                          </button>
+                          <NavLink key={keyword.keywordID}
+                              to={{
+                                  pathname:`${url}/${keyword.keywordID}`,
+                                  state: {
+                                      keywordID: keyword.keywordID,
+                                      keywordName: keyword.keywordName,
+                                  }
+                              }}>
+                              <button className="item">
+                                  {keyword.keywordName}
+                              </button>
+                          </NavLink>
                       ))}
                     </div>
                 }
             </div>
         }
-        {keyword &&
-            <PostList keywordID={keyword.keywordID} keywordName={keyword.keywordName}/>
-        }
+          <Switch>
+              <Route path={`${path}/:keywordID`}>
+                  <PostList/>
+              </Route>
+          </Switch>
     </section>
     )
 }

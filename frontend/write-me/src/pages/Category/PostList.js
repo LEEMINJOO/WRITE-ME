@@ -4,8 +4,12 @@ import './CategoryKeyword.css';
 import PostListItem from "./PostListItem";
 import { Pagination } from '@material-ui/lab';
 import { usePagination } from "../../components/usePagination";
+import { useLocation } from "react-router-dom";
 
-function PostList({ keywordID, keywordName }) {
+function PostList() {
+    const location = useLocation();
+    const { keywordName, keywordID } = location.state;
+
     const [state, setState] = useState({
         loading: true,
         error: null,

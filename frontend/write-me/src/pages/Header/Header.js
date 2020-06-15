@@ -30,7 +30,7 @@ function Header() {
                     <Link to="/"> <img src="/public/logo.gif" alt="WRITE ME"/> </Link>
                 }
             </span>
-            {user.user ?
+            {user.username === null ?
                 (
                     <span className="login_register">
                     <Link to="/user/login"> 로그인 </Link>
