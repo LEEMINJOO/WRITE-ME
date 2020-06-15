@@ -16,7 +16,7 @@ function Write() {
     });
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/api/posts/hint?keywordID=${keywordID}`)
+        axios.get(`https://readme-writeme.appspot.com/api/posts/hint?keywordID=${keywordID}`)
             .then(data => {
                 setState({
                     ...state,
@@ -96,7 +96,7 @@ function Write() {
                     <p id='keyword_txt1'>
                     <span className="keywordName"> {keywordName}:  </span>
                     {state.loading ? (
-                        <span className="loader__text"> Hint Loading... </span>
+                        <span className="spinner-border spinner-border-sm mr-1"/>
                     ) : (
                         <>
                             {state.hint === undefined || state.hint === null ?

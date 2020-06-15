@@ -1,14 +1,8 @@
-import config from 'config';
-import { authHeader } from '../helpers';
-
 export const userService = {
     login,
     logout,
     register,
-    getAll,
-    getById,
-    update,
-    delete: _delete
+    getUsername
 };
 
 function login(username, password) {
@@ -18,14 +12,34 @@ function login(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch(`http://localhost:8080/api/authenticate`, requestOptions)
+    return fetch(`https://readme-writeme.appspot.com/api/authenticate`, requestOptions)
         .then(handleResponse)
         .then(response => {
             if(response.token){
                 localStorage.setItem('user', JSON.stringify(response.token));
-                localStorage.setItem('username', username);
-                console.log(response);
                 return response.token;
+            }
+        });
+}
+
+function getUsername() {
+    let user = localStorage.getItem('user') !== "undefined" && typeof localStorage.getItem('user') !== "undefined"
+        && JSON.stringify(localStorage.getItem('user'));
+    if(!user) return;
+    console.log(user);
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            'authorization': user
+        }
+    };
+    return fetch(`https://readme-writeme.appspot.com/api/auth/me`, requestOptions)
+        .then(handleResponse)
+        .then(response => {
+            if (response) {
+                console.log(response);
+                return response;
             }
         });
 }
@@ -33,24 +47,6 @@ function login(username, password) {
 function logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
-}
-
-function getAll() {
-    const requestOptions = {
-        method: 'GET',
-        headers: authHeader()
-    };
-
-    return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);
-}
-
-function getById(id) {
-    const requestOptions = {
-        method: 'GET',
-        headers: authHeader()
-    };
-
-    return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
 }
 
 function register(user) {
@@ -61,26 +57,6 @@ function register(user) {
     };
 
     return fetch(`http://localhost:8080/api/register/local`, requestOptions).then(handleResponse);
-}
-
-function update(user) {
-    const requestOptions = {
-        method: 'PUT',
-        headers: { ...authHeader(), 'Content-Type': 'application/json' },
-        body: JSON.stringify(user)
-    };
-
-    return fetch(`${config.apiUrl}/users/${user.id}`, requestOptions).then(handleResponse);;
-}
-
-// prefixed function name with underscore because delete is a reserved word in javascript
-function _delete(id) {
-    const requestOptions = {
-        method: 'DELETE',
-        headers: authHeader()
-    };
-
-    return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

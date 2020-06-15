@@ -1,7 +1,10 @@
 import { userConstants } from '../constants';
+import {userService} from "../services";
 
 let user = localStorage.getItem('user') !== "undefined" && typeof localStorage.getItem('user') !== "undefined"
     && JSON.parse(localStorage.getItem('user'));
+let username = userService.getUsername();
+
 const initialState = user ? { loggedIn: true, user } : {};
 
 export function authentication(state = initialState, action) {
@@ -15,6 +18,7 @@ export function authentication(state = initialState, action) {
       return {
         loggedIn: true,
         user: action.user,
+        username: action.username
       };
     case userConstants.LOGIN_FAILURE:
       return {};

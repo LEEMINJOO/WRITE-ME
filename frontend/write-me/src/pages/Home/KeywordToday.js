@@ -31,7 +31,7 @@ function KeywordToday({categoryID}) {
     return (
         <div className="keyword">
             {state.loading ? (
-                <div> loading ... </div>
+                <div> Loading . . . </div>
             ) : (
                 <div className="keywords_list">
                 {state.data === undefined || state.data === null ?
