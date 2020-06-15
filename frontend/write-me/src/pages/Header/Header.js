@@ -7,7 +7,7 @@ import {FaBars, FaUser } from "react-icons/all";
 
 function Header() {
     const user = useSelector(state => state.authentication);
-    console.log(user);
+    console.log(localStorage.getItem('user'));
     const location = useLocation();
     return(
         <div className="header">
@@ -30,7 +30,7 @@ function Header() {
                     <Link to="/"> <img src="/public/logo.gif" alt="WRITE ME"/> </Link>
                 }
             </span>
-            {user.username === null ?
+            {localStorage.getItem('user') === null ?
                 (
                     <span className="login_register">
                     <Link to="/user/login"> 로그인 </Link>

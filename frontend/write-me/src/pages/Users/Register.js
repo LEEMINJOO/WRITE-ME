@@ -38,21 +38,21 @@ function Register() {
                 <h2><p className="registerlogo">WITH WRITEME</p></h2>
                 <div className="form-groupA">
                     <div className="label_name">아이디</div>
-                    <input type="text" name="username" id="rusername" value={user.username} onChange={handleChange}/>
+                    <input type="text" name="username" id="rusername" value={user.username} onChange={handleChange} className={'form-control' + (submitted && !user.username ? ' is-invalid' : '')}/>
                     {submitted && !user.username &&
                     <div className="invalid_feedback">필수 정보입니다.</div>
                     }
                 </div>
                 <div className="form-groupB">
                     <div className="label_name">비밀번호</div>
-                    <input type="password" name="password" id="rpassword" value={user.password} onChange={handleChange}/>
+                    <input type="password" name="password" id="rpassword" value={user.password} onChange={handleChange} className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')}/>
                     {submitted && !user.password &&
                     <div className="invalid_feedback">필수 정보입니다.</div>
                     }
                 </div>
                 <div className="form-groupC">
                     <div className="label_name">비밀번호 확인</div>
-                    <input type="password" name="passwordChk" id="rpassword" value={user.passwordChk} onChange={handleChange}/>
+                    <input type="password" name="passwordChk" id="rpassword" value={user.passwordChk} onChange={handleChange} className={'form-control' + (submitted && !user.passwordChk ? ' is-invalid' : '')}/>
                     {submitted && !user.passwordChk &&
                     <div className="invalid_feedback">필수 정보입니다.</div>
                     }

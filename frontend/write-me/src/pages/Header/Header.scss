@@ -179,7 +179,7 @@
     margin:0px;
     border:0px;
     position:absolute;
-    width:200px;
+    width:100px;
     /*top:1em;
     /*left:0;*/
   }
@@ -194,11 +194,11 @@
     float:none;
     margin:0px;
     padding:0px;
-    width:200px;
+    width:100px;
   }
 
   .user_menubar li:hover li a{
-    background:none;
+    background: rgb(71,71,71);
   }
 
   .user_menubar li ul a{
@@ -212,7 +212,7 @@
   }
 
   .user_menubar li ul a:hover, .user_menubar li ul li:hover a{
-    background: rgb(71,71,71);
+    background: grey;
     border:0px;
     color:#ffffff;
     text-decoration:none;
