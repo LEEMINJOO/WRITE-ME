@@ -36,10 +36,18 @@
     border: none;
 }
 
-#post_date{
+#post_info {
     display: flex;
     justify-content: flex-end;
     margin-right:60px;
+    color: dimgray;
 }
 
+#post_date {
+    margin-right: 10px;
+}
+
+#post_username {
+    margin-left: 10px;
+}
 #post_summary:focus { outline : none; }

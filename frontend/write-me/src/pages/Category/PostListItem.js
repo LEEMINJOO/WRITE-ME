@@ -10,13 +10,7 @@ function PostListItem({ title,  summary, date, username, postID }) {
                 <NavLink className="post_title"
                          to={{
                              pathname: `/post/@${username}/${postID}`,
-                             state: {
-                                 date,
-                                 postDetail: summary,
-                                 postID,
-                                 postTitle: title,
-                                 username
-                             }
+                             state: { postID }
                          }}
                > {title.slice(0,30)}...
                 </NavLink>

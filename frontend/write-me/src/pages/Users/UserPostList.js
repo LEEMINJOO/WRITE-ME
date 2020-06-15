@@ -1,9 +1,12 @@
 import React, {useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import '../Category/CategoryKeyword.css';
-import Post from "./PostListItem";
+import Post from "../Category/PostListItem";
 
-function UserPostList({ keywordID, keywordName }) {
+function UserPostList() {
+    const location = useLocation();
+    const { username } = location.state;
     const [state, setState] = useState({
         loading: true,
         error: null,
@@ -25,31 +28,29 @@ function UserPostList({ keywordID, keywordName }) {
             .catch(error => {
                 setState({ ...state, loading: false, error });
             });
-    }, [keywordID]);
+    }, []);
 
     return (
         <>
-            {keywordID !== null &&
-                <div className="post_list">                   
-                    {loading ? (
-                        <span >  </span>
-                        ) : (                         
-                            <div className="posts">
-                                <span className="keyword_title"> {keywordName} </span>
-                                {posts.map(post => (
-                                    <Post
-                                        keywordID={post.keywordID}
-                                        title={post.postTitle}
-                                        summary={post.postDetail}
-                                        ci={post.categoryID}
-                                        date={post.date}
-                                    />
-                                ))}
-                            </div>
-                        )
-                    }
-                </div>
-            }
+            <div className="post_list">
+                {loading ? (
+                    <span > Loading... </span>
+                    ) : (
+                        <div className="posts">
+                            <span className="keyword_title"> {username} </span>
+                            {posts.map(post => (
+                                <Post
+                                    keywordID={post.keywordID}
+                                    title={post.postTitle}
+                                    summary={post.postDetail}
+                                    ci={post.categoryID}
+                                    date={post.date}
+                                />
+                            ))}
+                        </div>
+                    )
+                }
+            </div>
         </>
     );
 }
