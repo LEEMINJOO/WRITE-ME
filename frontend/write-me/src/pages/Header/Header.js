@@ -25,8 +25,9 @@ function Header() {
             </span>
 
             <span className="logo">
-                {location.pathname !== "/" &&
-                    <Link to="/"> <img src="/public/logo.gif" alt="WRITE ME"/> </Link>
+                {location.pathname === "/" ?
+                    <span className="logo_none"> </span>
+                    : <Link to="/"> <img src="/public/logo.gif" className="logo_block" alt="WRITE ME"/> </Link>
                 }
             </span>
             {localStorage.getItem('user') === null ?
@@ -43,7 +44,7 @@ function Header() {
                             <li> <FaUser/> {user.username}
                                 <ul>
                                     <li><NavLink to="/user/login" > 로그아웃 </NavLink></li>
-                                    <li><NavLink to="/" > 나의 프로필 </NavLink></li>
+                                    <li><NavLink to={`/post/@${user.username}`} > 나의 프로필 </NavLink></li>
                                 </ul>
                             </li>
                         </ul>

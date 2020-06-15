@@ -5,7 +5,6 @@
   Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   height: 100%;
   box-sizing: border-box;
-
 }
 
 .title_category{
@@ -51,6 +50,8 @@
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
   width: 210px;
   height:500px;
 }

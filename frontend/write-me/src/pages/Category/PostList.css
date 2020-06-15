@@ -1,3 +1,16 @@
+a {
+    color: black;
+}
+
+.posts {
+    padding: 0;
+    margin: 50px 0 0 0px;
+    height: 100%;
+}
+
+.post_list{
+    margin: 100px 0 0 480px;
+}
 .postset .post {
     flex-direction:column;
     background-color: white;
@@ -10,18 +23,19 @@
 }
 
 .post_data {
-    margin-left: 100px;
+    margin-left: 50px;
     padding-right: 50px;
     margin-top: 5px;
 }
 
 .post_list .keyword_title {
-    padding: 0 0 0 120px;
-    margin: 0;
+    padding: 20px 0 0 20px;
+    margin: 0 0 0 30px;
     background-color: white;
-    position: sticky;
-    top: 100px;
-    height: 50px;
+    position: fixed;
+    top: 80px;
+    left: 480px;
+    height: 70px;
 }
 
 
@@ -40,6 +54,7 @@
     left:70%;
     display: flex;
     justify-content: flex-end;
+    color: dimgray;
 }
 
 .postset .post_username{
@@ -50,16 +65,7 @@
     font-size: 14px;
     display: flex;
     justify-content: flex-start;
-}
-
-a {
-    color: black;
-}
-
-.posts {
-    padding: 0 0 0 20px;
-    margin: 0;
-    height: 100%;
+    color: dimgray;
 }
 
 .postset .post_title {
@@ -73,7 +79,7 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-
+    color: black;
 }
 
 .postset hr {

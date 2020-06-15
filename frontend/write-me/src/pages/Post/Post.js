@@ -41,12 +41,7 @@ function Post() {
                 <div id="post_info">
                     <span id="post_date"> {post.date.slice(0,10)} </span>
                     ⦁
-                    <NavLink
-                        to={{
-                            pathname:`/post/@${post.username}`,
-                            state: { username: post.username }
-                        }}
-                        id="post_username"> By {post.username} </NavLink>
+                    <NavLink to={`/post/@${post.username}`} id="post_username"> By {post.username} </NavLink>
                 </div>
                 <div>
                     <p id='post_summary'>{post.postDetail} </p>

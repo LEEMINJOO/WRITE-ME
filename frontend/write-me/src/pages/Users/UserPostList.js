@@ -1,12 +1,12 @@
 import React, {useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import axios from "axios";
 import '../Category/CategoryKeyword.css';
-import Post from "../Category/PostListItem";
+import PostListItem from "../Category/PostListItem";
 
 function UserPostList() {
-    const location = useLocation();
-    const { username } = location.state;
+    let { username } = useParams();
+
     const [state, setState] = useState({
         loading: true,
         error: null,
@@ -39,12 +39,13 @@ function UserPostList() {
                         <div className="posts">
                             <span className="keyword_title"> {username} </span>
                             {posts.map(post => (
-                                <Post
-                                    keywordID={post.keywordID}
+                                <PostListItem
+                                    key={post.postID}
+                                    username={post.username}
                                     title={post.postTitle}
                                     summary={post.postDetail}
-                                    ci={post.categoryID}
                                     date={post.date}
+                                    postID={post.postID}
                                 />
                             ))}
                         </div>

@@ -1,10 +1,9 @@
 .header {
   display: flex;
-  position: sticky;
+  position: fixed;
   justify-content: space-between;
   top: 0;
-  height: 100px;
-
+  height: 80px;
   padding: 0;
   margin: 0;
   flex-wrap: wrap;
@@ -13,10 +12,14 @@
 
   .logo{
     img {
-      display:flex;
       width: 460px;
       height: 80px;
-      margin: 0 auto 0 auto;
+      margin-left: 315px
+    }
+    .logo_none {
+      width: 460px;
+      height: 80px;
+      margin-left: 775px;
     }
   }
 
@@ -120,11 +123,13 @@
     color: dimgray;
   }
   .user {
-    margin-right: 10vh;
+    justify-content: flex-end;
+    margin-left: 300px;
     margin-top: 50px;
   }
   .login_register {
-    margin-right: 5vh;
+    justify-content: flex-end;
+    margin-left: 150px;
     margin-top: 50px;
     a {
       color: dimgray;
@@ -134,7 +139,7 @@
   .user_menubar{
     border:none;
     border:0;
-    margin-right: 15vh;
+    margin-left: 200px;
     margin-top: 30px;
     padding:0;
     font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
