@@ -1,0 +1,45 @@
+.Mains {
+    display: grid;
+    grid-template-columns: 19% 62% 19%;
+}
+
+#Mains-left { border-right: solid 1px #aabbaa; }
+#Mains-right { border-left: solid 1px #aabbaa; }
+
+.post_da {
+    padding: 20px;
+    padding-left: 30px;
+    margin-left:20px;
+}
+
+.post_da div {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#post_title {
+    width: 91%;
+    margin-right: 0px;
+    height: 40px;
+    border: none;
+    font-size: 22px;
+    border-bottom: solid 1px #ababab;
+    font-weight: bold;
+}
+
+#post_title:focus { outline : none; }
+
+#post_summary {
+    line-height: 30px;
+    width: 91%;
+    resize: none;
+    border: none;
+}
+
+#post_date{
+    display: flex;
+    justify-content: flex-end;
+    margin-right:60px;
+}
+
+#post_summary:focus { outline : none; }
