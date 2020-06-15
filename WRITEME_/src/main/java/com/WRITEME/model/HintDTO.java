@@ -12,7 +12,7 @@ import lombok.Setter;
 public class HintDTO {
 	
 	private int keywordID;
-	private int hindID;
+	private int hintID;
 	private String hintName;
 
 }
