@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from "react";
 import axios from "axios";
 import '../Category/CategoryKeyword.css';
-import Post from "./PostListItem";
+import Category from "./PostListItem";
 
 function UserPostList({ keywordID, keywordName }) {
     const [state, setState] = useState({
@@ -37,12 +37,14 @@ function UserPostList({ keywordID, keywordName }) {
                             <div className="posts">
                                 <span className="keyword_title"> {keywordName} </span>
                                 {posts.map(post => (
-                                    <Post
-                                        keywordID={post.keywordID}
-                                        title={post.postTitle}
-                                        summary={post.postDetail}
-                                        ci={post.categoryID}
-                                        date={post.date}
+                                    <UserPostList
+                                    key={post.postID}
+                                    username={post.username}
+                                    title={post.postTitle}
+                                    summary={post.postDetail}
+                                    ci={post.categoryID}
+                                    date={post.date}
+                                    postID={post.postID}
                                     />
                                 ))}
                             </div>

@@ -21,10 +21,10 @@
     margin-top: 5px;
 }
 
-.postset .post_date{
+.postset .post_username{
     width: 250px;
     height: 20px;
-    margin:10px 0px 10px 300px;
+    margin:5px 0px 5px 300px;
     padding:0px 5px 0px 5px;
     font-size: 14px;
     left:70%;
@@ -32,16 +32,15 @@
     justify-content: flex-end;
 }
 
-.postset .post_username{
+.postset .post_date{
     width: 250px;
     height: 20px;
-    margin:5px 0px 10px 0px;
-    padding:0px 5px 0px 5px;
+    margin:0px 0px 0px 300px;
+    padding:0px 0px 0px 0px;
     font-size: 14px;
+    left:70%;
     display: flex;
-    justify-content: flex-start;
-
-
+    justify-content: flex-end;
 }
 
 a {
@@ -64,4 +63,5 @@ a {
 
 .postset hr {
     width: 550px;
+    margin-top: 0px;
 }
