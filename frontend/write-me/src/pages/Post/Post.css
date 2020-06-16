@@ -1,5 +1,6 @@
 .Mains {
     display: grid;
+    margin-top: 70px;
     grid-template-columns: 19% 62% 19%;
 }
 
@@ -8,8 +9,6 @@
 
 .post_da {
     padding: 20px;
-    padding-left: 30px;
-    margin-left:20px;
 }
 
 .post_da div {
@@ -19,7 +18,7 @@
 
 #post_title {
     width: 91%;
-    margin-right: 0px;
+    margin: 0 auto 0 auto;
     height: 40px;
     border: none;
     font-size: 22px;
@@ -31,16 +30,24 @@
 
 #post_summary {
     line-height: 30px;
-    width: 91%;
+    width: 94%;
+    margin: 0 auto 0 auto;
+    padding-left: 30px;
+    padding-right: 5px;
     resize: none;
     border: none;
 }
 
 #post_info {
     display: flex;
-    justify-content: flex-end;
-    margin-right:60px;
+    margin: 0 0 10px 0;
+    padding: 0 0 0 32px;
     color: dimgray;
+}
+
+#post_date_username {
+    justify-content: flex-start;
+    width: 550px;
 }
 
 #post_date {
@@ -48,6 +55,30 @@
 }
 
 #post_username {
+    margin-left: 10px;
+}
+
+#post_button {
+    justify-content: flex-end;
+}
+
+button {
+    border: none;
+    background: none;
+    color: inherit;
+}
+
+button:focus {
+    outline:0;
+}
+
+
+#edit_button, #edit_button a {
+    margin-right: 10px;
+}
+
+
+#delete_button {
     margin-left: 10px;
 }
 
