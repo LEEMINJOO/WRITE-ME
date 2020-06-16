@@ -33,7 +33,7 @@ function PostEdit() {
         } else if (post.postDetail === "") {
             return alert('내용을 입력해주세요.');
         }
-        if (localStorage.getItem('user') && user.username === post.username) {
+        if (localStorage.getItem('user') && localStorage.getItem('user').username !== post.username) {
             alert('권한이 없습니다.');
             history.push(`/`);
             return;
