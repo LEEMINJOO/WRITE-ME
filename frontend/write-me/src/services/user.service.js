@@ -26,7 +26,6 @@ function getUsername() {
     let user = localStorage.getItem('user') !== "undefined" && typeof localStorage.getItem('user') !== "undefined"
         && JSON.stringify(localStorage.getItem('user'));
     if(!user) return;
-    console.log(user);
     const requestOptions = {
         method: 'GET',
         headers: {
@@ -56,7 +55,7 @@ function register(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`http://localhost:8080/api/register/local`, requestOptions).then(handleResponse);
+    return fetch(`https://readme-writeme.appspot.com/api/register/local`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

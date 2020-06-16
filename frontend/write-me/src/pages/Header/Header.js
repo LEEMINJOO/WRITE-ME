@@ -6,7 +6,7 @@ import './Header.scss';
 import {FaBars, FaUser } from "react-icons/all";
 
 function Header() {
-    const username = useSelector(state => state.authentication.username);
+    const user = useSelector(state => state.authentication);
     const location = useLocation();
     return(
         <div className="header">
@@ -25,11 +25,12 @@ function Header() {
             </span>
 
             <span className="logo">
-                {location.pathname !== "/" &&
-                <Link to="/"> <img src="/public/logo.gif" alt="WRITE ME"/> </Link>
+                {location.pathname === "/" ?
+                    <span className="logo_none"> </span>
+                    : <Link to="/"> <img src="/public/logo.gif" className="logo_block" alt="WRITE ME"/> </Link>
                 }
             </span>
-            {username === undefined ?
+            {localStorage.getItem('user') === null ?
                 (
                     <span className="login_register">
                     <Link to="/user/login"> 로그인 </Link>
@@ -40,10 +41,10 @@ function Header() {
                 : (
                     <span className="user_menubar">
                         <ul>
-                            <li> <FaUser/> {username}
+                            <li> <FaUser/> {user.username}
                                 <ul>
                                     <li><NavLink to="/user/login" > 로그아웃 </NavLink></li>
-                                    <li><NavLink to="/" > 나의 프로필 </NavLink></li>
+                                    <li><NavLink to={`/post/@${user.username}`} > 나의 프로필 </NavLink></li>
                                 </ul>
                             </li>
                         </ul>

@@ -1,11 +1,17 @@
 import React, {useState, useEffect } from "react";
 import axios from "axios";
 import './CategoryKeyword.css';
+
+
 import PostListItem from "./PostListItem";
 import { Pagination } from '@material-ui/lab';
 import { usePagination } from "../../components/usePagination";
+import { useLocation } from "react-router-dom";
 
-function PostList({ keywordID, keywordName }) {
+function PostList() {
+    const location = useLocation();
+    const { keywordName, keywordID } = location.state;
+
     const [state, setState] = useState({
         loading: true,
         error: null,
@@ -35,12 +41,12 @@ function PostList({ keywordID, keywordName }) {
         <>
             {keywordID !== null &&
                 <div className="post_list">
+                    <div className="keyword_title"> {keywordName} </div>
                     {!state.loading &&
                         <div className="posts">
                             {(currentData === null || currentData === undefined) ?
                                 <span className="msg"> 글을 불러올 수 없습니다. </span>
                                 : <>
-                                    <span className="keyword_title"> {keywordName} </span>
                                     {currentData.map(post => (
                                         <PostListItem
                                             key={post.postID}
@@ -52,7 +58,7 @@ function PostList({ keywordID, keywordName }) {
                                             postID={post.postID}
                                         />
                                     ))}
-                                    <Pagination count={maxPage} onChange={handleChange} style={{margin: '0 auto 0 auto'}}/>
+                                    <Pagination count={maxPage} onChange={handleChange} style={{margin: '0 0 0 230px'}}/>
                                 </>
                             }
                         </div>

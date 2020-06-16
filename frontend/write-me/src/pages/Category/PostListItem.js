@@ -2,21 +2,14 @@ import React from "react";
 import "./PostList.css";
 import {NavLink} from "react-router-dom";
 
-function PostListItem({ title,  summary, date, username, postID }) {
-    const url = `/post/@${username}/${postID}`;
+function PostListItem({ title, summary, date, username, postID }) {
     return (
         <div className="postset">
             <div className="post_data">
                 <NavLink className="post_title"
                          to={{
                              pathname: `/post/@${username}/${postID}`,
-                             state: {
-                                 date,
-                                 postDetail: summary,
-                                 postID,
-                                 postTitle: title,
-                                 username
-                             }
+                             state: { postID }
                          }}
                > {title.slice(0,30)}...
                 </NavLink>

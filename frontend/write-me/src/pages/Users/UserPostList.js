@@ -1,9 +1,11 @@
 import React, {useState, useEffect } from "react";
+import {useLocation, useParams} from "react-router-dom";
 import axios from "axios";
-import '../Category/CategoryKeyword.css';
-import Category from "./PostListItem";
+import UserPostList_Item from "./UserPostList_Item";
 
-function UserPostList({ keywordID, keywordName }) {
+function UserPostList() {
+    let { username } = useParams();
+
     const [state, setState] = useState({
         loading: true,
         error: null,
@@ -25,33 +27,30 @@ function UserPostList({ keywordID, keywordName }) {
             .catch(error => {
                 setState({ ...state, loading: false, error });
             });
-    }, [keywordID]);
+    }, []);
 
     return (
         <>
-            {keywordID !== null &&
-                <div className="post_list">                   
-                    {loading ? (
-                        <span >  </span>
-                        ) : (                         
-                            <div className="posts">
-                                <span className="keyword_title"> {keywordName} </span>
-                                {posts.map(post => (
-                                    <UserPostList
+            <div className="userpost_list">
+                {loading ? (
+                    <span > Loading... </span>
+                    ) : (
+                        <div className="userposts">
+                            <span className="username_title"> {username} </span>
+                            {posts.map(post => (
+                                <UserPostList_Item
                                     key={post.postID}
                                     username={post.username}
                                     title={post.postTitle}
                                     summary={post.postDetail}
-                                    ci={post.categoryID}
                                     date={post.date}
                                     postID={post.postID}
-                                    />
-                                ))}
-                            </div>
-                        )
-                    }
-                </div>
-            }
+                                />
+                            ))}
+                        </div>
+                    )
+                }
+            </div>
         </>
     );
 }

@@ -5,10 +5,12 @@ import "./Write.css";
 import axios from "axios";
 import qs from 'querystring'
 import {history} from "../../helpers";
+import {useSelector} from "react-redux";
 
 function Write() {
     const location = useLocation();
     const { keywordName, keywordID, categoryID } = location.state;
+    const user = useSelector(state => state.authentication);
     const [state, setState] = useState({
         loading: true,
         error: null,
@@ -33,7 +35,6 @@ function Write() {
     const [post, setPost] = useState({
         postTitle: '',
         postDetail: '',
-        username: "test1"
     });
 
     function handleChange(e) {
@@ -61,22 +62,15 @@ function Write() {
                 data: qs.stringify({
                     postTitle: post.postTitle,
                     postDetail: post.postDetail,
-                    username: post.username,
+                    username: user.username,
                     keywordID,
                     categoryID,
                     date
                 })
             }).then(data => {
                     const res = data.data;
-                    alert("글 작성 성공");
-                    const state = {
-                        date: res.date,
-                        postDetail: res.postDetail,
-                        postID: res.postID,
-                        postTitle: res.postTitle,
-                        username: res.username
-                    };
-                    history.pushState(state, '', `post/@${res.username}/${res.postID}`);
+                    console.log(res);
+                    history.push(`post/@${res.username}/${res.postID}`);
                 })
                 .catch(error => {
                     alert("글 작성 실패");

@@ -42,12 +42,14 @@
     background-color: rgb(90, 85, 85);
     width:400px;
     height:60px;
+    border: none;
     color: white;
 }
 
+
 #regbutton{
     position:absolute;
-    top:72%;
+    top:72.5%;
     left:50%;
     margin-left:95px;
     padding:0px;
@@ -55,7 +57,7 @@
 
 #regguide{
     position:absolute;
-    top:72%;
+    top:73%;
     left:50%;
     margin-left:-155px;
     padding:0px;
