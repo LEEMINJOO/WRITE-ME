@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import { useParams, NavLink } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
 import "./Post.css";
 import axios from "axios";
 import {useSelector} from "react-redux";
-import {Delete} from "./Delete";
+import {Delete} from "../Write/Delete";
+import PostCard from "./PostCard";
 
 function Post() {
     const user = useSelector(state => state.authentication);
@@ -30,7 +30,7 @@ function Post() {
             .catch(error => {
                 setState({ ...state, loading: false, error });
             });
-    }, []);
+    }, [postID]);
 
     return (
         <>
@@ -71,6 +71,7 @@ function Post() {
                 </div>
                 <div id='post_summary'>{post.postDetail} </div>
                 <hr/>
+                <PostCard className="post_card" keywordID={post.keywordID}/>
             </div>
             <div id='Mains-right'/>
         </div>

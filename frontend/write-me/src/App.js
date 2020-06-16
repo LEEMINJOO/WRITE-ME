@@ -12,7 +12,7 @@ import CategoryKeyword from "./pages/Category/CategoryKeyword";
 import Write from "./pages/Write/Write";
 import Post from "./pages/Post/Post";
 import UserPostList from "./pages/Users/UserPostList";
-import PostEdit from "./pages/Post/PostEdit";
+import Edit from "./pages/Write/Edit";
 
 import './reset.css';
 import {PrivateRoute} from "./components/PrivateRoute";
@@ -40,7 +40,7 @@ function App() {
                 <Route path='/user/Register' component={Register}/>
                 <Route exact path='/post/@:username' component={UserPostList}/>
                 <Route exact path='/post/@:username/:postID' component={Post}/>
-                <Route path='/post/@:username/:postID/edit' component={PostEdit}/>
+                <Route path='/post/@:username/:postID/edit' component={Edit}/>
                 <Route path='/category/:name' component={CategoryKeyword}/>
                 <PrivateRoute path='/write' component={Write}/>
                 <Redirect from="*" to="/" />

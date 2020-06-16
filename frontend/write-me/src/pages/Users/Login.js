@@ -52,8 +52,8 @@ function Login() {
                 </div>
                 <div className="form-group3">
                     <button className="btn btn-primary" id="submit">
-                        {loggingIn && <span className="spinner-border spinner-border-sm mr-1"/>}
                         로그인
+                        {loggingIn && <span className="spinner-border spinner-border-sm mr-1" style={{margin: '0 0 0 5px'}}/>}
                     </button>
                     <div id="regguide"> 이름만으로 간편하게 가입하세요 </div>
                     <Link to="/user/register" className="btn btn-link" id="regbutton">회원가입</Link>

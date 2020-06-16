@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useParams } from "react-router-dom";
 import moment from "moment";
-import "./PostEdit.css";
+import "./Edit.css";
 import axios from "axios";
 import qs from 'querystring'
 import {history} from "../../helpers";
 import {useSelector} from "react-redux";
 import {userActions} from "../../actions";
 
-function PostEdit() {
+function Edit() {
     const { postID } = useParams();
     const location = useLocation();
     const { keywordID, categoryID, postDetail, postTitle } = location.state;
@@ -90,4 +90,4 @@ function PostEdit() {
     )
 }
 
-export default PostEdit;
+export default Edit;
