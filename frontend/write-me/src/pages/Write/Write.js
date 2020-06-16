@@ -69,7 +69,6 @@ function Write() {
                 })
             }).then(data => {
                     const res = data.data;
-                    alert("글 작성 성공");
                     console.log(res);
                     history.push(`post/@${res.username}/${res.postID}`);
                 })
