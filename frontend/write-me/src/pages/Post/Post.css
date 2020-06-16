@@ -85,4 +85,9 @@ button:focus {
 a {
     color: dimgray;
 }
+
+div {
+    white-space: pre-wrap;
+}
+
 #post_summary:focus { outline : none; }

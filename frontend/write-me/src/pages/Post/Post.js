@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { useParams, NavLink } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 import "./Post.css";
 import axios from "axios";
 import {useSelector} from "react-redux";
@@ -68,7 +69,7 @@ function Post() {
                     </div>
                     }
                 </div>
-                <p id='post_summary'>{post.postDetail} </p>
+                <div id='post_summary'>{post.postDetail} </div>
                 <hr/>
             </div>
             <div id='Mains-right'/>

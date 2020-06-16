@@ -27,7 +27,7 @@ function Register() {
         e.preventDefault();
 
         setSubmitted(true);
-        if (user.username && user.password) {
+        if ((user.username && user.password) && (user.password === user.passwordChk)) {
             dispatch(userActions.register({ username: user.username, password: user.password }));
         }
     }
