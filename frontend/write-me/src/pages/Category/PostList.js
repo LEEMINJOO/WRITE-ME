@@ -1,6 +1,8 @@
 import React, {useState, useEffect } from "react";
 import axios from "axios";
 import './CategoryKeyword.css';
+
+
 import PostListItem from "./PostListItem";
 import { Pagination } from '@material-ui/lab';
 import { usePagination } from "../../components/usePagination";
@@ -28,7 +30,6 @@ function PostList() {
                     posts: data.data
                 });
                 setData(data.data);
-                console.log(currentData());
             })
             .catch(error => {
                 setState({ ...state, loading: false, error });

@@ -34,48 +34,48 @@ function Post() {
 
     return (
         <>
-        {!state.loading &&
-        <div className='Mains'>
-            <div id='Mains-left'/>
-            <div className="post_da">
-                <div>
-                    <p id='post_title'>{post.postTitle}</p>
-                </div>
-                <div id="post_info">
-                    <div id="post_date_username">
-                        <span id="post_date"> {post.date.slice(0,10)} </span>
-                        ⦁
-                        <NavLink to={`/post/@${post.username}`} id="post_username"> By {post.username} </NavLink>
+            {!state.loading &&
+            <div className='Mains'>
+                <div id='Mains-left'/>
+                <div className="post_da">
+                    <div>
+                        <p id='post_title'>{post.postTitle}</p>
                     </div>
-                    {(localStorage.getItem('user') && user.username === post.username) &&
-                    <div id="post_button">
-                        <NavLink key={post.keywordID}
-                                 to={{
-                                     pathname:`/post/@${post.username}/${post.postID}/edit`,
-                                     state: {
-                                         keywordID: post.keywordID,
-                                         postDetail: post.postDetail,
-                                         postTitle: post.postTitle,
-                                         categoryID: post.categoryID
-                                     }
-                                 }}>
-                            <button id="edit_button"> 수정 </button>
-                        </NavLink>
-                        |
-                        <button id="delete_button"
-                                onClick={() => {
-                                    if (window.confirm('글을 삭제하시겠습니까?')) Delete(postID, user.username) } }>삭제
-                        </button>
+                    <div id="post_info">
+                        <div id="post_date_username">
+                            <span id="post_date"> {post.date.slice(0,10)} </span>
+                            ⦁
+                            <NavLink to={`/post/@${post.username}`} id="post_username"> By {post.username} </NavLink>
+                        </div>
+                        {(localStorage.getItem('user') && user.username === post.username) &&
+                        <div id="post_button">
+                            <NavLink key={post.keywordID}
+                                     to={{
+                                         pathname:`/post/@${post.username}/${post.postID}/edit`,
+                                         state: {
+                                             keywordID: post.keywordID,
+                                             postDetail: post.postDetail,
+                                             postTitle: post.postTitle,
+                                             categoryID: post.categoryID
+                                         }
+                                     }}>
+                                <button id="edit_button"> 수정 </button>
+                            </NavLink>
+                            |
+                            <button id="delete_button"
+                                    onClick={() => {
+                                        if (window.confirm('글을 삭제하시겠습니까?')) Delete(postID, user.username) } }>삭제
+                            </button>
+                        </div>
+                        }
                     </div>
-                    }
+                    <div id='post_summary'>{post.postDetail} </div>
+                    <hr/>
+                    <PostCard className="post_card" keywordID={post.keywordID}/>
                 </div>
-                <div id='post_summary'>{post.postDetail} </div>
-                <hr/>
-                <PostCard className="post_card" keywordID={post.keywordID}/>
+                <div id='Mains-right'/>
             </div>
-            <div id='Mains-right'/>
-        </div>
-        }
+            }
         </>
     );
 }

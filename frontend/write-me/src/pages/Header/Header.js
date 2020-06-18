@@ -40,8 +40,7 @@ function Header() {
                 : (
                     <span className="user_menubar">
                         <ul>
-                            <li> <img src="/public/profile.png" className="profile" alt="PROFILE"/>
-                                    <span className="username"> {user.username} </span>
+                            <li> <span className="username"> <FaUser size="25" className="mr-2"/> {user.username} </span>
                                 <ul>
                                     <li><NavLink to={`/post/@${user.username}`} > 나의 프로필 </NavLink></li>
                                     <li><NavLink to="/user/login" > 로그아웃 </NavLink></li>

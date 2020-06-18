@@ -15,7 +15,7 @@ function PostListItem({ title, summary, date, username, postID }) {
                 > {title.slice(0,30)}...
                 </NavLink>
                 <p className="post_summary">{summary.slice(0, 95)}...</p>
-                <p className="post_date"> {date.slice(0,10)} ⦁ By {username} </p>
+                <p className="post_date"> {date.slice(0,10)} ⦁ By {username}</p>
                 <hr/>
             </div>
             }
