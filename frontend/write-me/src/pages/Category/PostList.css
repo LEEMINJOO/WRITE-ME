@@ -43,6 +43,7 @@ a {
     width: 550px;
     font-size: 14px;
     margin-top: 10px;
+    overflow: hidden;
 }
 
 .postset .post_username{

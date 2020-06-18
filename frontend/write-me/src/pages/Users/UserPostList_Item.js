@@ -11,10 +11,10 @@ function UserPostList_Item({ title, summary, date, username, postID }) {
                              pathname: `/post/@${username}/${postID}`,
                              state: { postID }
                          }}
-               > {title.slice(0,30)}...
+               > {title.slice(0,40)}
                 </NavLink>
                 <p className="userpost_summary">{summary.slice(0, 95)}...</p>
-                <p className="userpost_date"> {date.slice(0,10)} ⦁ By {username}</p>
+                <p className="userpost_date"> {date.slice(0,10)}</p>
                 <hr/>
             </div>
         </div>

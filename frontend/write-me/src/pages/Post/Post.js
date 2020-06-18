@@ -40,6 +40,7 @@ function Post() {
             <div className="post_da">
                 <div>
                     <p id='post_title'>{post.postTitle}</p>
+                    <hr/>
                 </div>
                 <div id="post_info">
                     <div id="post_date_username">

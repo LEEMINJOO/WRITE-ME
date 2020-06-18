@@ -2,6 +2,8 @@ import React, {useState, useEffect } from "react";
 import {useLocation, useParams} from "react-router-dom";
 import axios from "axios";
 import UserPostList_Item from "./UserPostList_Item";
+import {FaBars, FaUser } from "react-icons/all";
+
 
 function UserPostList() {
     let { username } = useParams();
@@ -35,8 +37,8 @@ function UserPostList() {
                 {loading ? (
                     <span > Loading... </span>
                     ) : (
-                        <div className="userposts">
-                            <span className="username_title"> {username} </span>
+                        <div className="userposts">                 
+                            <span className="username_title"> <FaUser/> {username} </span>
                             {posts.map(post => (
                                 <UserPostList_Item
                                     key={post.postID}

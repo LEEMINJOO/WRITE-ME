@@ -18,15 +18,17 @@
 
 #post_title {
     width: 91%;
-    margin: 0 auto 0 auto;
-    height: 40px;
+    margin: 100px auto 0 auto;
     border: none;
     font-size: 22px;
-    border-bottom: solid 1px #ababab;
+
     font-weight: bold;
 }
 
-#post_title:focus { outline : none; }
+.post_da hr{
+border-color: #ababab;
+margin:10px;
+}
 
 #post_summary {
     line-height: 30px;
@@ -47,7 +49,8 @@
 
 #post_date_username {
     justify-content: flex-start;
-    width: 550px;
+    width: 500px;
+    margin-top: 5px;
 }
 
 #post_date {
@@ -59,7 +62,8 @@
 }
 
 #post_button {
-    justify-content: flex-end;
+    display:flex;
+    margin:0;
 }
 
 button {
@@ -74,13 +78,24 @@ button:focus {
 
 
 #edit_button, #edit_button a {
-    margin-right: 10px;
+    margin-right: 5px;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    height:20px;
+    width:50px;
 }
 
 
 #delete_button {
-    margin-left: 10px;
+    margin-left: 5px;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    height:20px;
+    width:50px;
 }
+
 
 a {
     color: dimgray;
