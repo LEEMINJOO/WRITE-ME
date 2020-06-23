@@ -31,11 +31,11 @@ function Header() {
             </span>
             {localStorage.getItem('user') === null ?
                 (
-                    <span className="login_register">
-                    <Link to="/user/login"> 로그인 </Link>
+                    <div className="login_register">
+                    <span className="login"> <Link to="/user/login"> 로그인 </Link> </span>
                     <span> | </span>
                     <span className="register"> <Link to="/user/register"> 회원가입 </Link> </span>
-                    </span>
+                    </div>
                 )
                 : (
                     <span className="user_menubar">
