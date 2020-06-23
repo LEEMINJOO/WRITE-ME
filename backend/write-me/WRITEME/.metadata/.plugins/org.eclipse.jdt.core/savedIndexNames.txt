@@ -1,2 +1,0 @@
-INDEX VERSION 1.131+C:\Users\JangJua\Desktop\WRITEME\backend\write-me\WRITEME\.metadata\.plugins\org.eclipse.jdt.core
-3729840027.index
