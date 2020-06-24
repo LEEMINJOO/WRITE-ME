@@ -6,14 +6,14 @@ function PostListItem({ title, summary, date, username, postID }) {
     return (
         <div className="card">
             <NavLink
-                     to={{
-                         pathname: `/post/@${username}/${postID}`,
-                         state: { postID }
-                     }}>
+                to={{
+                    pathname: `/post/@${username}/${postID}`,
+                    state: { postID }
+                }}>
                 <button className="card_button">
                     <p className="post_title"> {title.slice(0,13)}... </p>
                     <hr/>
-                    <p className="post_summary">{summary.slice(0, 39)}</p>
+                    <p className="post_summary">{summary.slice(0, 50)}</p>
                 </button>
             </NavLink>
         </div>

@@ -10,7 +10,7 @@
 }
 
 .card {
-    padding: 15px 0 15px 0;
+    padding: 13px 0 13px 0;
     margin: 0 12px 0 12px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -40,10 +40,11 @@
 }
 
 .post_summary {
-    font-size: 15px;
+    font-size: 12px;
     width: 110px;
-    height:58px;
+    height:60px;
     overflow: hidden;
+    line-height: 14px;
     margin:0px;
     padding-left:0px;
 }
@@ -53,4 +54,3 @@
     justify-content: center;
     margin-top: 20px;
 }
-
