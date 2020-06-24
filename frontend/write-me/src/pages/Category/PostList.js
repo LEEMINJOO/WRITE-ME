@@ -57,7 +57,7 @@ function PostList() {
                                             postID={post.postID}
                                         />
                                     ))}
-                                    <Pagination count={maxPage} onChange={handleChange} style={{margin: '0 0 0 230px'}}/>
+                                    <Pagination count={maxPage} onChange={handleChange} style={{margin: '0 auto 0 auto'}}/>
                                 </>
                             }
                         </div>
