@@ -1,0 +1,1 @@
+INDEX VERSION 1.4+C:\Users\JangJua\Desktop\WRITEME\backend\write-me\WRITEME\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes

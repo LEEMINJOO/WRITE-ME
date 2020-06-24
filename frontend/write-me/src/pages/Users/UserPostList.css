@@ -1,0 +1,83 @@
+.userposts .username_title {
+    font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    margin-left: 100px;
+    height:100px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+
+}
+
+.userposts {
+    padding: 0;
+    margin: 50px 0 0 0px;
+    height: 100%;
+
+}
+
+.userpost_list{
+    width: 500px;
+    margin: 100px 0 0 350px;
+    
+
+}
+.userpostset .userpost {
+    flex-direction:column;
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-weight: 300;
+    border-radius: 5px;
+    color: black;
+    
+}
+
+.userpost_data {
+    margin-top: 5px;
+    margin-left: 20px;    
+}
+
+
+.userpostset .userpost_summary{
+    width: 550px;
+    font-size: 14px;
+    margin-top: 10px;
+    height:28px;
+    overflow: hidden;
+    
+}
+
+
+
+.userpostset .userpost_title {
+    font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+    padding: 5px 0px 5px 0px;
+    width: 500px;
+    height: 35px;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: black;
+}
+
+.userpostset .userpost_date{
+    width: 250px;
+    height: 20px;
+    margin:0px 0px 0px 300px;
+    padding:0px 0px 0px 0px;
+    font-size: 14px;
+    left:70%;
+    display: flex;
+    justify-content: flex-end;
+    color: dimgray;
+}
+
+.userpostset hr {
+    width: 550px;
+}

@@ -1,0 +1,229 @@
+.header {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  top: 0;
+  height: 80px;
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  z-index: 200;
+  background-color: white;
+
+  .logo{
+    img {
+      width: 460px;
+      height: 80px;
+      margin-left: 410px
+    }
+  }
+
+  .username {
+    position: fixed;
+    top: 8vh;
+    padding: 0 0 0px 0px;
+    margin: 0 0 0 10px;
+  }
+
+  .menubar{
+    border:none;
+    position: fixed;
+    border:0;
+    margin-left: 50px;
+    margin-top: 20px;
+    padding:0;
+    font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:bold;
+  }
+
+  .menubar ul{
+    height:50px;
+    list-style:none;
+    margin-top: 20px;
+    padding:0;
+  }
+
+  .menubar li{
+    float:left;
+    padding:0px;
+  }
+
+  .menubar li a{
+    background: rgb(189, 188, 188);
+    color:#cccccc;
+    display:block;
+    font-weight:normal;
+    line-height:50px;
+    margin:0px;
+    padding:0px 25px;
+    text-align:center;
+    text-decoration:none;
+  }
+
+  .menubar li a:hover, .menubar ul li:hover a{
+    background: rgb(71,71,71);
+    color:#FFFFFF;
+    text-decoration:none;
+  }
+
+  .menubar li ul{
+    background: rgb(109,109,109);
+    display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+    height:auto;
+    padding:0px;
+    margin:0px;
+    border:0px;
+    position:absolute;
+    width:200px;
+    /*top:1em;
+    /*left:0;*/
+  }
+
+  .menubar li:hover ul{
+    display:block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+  }
+
+  .menubar li li {
+    background: rgb(109,109,109);
+    display:block;
+    float:none;
+    margin:0px;
+    padding:0px;
+    width:200px;
+  }
+
+  .menubar li:hover li a{
+    background: rgb(71,71,71);
+  }
+
+  .menubar li ul a{
+    display:block;
+    height:50px;
+    font-size:12px;
+    font-style:normal;
+    margin:0px;
+    padding:0px 10px 0px 15px;
+    text-align:left;
+  }
+
+  .menubar li ul a:hover, .menubar li ul li:hover a{
+    background: grey;
+    border:0px;
+    color:#ffffff;
+    text-decoration:none;
+  }
+
+  .menubar p{
+    clear:left;
+  }
+
+  span, a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bolder;
+    color: dimgray;
+  }
+
+  .login_register {
+    position: fixed;
+    margin-left: 1000px;
+    margin-top: 50px;
+    a {
+      color: dimgray;
+    }
+  }
+
+  .login {
+    margin-right: 10px;
+  }
+  .register {
+    margin-left: 10px;
+  }
+  .user_menubar{
+    position: fixed;
+    border:none;
+    border:0;
+    margin-left: 1050px;
+    padding:0;
+    font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:bold;
+  }
+
+  .user_menubar ul{
+    height:50px;
+    list-style:none;
+    margin-top: 55px;
+    padding:0;
+  }
+
+  .user_menubar li{
+    float:left;
+  }
+
+  .user_menubar li a{
+    background: rgb(189, 188, 188);
+    color:#cccccc;
+    display:block;
+    font-weight:normal;
+    line-height:50px;
+    margin-right: 0px;
+    padding:0px 50px;
+    text-decoration:none;
+  }
+
+  .user_menubar li a:hover, .user_menubar ul li:hover a{
+    background: rgb(71,71,71);
+    color:#FFFFFF;
+    text-decoration:none;
+  }
+
+  .user_menubar li ul{
+    background: rgb(109,109,109);
+    display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+    height:auto;
+    margin:0 0 0 1.5em;
+    border:0px;
+    position:absolute;
+    width:100px;
+  }
+
+  .user_menubar li:hover ul{
+    display:block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+  }
+
+  .user_menubar li li {
+    background: rgb(109,109,109);
+    display:block;
+    float:none;
+    margin:0px;
+    padding:0px;
+    width:100px;
+  }
+
+  .user_menubar li:hover li a{
+    background: rgb(71,71,71);
+  }
+
+  .user_menubar li ul a{
+    display:block;
+    height:50px;
+    font-size:12px;
+    font-style:normal;
+    margin:0px;
+    padding:0px 10px 0px 10px;
+    text-align:left;
+  }
+
+  .user_menubar li ul a:hover, .user_menubar li ul li:hover a{
+    background: grey;
+    border:0px;
+    color:#ffffff;
+    text-decoration:none;
+  }
+
+  .user_menubar p{
+    clear:left;
+  }
+}
