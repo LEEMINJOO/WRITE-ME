@@ -8,7 +8,7 @@ import { Pagination } from '@material-ui/lab';
 import { usePagination } from "../../components/usePagination";
 import { useLocation } from "react-router-dom";
 
-function PostList() {
+function PostList({categoryID}) {
     const location = useLocation();
     const { keywordName, keywordID } = location.state;
 
@@ -22,7 +22,7 @@ function PostList() {
 
     useEffect( () => {
         setState({...state, loading: true});
-        axios.get(`https://readme-writeme.appspot.com/api/post?keywordID=${keywordID}`)
+        axios.get(`https://readme-writeme.appspot.com/api/post/keywordName?keywordName=${keywordName}&categoryID=${categoryID}`)
             .then(data => {
                 setState({
                     ...state,

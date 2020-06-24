@@ -67,7 +67,7 @@ function CategoryKeyword()  {
         }
           <Switch>
               <Route path={`${path}/:keywordID`}>
-                  <PostList/>
+                  <PostList categoryID={categoryID} />
               </Route>
           </Switch>
     </section>

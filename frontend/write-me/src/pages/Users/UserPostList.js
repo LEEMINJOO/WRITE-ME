@@ -56,7 +56,7 @@ function UserPostList() {
                             }
                     </div>
                 }
-                <Pagination count={maxPage} onChange={handleChange} style={{margin: '0 0 0 230px'}}/>
+                <Pagination count={maxPage} onChange={handleChange} style={{margin: '0 0 10px 230px'}}/>
             </div>
         </>
     );
