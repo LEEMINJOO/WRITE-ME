@@ -5,15 +5,12 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 import { store } from './helpers';
 import App  from './App.js';
-
-// setup fake backend
-import { configureFakeBackend } from './helpers';
-configureFakeBackend();
+import './reset.css';
 
 render((
     <BrowserRouter>
         <Provider store={store}>
-            <Route path="/" component={App}/>
+            <App />
         </Provider>
     </BrowserRouter>
     ),

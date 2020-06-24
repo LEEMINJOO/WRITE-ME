@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
+import './Register.css';
 import { userActions } from '../../actions';
 
 function Register() {
     const [user, setUser] = useState({
-        firstName: '',
-        lastName: '',
         username: '',
-        password: ''
+        password: '',
+        passwordChk: ''
     });
     const [submitted, setSubmitted] = useState(false);
-    const registering = useSelector(state => state.registration.registering);
     const dispatch = useDispatch();
 
     // reset login status
@@ -29,49 +27,43 @@ function Register() {
         e.preventDefault();
 
         setSubmitted(true);
-        if (user.firstName && user.lastName && user.username && user.password) {
-            dispatch(userActions.register(user));
+        if ((user.username && user.password) && (user.password === user.passwordChk)) {
+            dispatch(userActions.register({ username: user.username, password: user.password }));
         }
     }
 
     return (
-        <div className="col-lg-8 offset-lg-2">
-            <h2>Register</h2>
+        <div className="register">
             <form name="form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>First Name</label>
-                    <input type="text" name="firstName" value={user.firstName} onChange={handleChange} className={'form-control' + (submitted && !user.firstName ? ' is-invalid' : '')} />
-                    {submitted && !user.firstName &&
-                    <div className="invalid-feedback">First Name is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <label>Last Name</label>
-                    <input type="text" name="lastName" value={user.lastName} onChange={handleChange} className={'form-control' + (submitted && !user.lastName ? ' is-invalid' : '')} />
-                    {submitted && !user.lastName &&
-                    <div className="invalid-feedback">Last Name is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <label>Username</label>
-                    <input type="text" name="username" value={user.username} onChange={handleChange} className={'form-control' + (submitted && !user.username ? ' is-invalid' : '')} />
+                <h2><p className="registerlogo">WITH WRITEME</p></h2>
+                <div className="form-groupA">
+                    <div className="label_name">아이디</div>
+                    <input type="text" name="username" id="rusername" value={user.username} onChange={handleChange} className={'form-control' + (submitted && !user.username ? ' is-invalid' : '')}/>
                     {submitted && !user.username &&
-                    <div className="invalid-feedback">Username is required</div>
+                    <div className="invalid_feedback">필수 정보입니다.</div>
                     }
                 </div>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" value={user.password} onChange={handleChange} className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')} />
+                <div className="form-groupB">
+                    <div className="label_name">비밀번호</div>
+                    <input type="password" name="password" id="rpassword" value={user.password} onChange={handleChange} className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')}/>
                     {submitted && !user.password &&
-                    <div className="invalid-feedback">Password is required</div>
+                    <div className="invalid_feedback">필수 정보입니다.</div>
                     }
                 </div>
-                <div className="form-group">
-                    <button className="btn btn-primary">
-                        {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                        Register
+                <div className="form-groupC">
+                    <div className="label_name">비밀번호 확인</div>
+                    <input type="password" name="passwordChk" id="rpassword" value={user.passwordChk} onChange={handleChange} className={'form-control' + (submitted && !user.passwordChk ? ' is-invalid' : '')}/>
+                    {submitted && !user.passwordChk &&
+                    <div className="invalid_feedback">필수 정보입니다.</div>
+                    }
+                    {submitted && (user.passwordChk !== user.password) &&
+                    <div className="invalid_feedback"> 입력된 비밀번호와 다릅니다. </div>
+                    }
+                </div>
+                <div className="form-groupD">
+                    <button className="btn btn-primary" id="rsubmit">
+                        가입하기
                     </button>
-                    <Link to="/" className="btn btn-link">Cancel</Link>
                 </div>
             </form>
         </div>

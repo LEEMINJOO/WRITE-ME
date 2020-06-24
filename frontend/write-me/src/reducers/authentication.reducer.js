@@ -1,6 +1,10 @@
 import { userConstants } from '../constants';
+import {userService} from "../services";
 
-let user = JSON.parse(localStorage.getItem('user'));
+let user = localStorage.getItem('user') !== "undefined" && typeof localStorage.getItem('user') !== "undefined"
+    && JSON.parse(localStorage.getItem('user'));
+let username = userService.getUsername();
+
 const initialState = user ? { loggedIn: true, user } : {};
 
 export function authentication(state = initialState, action) {
@@ -8,12 +12,14 @@ export function authentication(state = initialState, action) {
     case userConstants.LOGIN_REQUEST:
       return {
         loggingIn: true,
-        user: action.user
+        user: action.user,
+        username: user
       };
     case userConstants.LOGIN_SUCCESS:
       return {
         loggedIn: true,
-        user: action.user
+        user: action.user,
+        username: action.username
       };
     case userConstants.LOGIN_FAILURE:
       return {};

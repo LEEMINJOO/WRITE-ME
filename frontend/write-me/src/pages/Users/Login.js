@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
+import './Login.css';
 import { userActions } from '../../actions';
 
 function Login() {
@@ -34,29 +34,29 @@ function Login() {
     }
 
     return (
-        <div className="col-lg-8 offset-lg-2">
-            <h2>Login</h2>
+        <div className="login">
+            <h2> <p className="loginlogo"> WITH WRITEME </p> </h2>
             <form name="form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Username</label>
-                    <input type="text" name="username" value={username} onChange={handleChange} className={'form-control' + (submitted && !username ? ' is-invalid' : '')} />
+                <div className="form-group1">
+                    <input type="text" id="username" name="username" placeholder="아이디" value={username} onChange={handleChange} className={'form-control' + (submitted && !username ? ' is-invalid' : '')}
+                    />
                     {submitted && !username &&
-                    <div className="invalid-feedback">Username is required</div>
+                    <div className="invalid-feedback">아이디를 입력해주세요</div>
                     }
                 </div>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" value={password} onChange={handleChange} className={'form-control' + (submitted && !password ? ' is-invalid' : '')} />
+                <div className="form-group2">
+                    <input type="password" id="password" name="password" placeholder="비밀번호" value={password} onChange={handleChange} className={'form-control' + (submitted && !password ? ' is-invalid' : '')} />
                     {submitted && !password &&
-                    <div className="invalid-feedback">Password is required</div>
+                    <div className="invalid-feedback">비밀번호를 입력해주세요</div>
                     }
                 </div>
-                <div className="form-group">
-                    <button className="btn btn-primary">
-                        {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                        Login
+                <div className="form-group3">
+                    <button className="btn btn-primary" id="submit">
+                        로그인
+                        {loggingIn && <span className="spinner-border spinner-border-sm mr-1" style={{margin: '0 0 0 5px'}}/>}
                     </button>
-                    <Link to="/user/register" className="btn btn-link">Register</Link>
+                    <div id="regguide"> 이름만으로 간편하게 가입하세요 </div>
+                    <Link to="/user/register" className="btn btn-link" id="regbutton">회원가입</Link>
                 </div>
             </form>
         </div>

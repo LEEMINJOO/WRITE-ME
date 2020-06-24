@@ -1,12 +1,16 @@
 .keyword{
   text-align: center;
-  margin-top: 170px;
+  margin-top: 20px;
   padding-top: 20px;
+  display:block;
   h3 {
     font-size: 20px;
   }
-  .keywords-list {
-    padding-top: 20px;
-    font-size: 15px;
+  .keywords_list {
+    font-size: 20px;
+    a {
+      margin-left: 5px;
+      color: black;
+    }
   }
 }

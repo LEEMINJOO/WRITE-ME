@@ -1,0 +1,87 @@
+a {
+    color: black;
+}
+
+.posts {
+    padding: 0;
+    margin: 50px 0 0 0px;
+    height: 100%;
+}
+
+.post_list{
+    margin: 100px 0 0 480px;
+}
+.postset .post {
+    flex-direction:column;
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-weight: 300;
+    border-radius: 5px;
+    color: black;
+}
+
+.post_data {
+    margin-left: 50px;
+    padding-right: 50px;
+    margin-top: 5px;
+}
+
+.post_list .keyword_title {
+    padding: 20px 0 0 20px;
+    margin: 0 0 0 30px;
+    background-color: white;
+    position: fixed;
+    top: 80px;
+    left: 480px;
+    height: 70px;
+}
+
+
+.postset .post_summary{
+    width: 550px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.postset .post_date{
+    width: 250px;
+    height: 20px;
+    margin:0 0px 10px 300px;
+    padding:0px 5px 0px 5px;
+    font-size: 14px;
+    left:70%;
+    display: flex;
+    justify-content: flex-end;
+    color: dimgray;
+}
+
+.postset .post_username{
+    width: 250px;
+    height: 20px;
+    margin:5px 0px 10px 0px;
+    padding:0px 5px 0px 5px;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-start;
+    color: dimgray;
+}
+
+.postset .post_title {
+    font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+    padding: 5px 0px 5px 0px;
+    width: 500px;
+    height: 35px;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: black;
+}
+
+.postset hr {
+    width: 550px;
+}

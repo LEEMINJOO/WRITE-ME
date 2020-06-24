@@ -1,12 +1,8 @@
 .home {
-  height: 100vh;
   background-color: white;
   .center {
-    position: sticky;
     text-align: center;
-    top: 20vh;
-    height: 20vh;
-    z-index: 1;
+    margin-top: 100px;
 
     table {
       border: 1px solid black;
@@ -30,11 +26,19 @@
       color:black;
     }
 
+    p {
+      margin-top: 20px;
+      font-size: 15px;
+    }
+    .time_desc {
+      margin-top: 10px;
+    }
     .dropdown {
       position: relative;
-      top: 20px;
+      margin-top: 20px;
       display: inline-block;
       width: 150px;
+      z-index: 1;
       .dropBtn {
         width:inherit;
         background-color: white;
@@ -47,7 +51,7 @@
         display: none;
         position: absolute;
         background-color: #f9f9f9;
-        min-width: 120px;
+        min-width: 150px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         padding: 12px 16px;
         z-index: 1;
@@ -59,6 +63,7 @@
         padding: 12px 16px;
         text-decoration: none;
         display: block;
+        text-align: center;
         color: black;
         &:hover {
           background-color: #f1f1f1;

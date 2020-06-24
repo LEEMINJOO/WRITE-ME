@@ -1,38 +1,60 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { NavLink } from 'react-router-dom';
 import './Keyword.scss';
 import '../../reset.css';
-import { FaPencilAlt } from 'react-icons/fa';
+import {getLastUpdateTime} from "../../components/getLastUpdateTime";
+import axios from "axios";
+import * as moment from "moment";
 
-class KeywordToday extends React.Component {
-    state = {
-        keywordToday: 'keyword',
-        keyword: {
-            0: ["p1", "p2", "p3", "p4"],
-            1: ["s1", "s2"]
-        }
-    };
+function KeywordToday({categoryID}) {
+    const [state, setState] = useState({
+        loading: true,
+        error: null,
+        data: null
+    });
+    useEffect(() => {
+        setState({...state, loading: true});
+        axios.get(`https://readme-writeme.appspot.com/api/posts/keyword?categoryID=${categoryID}`)
+            .then(data => {
+                setState({
+                    ...state,
+                    loading: false,
+                    data: data.data.filter(data => (data.date.slice(0,10) === getLastUpdateTime().date && data.time === getLastUpdateTime().time))
+                });
+            })
+            .catch(error => {
+                setState({ ...state, loading: false, error });
+            });
+    }, [categoryID]);
 
-    render() {
-        const {keywordToday, keyword} = this.state;
-        const {id} = this.props;
-        return (
 
-            <div className="keyword">
-                <h3>
-                    <FaPencilAlt /> 오늘의 키워드는 {keywordToday} 입니다.
-                </h3>
-                <div className="keywords-list">
-                    {keyword[id] === undefined ?
-                        <div> 해당되는 키워드가 없습니다. </div>
-                        : <div>
-                        {keyword[id].map(keyword => (
-                            <span> {keyword} </span>
+    return (
+        <div className="keyword">
+            {state.loading ? (
+                <div> Loading . . . </div>
+            ) : (
+                <div className="keywords_list">
+                {state.data === undefined || state.data === null ?
+                    <div> 해당되는 키워드가 없습니다. </div>
+                    : <div>
+                        {state.data.map(keyword => (
+                            <NavLink key={keyword.keywordID}
+                                to={{
+                                pathname:`/write`,
+                                state: {
+                                    keywordID: keyword.keywordID,
+                                    keywordName: keyword.keywordName,
+                                    categoryID
+                                }
+                            }}> {keyword.keywordName}
+                            </NavLink>
                         ))}
                         </div>
-                    }
-                </div>
-            </div>
-        )
-    }
+                }   </div>
+                )
+            }
+        </div>
+    )
 }
+
 export default KeywordToday;

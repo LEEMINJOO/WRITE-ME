@@ -1,106 +1,77 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import { useParams,
+    NavLink,
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    useRouteMatch,
+} from "react-router-dom";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
-
-import Movie from "./Movie";
 import "./CategoryKeyword.css";
-import "./CategoryTable.css";
+import "./KeywordTable.scss";
+import PostList from "./PostList";
+import { getCategoryID } from "../../components/getCategoryID";
+import {history} from "../../helpers";
 
-class CategoryKeyword extends React.Component {
-    state = {
-        isLoading: true,
-        movies: [],
-        keyword: 0,
-    };
-    getMovies = async () => {
-        const {
-            data: {
-                data: { movies }
-            }
-        } = await axios.get(
-            "https://yts-proxy.now.sh/list_movies.json?sort_by=rating"
-        );
-        this.setState({ movies, isLoading: false });
-        this.setState({ keyword: false });
-    };
-    componentDidMount() {
-        const id = this.props.match.params.id;
-        this.getMovies();
-    }
-    handleClick(id, e) {
-        this.setState({keyword: id});
-        e.preventDefault();
-    }
-    render() {
-        const { isLoading, movies,keyword } = this.state;
-        const { id } = this.props.match.params;
-        return (
-            <section className="container">
-                <h2> {id} </h2>
-                {isLoading ? (
-                    <div className="loader__text">Loading...</div>
-                ) : (
-                    <div className="category-table">
-                        <table>
-                            <tr>
-                                <th onClick={(e) => this.handleClick(1, e)}> 영화1</th>
-                                <th onClick={(e) => this.handleClick(2, e)}> 영화2</th>
-                                <th onClick={(e) => this.handleClick(3, e)}> 영화없음</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                            </tr>
-                        </table>
+function CategoryKeyword()  {
+    let { url, path } = useRouteMatch();
+    const { name } = useParams();
+    const categoryID = getCategoryID(name);
+    const [state, setState] = useState({
+        loading: true,
+        error: null,
+        keywords: null
+    });
+
+    useEffect(() => {
+        axios.get(`https://readme-writeme.appspot.com/api/posts/distinctKeyword?categoryID=${categoryID}`)
+            .then(data => {
+                setState({
+                    ...state,
+                    loading: false,
+                    keywords: data.data
+                });
+            })
+            .catch(error => {
+                setState({ ...state, loading: false, error });
+            });
+        console.log(state.keywords);
+    }, [categoryID]);
+
+    return (
+      <section className="container">
+        {!state.loading &&
+            <div className="keyword_table">
+                <p className="category_name"> {name} </p>
+                {state.keywords === undefined || state.keywords === null ?
+                    <div className="keyword_error"> 키워드를 불러올 수 없습니다. </div>
+                    :
+                    <div className ="grid">
+                      {state.keywords.map(keyword => (
+                          <NavLink key={keyword.keywordID}
+                              to={{
+                                  pathname:`${url}/${keyword.keywordID}`,
+                                  state: {
+                                      keywordID: keyword.keywordID,
+                                      keywordName: keyword.keywordName,
+                                  }
+                              }}>
+                              <button className="item">
+                                  {keyword.keywordName}
+                              </button>
+                          </NavLink>
+                      ))}
                     </div>
-                )}
-                {keyword===1 ? (
-                    <div className="movies">
-                        {movies.map(movie => (
-                            <Movie
-                                key={movie.id}
-                                id={movie.id}
-                                title={movie.title}
-                                summary={movie.summary}
-                            />
-                        ))}
-                    </div>
-                ) : (
-                    <div className="Amovie">
-                    </div>
-                )}
-                {keyword===2 ? (
-                    <div className="movies">
-                        {movies.map(movie => (
-                            <Movie
-                                key={movie.id}
-                                id={movie.id}
-                                summary={movie.summary}
-                            />
-                        ))}
-                    </div>
-                ) : (
-                    <div className="Amovie">
-                    </div>
-                )}
-            </section>
-        );
-    }
+                }
+            </div>
+        }
+          <Switch>
+              <Route path={`${path}/:keywordID`}>
+                  <PostList/>
+              </Route>
+          </Switch>
+    </section>
+    )
 }
+
 export default CategoryKeyword;
