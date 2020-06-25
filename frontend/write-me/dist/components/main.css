@@ -1,0 +1,703 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.alert {
+    width:400px;
+    height:40px;
+    margin: 100px auto 0 auto;
+}
+.loginlogo{
+    font-size: 26px;
+    width:200px; height:40px;
+    position:fixed;
+    top:35%; left:50%;
+    margin-left:-100px;
+    margin-top:-40px;
+    padding:0px;
+    color: rgb(90, 85, 85);
+}
+.invalid-feedback{
+    color: red;
+    font-size: 10px;
+}
+
+#username,#password{
+    width:396px; height:44px;
+}
+
+
+.form-group1{
+    position:absolute;
+    top:40%;
+    left:50%;
+    margin-left:-200px;
+    margin-top:-23px;
+    padding:0px;
+}
+.form-group2{
+    position:absolute;
+    top:52%;
+    left:50%;
+    margin-left:-200px;
+    margin-top:-23px;
+    padding:0px;
+}
+
+
+#submit{
+    width:400px; height:60px; position:absolute;
+    top:60%; left:50%; margin-left:-200px; margin-top:-30spx; padding:0px;
+    background-color: rgb(90, 85, 85);
+    width:400px;
+    height:60px;
+    border: none;
+    color: white;
+}
+
+
+#regbutton{
+    position:absolute;
+    top:72.5%;
+    left:50%;
+    margin-left:95px;
+    padding:0px;
+}
+
+#regguide{
+    position:absolute;
+    top:73%;
+    left:50%;
+    margin-left:-155px;
+    padding:0px;
+}
+.registerlogo{
+    font-size: 26px;
+    width:400px; height:60px;
+    position:fixed;
+    top:30%; left:50%;
+    margin-left:-100px;
+    margin-top:-40px;
+    padding:0px;
+    color: rgb(90, 85, 85);
+}
+
+#rusername,#ruserID, #rpassword{
+    width:396px; height:44px;
+}
+
+.label_name{
+    font-size: 10pt;
+}
+
+.form-groupA{
+    position:absolute;
+    top:35%;
+    left:50%;
+    margin-left:-200px;
+    margin-top:-23px;
+    padding:0px;
+
+}
+.form-groupB{
+    position:absolute;
+    top:48%;
+    left:50%;
+    margin-left:-200px;
+    margin-top:-23px;
+    padding:0px;
+}
+.form-groupC{
+    position:absolute;
+    top:61%;
+    left:50%;
+    margin-left:-200px;
+    margin-top:-23px;
+    padding:0px;
+}
+
+#rsubmit{
+    width:400px; height:60px; position:absolute;
+    top:73%; left:50%; margin-left:-200px; padding:0px;
+    background-color: rgb(90, 85, 85);
+    width:400px;
+    border: none;
+    color: white;
+}
+
+.invalid_feedback{
+    color: red;
+}
+.container {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.title_category{
+  width: 250px;
+  height:55px;
+  font-size: 19px;
+}
+
+.CategoryKeyword,
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.loader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+}
+
+.keyword_title{
+  font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+  font-size: 36px;
+  width:670px;
+  margin-left:15px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.posts {
+  font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 10px 50px 0px 30px;
+}
+.category-table {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  width: 210px;
+  height:500px;
+}
+
+.loader__text{
+  height:100%;
+}
+
+.keyword_error {
+  text-align: center;
+}
+
+.posts .post hr{
+  margin: 0px;
+  padding:0px;
+}
+a {
+    color: black;
+}
+
+.posts {
+    padding: 0;
+    margin: 50px 0 0 0px;
+    height: 100%;
+}
+
+.post_list{
+    margin: 100px 0 0 480px;
+}
+.postset .post {
+    flex-direction:column;
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-weight: 300;
+    border-radius: 5px;
+    color: black;
+}
+
+.post_data {
+    margin-left: 50px;
+    padding-right: 50px;
+    margin-top: 5px;
+}
+
+.post_list .keyword_title {
+    padding: 20px 0 0 20px;
+    margin: 0 0 0 30px;
+    background-color: white;
+    position: fixed;
+    top: 80px;
+    left: 480px;
+    height: 70px;
+}
+
+
+.postset .post_summary{
+    width: 550px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.postset .post_date{
+    width: 250px;
+    height: 20px;
+    margin:10px 0px 10px 300px;
+    padding:0px 5px 0px 5px;
+    font-size: 14px;
+    left:70%;
+    display: flex;
+    justify-content: flex-end;
+    color: dimgray;
+}
+
+.postset .post_username{
+    width: 250px;
+    height: 20px;
+    margin:5px 0px 10px 0px;
+    padding:0px 5px 0px 5px;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-start;
+    color: dimgray;
+}
+
+.postset .post_title {
+    font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+    padding: 5px 0px 5px 0px;
+    width: 500px;
+    height: 35px;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: black;
+}
+
+.postset hr {
+    width: 550px;
+}
+.Mains {
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: 19% 62% 19%;
+}
+
+#Mains-left { border-right: solid 1px #aabbaa; }
+#Mains-right { border-left: solid 1px #aabbaa; }
+
+.Write {
+    padding: 20px;
+    padding-left: 30px;
+}
+
+.Write div {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+#title_txt {
+    width: 91%;
+    padding-bottom: 20px;
+    border: none;
+    font-size: 22px;
+    border-bottom: solid 1px #ababab;
+    font-weight: bold;
+}
+
+#title_txt:focus { outline : none; }
+
+#keyword_txt1{
+    width: 91%;
+    padding-bottom: 20px;
+    border: none;
+    border-bottom: solid 1px #ababab;
+    font-weight: bold;
+    margin: 0px;
+    text-align: center;
+}
+
+.keywordName, .hint{
+    margin-right: 5px;
+}
+
+#content_txt {
+    width: 91%;
+    resize: none;
+    border: none;
+    height: 300px
+}
+
+#content_txt:focus { outline : none; }
+
+#post_submit {
+    text-align: center;
+    margin: 0px;
+}
+
+#post_submit button {
+    width: 120px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px #ababab;
+    cursor: pointer;
+    background-color: white;
+}
+
+.Mains {
+    display: grid;
+    margin-top: 70px;
+    grid-template-columns: 19% 62% 19%;
+}
+
+#Mains-left { border-right: solid 1px #aabbaa; }
+#Mains-right { border-left: solid 1px #aabbaa; }
+
+.post_da {
+    padding: 30px 10px 10px 10px;
+}
+
+hr {
+    width: 90%;
+    padding: 0 20px 0 20px;
+}
+.post_da div {
+    margin-top: 20px;
+    margin-left: 0px;
+}
+
+#post_title {
+    width: 91%;
+    margin: 0 40px 0 40px;
+    padding-bottom: 15px;
+    border: none;
+    font-size: 22px;
+    border-bottom: solid 1px #ababab;
+    font-weight: bold;
+}
+
+#post_title:focus { outline : none; }
+
+#post_summary {
+    line-height: 30px;
+    width: 91%;
+    margin: 0 40px 0 40px;
+    padding: 0;
+    resize: none;
+    border: none;
+}
+
+#post_info {
+    display: flex;
+    margin: 0 0 10px 0;
+    padding: 0 0 0 35px;
+    color: dimgray;
+}
+
+#post_date_username {
+    justify-content: flex-start;
+    width: 550px;
+}
+
+#post_date {
+    margin-right: 10px;
+}
+
+#post_username {
+    margin-left: 10px;
+}
+
+#post_button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    border: none;
+    background: none;
+    color: inherit;
+}
+
+button:focus {
+    outline:0;
+}
+
+
+#edit_button, #edit_button a {
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+
+#delete_button {
+    margin-left: 10px;
+}
+
+a {
+    color: dimgray;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+    white-space: pre-wrap;
+}
+
+#post_summary:focus { outline : none; }
+
+.card {
+    margin: 0;
+    padding: 0;
+}
+.userposts .username_title {
+    font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    margin-left: 100px;
+    height:100px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+
+}
+
+.userposts {
+    padding: 0;
+    margin: 50px 0 0 0px;
+    height: 100%;
+
+}
+
+.userpost_list{
+    width: 500px;
+    margin: 100px 0 0 350px;
+    
+
+}
+.userpostset .userpost {
+    flex-direction:column;
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-weight: 300;
+    border-radius: 5px;
+    color: black;
+    
+}
+
+.userpost_data {
+    margin-top: 5px;
+    margin-left: 20px;    
+}
+
+
+.userpostset .userpost_summary{
+    width: 550px;
+    font-size: 14px;
+    margin-top: 10px;
+    height:28px;
+    overflow: hidden;
+    
+}
+
+
+
+.userpostset .userpost_title {
+    font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+    padding: 5px 0px 5px 0px;
+    width: 500px;
+    height: 35px;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: black;
+}
+
+.userpostset .userpost_date{
+    width: 250px;
+    height: 20px;
+    margin:0px 0px 0px 300px;
+    padding:0px 0px 0px 0px;
+    font-size: 14px;
+    left:70%;
+    display: flex;
+    justify-content: flex-end;
+    color: dimgray;
+}
+
+.userpostset hr {
+    width: 550px;
+}
+.Mains {
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: 19% 62% 19%;
+}
+
+#Mains-left { border-right: solid 1px #aabbaa; }
+#Mains-right { border-left: solid 1px #aabbaa; }
+
+.Edit {
+    padding: 20px;
+    padding-left: 30px;
+}
+
+.Edit div {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+#title_txt {
+    width: 91%;
+    padding-bottom: 20px;
+    border: none;
+    font-size: 22px;
+    border-bottom: solid 1px #ababab;
+    font-weight: bold;
+}
+
+#title_txt:focus { outline : none; }
+
+#content_txt {
+    width: 91%;
+    resize: none;
+    border: none;
+    height: 350px
+}
+
+#content_txt:focus { outline : none; }
+
+#post_submit {
+    text-align: center;
+    margin: 0px;
+}
+
+#post_submit button {
+    width: 120px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px #ababab;
+    cursor: pointer;
+    background-color: white;
+}
+

@@ -13,7 +13,7 @@ function PostListItem({ title, summary, date, username, postID }) {
                 <button className="card_button">
                     <p className="post_title"> {title.slice(0,13)}... </p>
                     <hr/>
-                    <p className="post_summary">{summary.slice(0, 50)}</p>
+                    <div className="post_summary">{summary.slice(0, 70)}</div>
                 </button>
             </NavLink>
         </div>

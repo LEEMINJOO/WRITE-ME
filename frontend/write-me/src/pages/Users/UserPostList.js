@@ -33,7 +33,7 @@ function UserPostList() {
             .catch(error => {
                 setState({ ...state, loading: false, error });
             });
-    }, []);
+    }, [username]);
 
     return (
         <>

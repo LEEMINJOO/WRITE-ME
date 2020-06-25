@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from '../../actions';
 import './Header.scss';
 import {FaBars, FaUser } from "react-icons/all";
+import img from '../../../public/logo.gif';
 
 function Header() {
     const user = useSelector(state => state.authentication);
@@ -26,7 +27,7 @@ function Header() {
 
             <span className="logo">
                 {location.pathname !== "/" &&
-                    <Link to="/"> <img src="/public/logo.gif" className="logo_block" alt="WRITE ME"/> </Link>
+                    <Link to="/"> <img src={img} className="logo_block" alt="WRITE ME"/> </Link>
                 }
             </span>
             {localStorage.getItem('user') === null ?
