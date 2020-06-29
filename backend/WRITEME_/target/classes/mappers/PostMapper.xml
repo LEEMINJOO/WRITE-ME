@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.WRITEME.dao.PostDAO"> 
+
+	<insert id="newPost"
+            parameterType="com.WRITEME.model.PostDTO"
+            useGeneratedKeys="true"
+            keyProperty="postID">
+        INSERT INTO POST(`postID`, `postTitle`, `postDetail`, `username`, `keywordID`, `categoryID`, `date`)
+        VALUES (#{postID}, #{postTitle}, #{postDetail}, #{username}, #{keywordID}, #{categoryID}, #{date})
+    </insert>
+    
+    <select id="getPost" parameterType="Integer" resultType="com.WRITEME.model.PostDTO">
+        SELECT `postID`, `postTitle`, `postDetail`, `username`, `keywordID`, `categoryID`, `date`
+          FROM POST
+         WHERE `postID` = #{postID}
+    </select>
+    
+    
+    <select id="getPostbyKeywordID" parameterType="com.WRITEME.model.PostDTO" resultType="com.WRITEME.model.PostDTO">
+        SELECT `postID`, `postTitle`, `postDetail`, `username`, `keywordID`, `categoryID`, `date`
+          FROM POST
+         WHERE `keywordID` = #{keywordID}
+    </select>
+   
+    <update id="editPost" parameterType="com.WRITEME.model.PostDTO">
+        UPDATE POST
+           SET `postTitle` = #{postTitle}
+             , `postDetail` = #{postDetail}
+         WHERE `postID` = #{postID}
+    </update>
+    
+    <delete id="deletePost" parameterType="com.WRITEME.model.PostDTO">
+    
+    	DELETE FROM POST
+    	WHERE `postID` = #{postID} 
+    		AND `username` = #{username}
+    </delete>
+    
+    <select id="getPostbyusername" parameterType="com.WRITEME.model.PostDTO" resultType="com.WRITEME.model.PostDTO">
+    	SELECT `postID`, `postTitle`, `postDetail`, `username`, `keywordID`, `categoryID`, `date`
+    	FROM POST
+    	WHERE `username` = #{username}
+    </select>
+    
+</mapper>
