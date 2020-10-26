@@ -14,3 +14,6 @@
 ### 1. model - python
 ### 2. frontend - react
 ### 3. backend - spring
+
+<img width="454" alt="w3" src="https://user-images.githubusercontent.com/36043024/97172200-08044280-17d2-11eb-9a08-1954341c820e.PNG">
+<img width="454" alt="w1" src="https://user-images.githubusercontent.com/36043024/97172237-16525e80-17d2-11eb-9619-e153f60c9d71.PNG">
